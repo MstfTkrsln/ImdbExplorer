@@ -10,7 +10,7 @@ Primary style
   }
   
   html {
-    font-size: 62.5%;
+    font-size: 60%;
   }
   
   html * {
@@ -260,7 +260,7 @@ Primary style
       padding: 40px 3%;
     }
     .cd-gallery ul {
-      text-align: justify;
+      text-align: center;
     }
     .cd-gallery ul:after {
       content: "";
@@ -268,8 +268,11 @@ Primary style
       clear: both;
     }
     .cd-gallery li {
-      width: 48%;
-      margin-bottom: 2em;
+      width: 40%;
+      margin-bottom: 1em;
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+
     }
   }
   @media only screen and (min-width: 1170px) {
@@ -281,7 +284,7 @@ Primary style
       transition: width 0.3s;
     }
     .cd-gallery li {
-      width: 23%;
+      width: 18%;
     }
     .cd-gallery.filter-is-visible {
       /* reduce width when filter is visible */
