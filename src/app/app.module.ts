@@ -7,6 +7,10 @@ import { FilterComponent } from 'src/app/components/filter/filter.component';
 import { BarComponent } from 'src/app/components/bar/bar.component';
 import { ContentComponent } from 'src/app/components/content/content.component';
 import { MovieComponent } from 'src/app/components/shared/movie.component';
+import { I18nModule } from './shared/i18n/i18n.module';
+import { JsonApiService } from './core/api/json-api.service';
+import { ImdbSearhService } from 'src/app/core/api/imdb-search.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +22,13 @@ import { MovieComponent } from 'src/app/components/shared/movie.component';
     MovieComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    I18nModule
   ],
-  providers: [],
+  providers: [JsonApiService, ImdbSearhService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
