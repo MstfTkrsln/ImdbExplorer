@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FilterComponent } from './filter/filter.component';
-import { BarComponent } from './bar/bar.component';
-import { ContentComponent } from './content/content.component';
+import { HeaderComponent } from 'src/app/components/header/header.component';
+import { FilterComponent } from 'src/app/components/filter/filter.component';
+import { BarComponent } from 'src/app/components/bar/bar.component';
+import { ContentComponent } from 'src/app/components/content/content.component';
+import { MovieComponent } from 'src/app/components/shared/movie.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ContentComponent } from './content/content.component';
     HeaderComponent,
     FilterComponent,
     BarComponent,
-    ContentComponent
+    ContentComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule
