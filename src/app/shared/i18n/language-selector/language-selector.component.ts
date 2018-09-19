@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { languages } from '../languages.model'
-import { I18nService } from "../i18n.service";
+import { languages } from '../languages.model';
+import { I18nService } from 'src/app/shared/i18n/i18n.service';
 
 @Component({
-  selector: 'sa-language-selector',
+  selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
 })
 export class LanguageSelectorComponent implements OnInit {

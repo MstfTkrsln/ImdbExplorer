@@ -13,9 +13,9 @@ export class ImdbSearhService {
   public get(): Observable<any> {
 
     let params = new URLSearchParams();
-    // if (odataFilter) {
-    //   params.set('odataFilter', odataFilter);
-    // }
+
+    //   params.set('key', valueObj);
+
 
     let options = new RequestOptions({ headers: this.getHeaders(), search: params });
 
