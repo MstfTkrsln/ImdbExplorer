@@ -19,7 +19,7 @@ export class I18nService {
 
     let currentLanguageKey = localStorage.getItem('currentLanguageKey');
     if (!currentLanguageKey)
-      this.initLanguage(config.DEFAULT_LOCALE);
+      this.initLanguage(navigator.language);
     else
       this.initLanguage(currentLanguageKey);
 
@@ -44,7 +44,8 @@ export class I18nService {
     if (language) {
       this.currentLanguage = language;
     } else {
-      throw new Error(`Incorrect locale used for I18nService: ${locale}`);
+      this.currentLanguage = config.DEFAULT_LOCALE;
+      // throw new Error(`Incorrect locale used for I18nService: ${locale}`);
 
     }
   }

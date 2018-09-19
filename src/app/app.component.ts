@@ -17,19 +17,19 @@ export class AppComponent implements OnInit {
       this.triggerFilter(false);
     }.bind(this));
 
-    $('.cd-gallery ul').mixItUp({
-      controls: {
-        enable: true
-      },
-      callbacks: {
-        onMixStart: function () {
-          $('.cd-fail-message').fadeOut(200);
-        },
-        onMixFail: function () {
-          $('.cd-fail-message').fadeIn(200);
-        }
-      }
-    });
+    // $('.cd-gallery ul').mixItUp({
+    //   controls: {
+    //     enable: true
+    //   },
+    //   callbacks: {
+    //     onMixStart: function () {
+    //       $('.cd-fail-message').fadeOut(200);
+    //     },
+    //     onMixFail: function () {
+    //       $('.cd-fail-message').fadeIn(200);
+    //     }
+    //   }
+    // });
 
   }
 
