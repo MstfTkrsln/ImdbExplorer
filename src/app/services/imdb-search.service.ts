@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { config } from 'src/assets/config/imdb-explorer.config';
 import { Query } from '../models/query/query';
 import { HttpHeaders } from '@angular/common/http';
+import { Movie } from 'src/app/models/movie';
 
 @Injectable()
 export class ImdbSearhService {
@@ -22,7 +23,7 @@ export class ImdbSearhService {
       );
   }
 
-  public Search(query: Query): Observable<any> {
+  public Search(query: Query): Observable<Movie[]> {
     // console.log(object);
 
     let reqUrl = config.IMDB_SEARCH_API_URL + 'Search';
