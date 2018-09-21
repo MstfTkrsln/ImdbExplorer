@@ -1,8 +1,8 @@
 import { TitleType, Genre, Group, Color, Language, Country, Sort } from 'src/app/models/enums';
-import { UserRating } from 'src/app/models/user-rating';
-import { ReleaseDate } from 'src/app/models/release-date';
-import { NumVotes } from 'src/app/models/num-votes';
-import { MovieMeter } from 'src/app/models/movie-meter';
+import { UserRating } from './user-rating';
+import { ReleaseDate } from './release-date';
+import { NumVotes } from './num-votes';
+import { MovieMeter } from './movie-meter';
 
 export class Query {
 

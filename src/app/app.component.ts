@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ImdbSearhService } from './services/imdb-search.service';
-import { Query } from 'src/app/models/query';
+import { Query } from './models/query/query';
 import { TitleType, Genre, Group, Color, Language, Country, Sort } from 'src/app/models/enums';
-import { ReleaseDate } from 'src/app/models/release-date';
-import { UserRating } from 'src/app/models/user-rating';
-import { NumVotes } from 'src/app/models/num-votes';
-import { MovieMeter } from 'src/app/models/movie-meter';
+import { ReleaseDate } from './models/query/release-date';
+import { UserRating } from './models/query/user-rating';
+import { NumVotes } from './models/query/num-votes';
+import { MovieMeter } from './models/query/movie-meter';
 
 declare const $: any;
 @Component({

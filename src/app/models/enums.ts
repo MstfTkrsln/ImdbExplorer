@@ -1,7 +1,7 @@
 export enum Color {
-    Color = 0,
-    BlackAndWhite = 1,
-    Colorized = 2
+    Color,
+    BlackAndWhite,
+    Colorized
 }
 
 export enum Genre {

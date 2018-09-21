@@ -3,7 +3,7 @@ import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angul
 import { catchError, map } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { config } from 'src/assets/config/imdb-explorer.config';
-import { Query } from 'src/app/models/query';
+import { Query } from '../models/query/query';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
