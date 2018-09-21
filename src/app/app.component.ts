@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ImdbSearhService } from './services/imdb-search.service';
+import { Query } from 'src/app/models/query';
+import { TitleType, Genre, Group, Color, Language, Country, Sort } from 'src/app/models/enums';
+import { ReleaseDate } from 'src/app/models/release-date';
+import { UserRating } from 'src/app/models/user-rating';
+import { NumVotes } from 'src/app/models/num-votes';
+import { MovieMeter } from 'src/app/models/movie-meter';
 
 declare const $: any;
 @Component({
@@ -8,36 +15,36 @@ declare const $: any;
 })
 export class AppComponent implements OnInit {
 
-  ngOnInit() {
-    
-    $('.cd-filter-trigger').on('click', function () {
-      this.triggerFilter(true);
-    }.bind(this));
-    $('.cd-filter .cd-close').on('click', function () {
-      this.triggerFilter(false);
-    }.bind(this));
+  constructor(private imdbService: ImdbSearhService) {
 
-    // $('.cd-gallery ul').mixItUp({
-    //   controls: {
-    //     enable: true
-    //   },
-    //   callbacks: {
-    //     onMixStart: function () {
-    //       $('.cd-fail-message').fadeOut(200);
-    //     },
-    //     onMixFail: function () {
-    //       $('.cd-fail-message').fadeIn(200);
-    //     }
-    //   }
-    // });
+  }
+  ngOnInit() {
+
+    // this.mixAnimation();
+    
+    this.imdbService.Search(Query.getSample())
+      .subscribe(res => {
+        console.log(res);
+      });     
 
   }
 
-  triggerFilter($bool) {
-    var elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')]);
-    elementsToTrigger.each(function () {
-      $(this).toggleClass('filter-is-visible', $bool);
+  private mixAnimation() {
+    $('.cd-gallery ul').mixItUp({
+      controls: {
+        enable: true
+      },
+      callbacks: {
+        onMixStart: function () {
+          $('.cd-fail-message').fadeOut(200);
+        },
+        onMixFail: function () {
+          $('.cd-fail-message').fadeIn(200);
+        }
+      }
     });
   }
+
+
 
 }
