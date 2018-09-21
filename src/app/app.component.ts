@@ -20,12 +20,12 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-    // this.mixAnimation();
+     this.mixAnimation();
     
-    this.imdbService.Search(Query.getSample())
-      .subscribe(res => {
-        console.log(res);
-      });     
+    // this.imdbService.Search(Query.getSample())
+    //   .subscribe(res => {
+    //     console.log(res);
+    //   });     
 
   }
 

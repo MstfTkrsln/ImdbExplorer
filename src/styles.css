@@ -284,7 +284,7 @@ Primary style
       transition: width 0.3s;
     }
     .cd-gallery li {
-      width: 18%;
+      width: 32%;
     }
     .cd-gallery.filter-is-visible {
       /* reduce width when filter is visible */

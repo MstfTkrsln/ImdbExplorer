@@ -2,7 +2,7 @@
   <form>
     <div class="cd-filter-block">
       <h4>Search</h4>
-      
+
       <div class="cd-filter-content">
         <input type="search" placeholder="Try color-1...">
       </div> <!-- cd-filter-content -->
@@ -14,7 +14,7 @@
       <ul class="cd-filter-content cd-filters list">
         <li>
           <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
-            <label class="checkbox-label" for="checkbox1">Option 1</label>
+          <label class="checkbox-label" for="checkbox1">Option 1</label>
         </li>
 
         <li>
@@ -31,7 +31,7 @@
 
     <div class="cd-filter-block">
       <h4>Select</h4>
-      
+
       <div class="cd-filter-content">
         <div class="cd-select cd-filters">
           <select class="filter" name="selectThis" id="selectThis">
@@ -67,7 +67,7 @@
     </div> <!-- cd-filter-block -->
   </form>
 
-  <a href="#0" class="cd-close">Close</a>
+  <a href="#0" class="cd-close" (click)="triggerFilter(false)">{{ 'Hide' | i18n}}</a>
 </div> <!-- cd-filter -->
 
-<a href="#0" class="cd-filter-trigger" (click)="toggleFilterPanel()">{{ 'Filters' | i18n}}</a>
+<a href="#0" class="cd-filter-trigger" (click)="triggerFilter(true)">{{ 'Filters' | i18n}}</a>

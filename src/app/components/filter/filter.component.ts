@@ -9,11 +9,10 @@ declare const $: any;
 })
 export class FilterComponent implements OnInit {
 
-  isVisible: boolean = true;
-
   constructor() { }
 
   ngOnInit() {
+
 
     // $('.cd-filter-trigger').on('click', function () {
     //   this.triggerFilter(true);
@@ -22,15 +21,6 @@ export class FilterComponent implements OnInit {
     //   this.triggerFilter(false);
     // }.bind(this));
 
-  }
-
-  toggleFilterPanel() {
-    if (this.isVisible)
-      this.triggerFilter(true);
-    else
-      this.triggerFilter(false);
-
-    this.isVisible = !this.isVisible;
   }
 
   triggerFilter($bool) {

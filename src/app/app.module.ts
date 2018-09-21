@@ -6,7 +6,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FilterComponent } from 'src/app/components/filter/filter.component';
 import { BarComponent } from 'src/app/components/bar/bar.component';
 import { ContentComponent } from 'src/app/components/content/content.component';
-import { MovieComponent } from 'src/app/components/shared/movie.component';
+import { MovieComponent } from './components/shared/movie/movie.component';
 import { I18nModule } from './shared/i18n/i18n.module';
 import { JsonApiService } from './core/api/json-api.service';
 import { ImdbSearhService } from './services/imdb-search.service';
