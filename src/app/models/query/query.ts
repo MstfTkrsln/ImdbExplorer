@@ -19,6 +19,7 @@ export class Query {
     public Countries: Country[];
     public MovieMeter: MovieMeter;
     public Sort: Sort;
+    public Page: number;
 
     constructor(
     ) {

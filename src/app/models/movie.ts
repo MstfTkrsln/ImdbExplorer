@@ -12,7 +12,8 @@ export class Movie {
         public PosterUrl: string,
         public Genres: string[],
         public Directors: string[],
-        public Stars: string[]
+        public Stars: string[],
+        public Index:number
     ) {
 
     }
