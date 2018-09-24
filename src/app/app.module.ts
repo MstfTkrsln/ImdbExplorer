@@ -12,6 +12,8 @@ import { JsonApiService } from './core/api/json-api.service';
 import { ImdbSearhService } from './services/imdb-search.service';
 import { HttpModule } from '@angular/http';
 
+import 'src/app/core/extensions/extensions';
+
 @NgModule({
   declarations: [
     AppComponent,
