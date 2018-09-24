@@ -24,13 +24,12 @@ export class ImdbSearhService {
   }
 
   public Search(query: Query): Observable<Movie[]> {
-    // console.log(object);
+    console.log(query);
 
     let reqUrl = config.IMDB_SEARCH_API_URL + 'Search';
     let body = JSON.stringify(query);
 
-    // console.log(reqUrl);
-    // console.log(body);
+    console.log(body);
 
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

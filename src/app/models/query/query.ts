@@ -30,7 +30,7 @@ export class Query {
         query.Count = 50;
         query.Title = '';
         query.TitleTypes = [TitleType.Feature];
-        query.ReleaseDate = new ReleaseDate(new Date(2010, 1, 1), null);
+        query.ReleaseDate = new ReleaseDate(new Date('2010-01-01'), null);
         query.UserRating = new UserRating(6.1, null),
         query.NumVotes = new NumVotes(1000, null);
         query.MovieMeter = new MovieMeter(1, 10000);
@@ -40,6 +40,7 @@ export class Query {
         query.Languages = [Language.English];
         query.Countries = [Country.UnitedStates];
         query.Sort = Sort.PopularityAsc;
+        query.Page = 1;
         return query;
     }
 }
