@@ -4,7 +4,7 @@
 
 	<app-bar></app-bar>
 
-	<app-content></app-content>
+	<app-content *ngIf="searchResult" [movies]="searchResult.Movies"></app-content>
 
 	<app-filter></app-filter>
 

@@ -6,8 +6,8 @@ import { ReleaseDate } from './models/query/release-date';
 import { UserRating } from './models/query/user-rating';
 import { NumVotes } from './models/query/num-votes';
 import { MovieMeter } from './models/query/movie-meter';
+import { SearchResult } from './models/search-result';
 
-declare const $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,36 +15,18 @@ declare const $: any;
 })
 export class AppComponent implements OnInit {
 
+  private searchResult: SearchResult;
+
   constructor(private imdbService: ImdbSearhService) {
 
   }
   ngOnInit() {
 
-     this.mixAnimation();
-    
-    // this.imdbService.Search(Query.getSample())
-    //   .subscribe(res => {
-    //     console.log(res);
-    //   });     
+    this.imdbService.Search(Query.getSample())
+      .subscribe(result => {
+        this.searchResult = result;
+      });
 
   }
-
-  private mixAnimation() {
-    $('.cd-gallery ul').mixItUp({
-      controls: {
-        enable: true
-      },
-      callbacks: {
-        onMixStart: function () {
-          $('.cd-fail-message').fadeOut(200);
-        },
-        onMixFail: function () {
-          $('.cd-fail-message').fadeIn(200);
-        }
-      }
-    });
-  }
-
-
 
 }

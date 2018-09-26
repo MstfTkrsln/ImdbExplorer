@@ -1,15 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Movie } from '../../models/movie';
+
+declare const $: any;
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  @Input() movies: Movie[];
+
+  constructor() {
+  }
 
   ngOnInit() {
+    console.log(this.movies);
+  }
+
+  ngAfterViewInit() {
+    this.mixAnimation();
+  }
+
+  private mixAnimation() {
+    $('.cd-gallery ul').mixItUp({
+      controls: {
+        enable: true
+      },
+      callbacks: {
+        onMixStart: function () {
+          $('.cd-fail-message').fadeOut(200);
+        },
+        onMixFail: function () {
+          $('.cd-fail-message').fadeIn(200);
+        }
+      }
+    });
   }
 
 }

@@ -1,5 +1,10 @@
 <section class="cd-gallery">
   <ul>
+
+      <li *ngFor="let movie of movies" class="mix"  ><app-movie [movie]="movie"></app-movie></li>
+
+
+      <!-- <li class="mix"><app-movie></app-movie></li>
     <li class="mix"><app-movie></app-movie></li>
     <li class="mix"><app-movie></app-movie></li>
     <li class="mix"><app-movie></app-movie></li>
@@ -10,9 +15,8 @@
     <li class="mix"><app-movie></app-movie></li>
     <li class="mix"><app-movie></app-movie></li>
     <li class="mix"><app-movie></app-movie></li>
-    <li class="mix"><app-movie></app-movie></li>
-    <li class="mix"><app-movie></app-movie></li>
-    
+    <li class="mix"><app-movie></app-movie></li> -->
+
 
     <!-- <li class="mix color-1 check1 radio2 option3"><img src="assets/img/img-1.jpg" alt="Image 1"></li>
     <li class="mix color-2 check2 radio2 option2"><img src="assets/img/img-2.jpg" alt="Image 2"></li>
