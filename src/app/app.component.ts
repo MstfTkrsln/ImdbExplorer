@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
 
     this.imdbService.Search(Query.getSample())
       .subscribe(result => {
+        console.log(result);
+        
         this.searchResult = result;
       });
 

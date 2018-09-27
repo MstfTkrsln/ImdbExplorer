@@ -13,6 +13,7 @@ import { ImdbSearhService } from './services/imdb-search.service';
 import { HttpModule } from '@angular/http';
 
 import 'src/app/core/extensions/extensions';
+import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import 'src/app/core/extensions/extensions';
     FilterComponent,
     BarComponent,
     ContentComponent,
-    MovieComponent
+    MovieComponent,
+    CommaSeperatedPipe
   ],
   imports: [
     BrowserModule,
