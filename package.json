@@ -23,7 +23,9 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26",
-    "moment": "~2.22.2"
+    "moment": "~2.22.2",
+    "devextreme": "18.1.7",
+    "devextreme-angular": "18.1.7"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",

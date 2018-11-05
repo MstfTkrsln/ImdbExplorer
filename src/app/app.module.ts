@@ -11,6 +11,7 @@ import { I18nModule } from './shared/i18n/i18n.module';
 import { JsonApiService } from './core/api/json-api.service';
 import { ImdbSearhService } from './services/imdb-search.service';
 import { HttpModule } from '@angular/http';
+import { DevExtremeModule } from 'devextreme-angular';
 
 import 'src/app/core/extensions/extensions';
 import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
@@ -28,7 +29,8 @@ import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
   imports: [
     BrowserModule,
     HttpModule,
-    I18nModule
+    I18nModule,
+    DevExtremeModule    
   ],
   providers: [JsonApiService, ImdbSearhService],
   bootstrap: [AppComponent]
