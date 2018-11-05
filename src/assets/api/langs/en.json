@@ -1,5 +1,6 @@
 {
 	"Title": "Imdb Explorer",
 	"Filters":"Filters",
-	"Hide":"Hide"
+	"Hide":"Hide",
+	"NoResult":"No Results Found"
 }

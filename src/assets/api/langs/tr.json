@@ -1,5 +1,6 @@
 {
 	"Title": "Imdb Explorer",
 	"Filters":"Filtreler",
-	"Hide":"Gizle"
+	"Hide":"Gizle",
+	"NoResult":"Sonuç Bulunamadı"
 }
