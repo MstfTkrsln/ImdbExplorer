@@ -15,7 +15,7 @@ import { SearchResult } from './models/search-result';
 })
 export class AppComponent implements OnInit {
 
-  private searchResult: SearchResult;
+  searchResult: SearchResult;
 
   constructor(private imdbService: ImdbSearhService) {
 
