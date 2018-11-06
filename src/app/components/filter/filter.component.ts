@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Query } from 'src/app/models/query/query';
 
 declare const $: any;
 
@@ -8,19 +9,19 @@ declare const $: any;
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @Output() onSearch = new EventEmitter<Query>();
 
-  constructor() { }
+  private query: Query;
+
+  constructor() {
+    this.query = new Query();
+  }
 
   ngOnInit() {
+  }
 
-
-    // $('.cd-filter-trigger').on('click', function () {
-    //   this.triggerFilter(true);
-    // }.bind(this));
-    // $('.cd-filter .cd-close').on('click', function () {
-    //   this.triggerFilter(false);
-    // }.bind(this));
-
+  explore() {
+    this.onSearch.emit(this.query);
   }
 
   triggerFilter($bool) {

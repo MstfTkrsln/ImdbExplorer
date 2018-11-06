@@ -6,6 +6,6 @@
 
 	<app-content *ngIf="searchResult" [movies]="searchResult.Movies"></app-content>
 
-	<app-filter></app-filter>
+	<app-filter (onSearch)="onSearch($event)"></app-filter>
 
 </main> <!-- cd-main-content -->

@@ -21,14 +21,16 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
+  }
 
-    this.imdbService.Search(Query.getSample())
+  onSearch(query: Query) {
+    console.log(query);
+
+    this.imdbService.Search(query)
       .subscribe(result => {
         console.log(result);
-        
         this.searchResult = result;
       });
-
   }
 
 }
