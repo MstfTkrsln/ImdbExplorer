@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
@@ -15,6 +16,7 @@ import { DevExtremeModule } from 'devextreme-angular';
 
 import 'src/app/core/extensions/extensions';
 import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
+import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,12 @@ import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     I18nModule,
     DevExtremeModule    
   ],
-  providers: [JsonApiService, ImdbSearhService],
+  providers: [JsonApiService, ImdbSearhService,EnumTranslatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

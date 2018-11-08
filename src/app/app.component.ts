@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImdbSearhService } from './services/imdb-search.service';
 import { Query } from './models/query/query';
-import { TitleType, Genre, Group, Color, Language, Country, Sort } from 'src/app/models/enums';
+import { TitleType, Genre, Group, Color, Language, Country, SortType } from 'src/app/models/enums';
 import { ReleaseDate } from './models/query/release-date';
 import { UserRating } from './models/query/user-rating';
 import { NumVotes } from './models/query/num-votes';

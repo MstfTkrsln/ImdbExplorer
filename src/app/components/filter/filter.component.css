@@ -1,4 +1,13 @@
 .text-input {
   font-family: "Open Sans", sans-serif;
   }
+
+  .align-right{
+    float: right;
+  }
+
+  .side-by-side {
+    width: 50% !important;  
+    float: left;
+}
   

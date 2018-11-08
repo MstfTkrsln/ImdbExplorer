@@ -46,7 +46,7 @@ export enum Group {
     EmmyNominess
 }
 
-export enum Sort {
+export enum SortType {
     PopularityAsc,
     PopularityDesc,
     UserRatingAsc,
