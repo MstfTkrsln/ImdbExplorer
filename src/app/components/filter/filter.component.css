@@ -1,7 +1,3 @@
-.text-input {
-  font-family: "Open Sans", sans-serif;
-  }
-
   .align-right{
     float: right;
   }
@@ -11,3 +7,15 @@
     float: left;
 }
   
+.range-selector{
+  width: 100%
+}
+
+.yellow-button{
+  background-color: #41307c;
+  border-color: #41307c;
+  color: white;
+}
+
+.dx-button .dx-icon {
+}

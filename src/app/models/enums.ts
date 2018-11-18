@@ -118,7 +118,7 @@ export enum Country {
     CostaRica,
     Croatia,
     Cyprus,
-    CzechReexport,
+    CzechRepublic,
     Denmark,
     Egypt,
     Estonia,

@@ -24,24 +24,37 @@ export class FilterComponent implements OnInit {
   private languages: KeyValuePair[];
   private countries: KeyValuePair[];
 
+
+  private ratingRangeTitle: string = 'Rating';
+
   constructor(private enumService: EnumTranslatorService) {
     this.query = new Query();
 
-    this.genres = this.enumService.getEnumValues(Genre);
-    this.colors = this.enumService.getEnumValues(Color);
-    this.groups = this.enumService.getEnumValues(Group);
-    this.sortTypes = this.enumService.getEnumValues(SortType);
-    this.titleTypes = this.enumService.getEnumValues(TitleType);
-    this.languages = this.enumService.getEnumValues(Language);
-    this.countries = this.enumService.getEnumValues(Country);
+    setTimeout(() => {
+      this.genres = this.enumService.getEnumValues(Genre);
+      this.colors = this.enumService.getEnumValues(Color);
+      this.groups = this.enumService.getEnumValues(Group);
+      this.sortTypes = this.enumService.getEnumValues(SortType);
+      this.titleTypes = this.enumService.getEnumValues(TitleType);
+      this.languages = this.enumService.getEnumValues(Language);
+      this.countries = this.enumService.getEnumValues(Country);
+    });
   }
 
   ngOnInit() {
   }
 
+
   explore() {
     console.log(this.query);
     this.onSearch.emit(this.query);
+  }
+
+  onRatingChanged(e) {
+    this.query.UserRating.Min = e.value[0];
+    this.query.UserRating.Max = e.value[1];
+
+    this.ratingRangeTitle = `Rating (${this.query.UserRating.Min} - ${this.query.UserRating.Max})`;
   }
 
   triggerFilter($bool) {

@@ -16,7 +16,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log(this.movies);
   }
 
   ngAfterViewInit() {
