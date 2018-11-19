@@ -65,9 +65,9 @@
 
     <fieldset>
       <div class="form-group input-group">
-        <dx-date-box placeholder="{{'StartDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Min" displayFormat="dd/MM/yyyy"
+        <dx-date-box placeholder="{{'StartDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Min" displayFormat="dd/MM/yyyy" [showClearButton]="true"
           [(max)]="query.ReleaseDate.Max" type="date"></dx-date-box>
-        <dx-date-box placeholder="{{'EndDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Max" displayFormat="dd/MM/yyyy"
+        <dx-date-box placeholder="{{'EndDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Max" displayFormat="dd/MM/yyyy" [showClearButton]="true"
           [(min)]="query.ReleaseDate.Min" type="date"></dx-date-box>
       </div>
     </fieldset>

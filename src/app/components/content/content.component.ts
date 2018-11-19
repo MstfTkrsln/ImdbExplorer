@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnChanges } from '@angular/core';
 import { Movie } from '../../models/movie';
 
 declare const $: any;
@@ -8,7 +8,7 @@ declare const $: any;
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit, AfterViewInit {
+export class ContentComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() movies: Movie[];
 
@@ -19,7 +19,17 @@ export class ContentComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.mixAnimation();
+    // this.mixAnimation();
+  }
+
+  ngOnChanges(changes) {
+    console.log(changes);
+
+    if (changes.movies) {
+      setTimeout(() => {
+        this.mixAnimation();
+      });
+    }
   }
 
   private mixAnimation() {

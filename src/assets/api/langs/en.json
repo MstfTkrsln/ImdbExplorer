@@ -73,14 +73,14 @@
 	
 	"Feature": "Movie",
 	"TvMovie": "Tv Movie",
-	"TvSeries": "Tv Series",
-	"TvEpisode": "Tv Episode",
+	"TvSeries": "Series",
+	"TvEpisode": "Series Episode",
 	"TvSpecial": "Tv Special",
 	"MiniSeries": "Mini Series",
 	"Game": "Game",
-	"Short": "Short",
+	"Short": "Short Movie",
 	"Video": "Video",
-	"TvShort": "Tv Short",
+	"TvShort": "Tv Short Movie",
 
 	"English": "English",
 	"Turkish": "Turkish",
