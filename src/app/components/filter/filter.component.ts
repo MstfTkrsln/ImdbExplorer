@@ -14,18 +14,17 @@ declare const $: any;
 export class FilterComponent implements OnInit {
   @Output() onSearch = new EventEmitter<Query>();
 
-  private query: Query;
+  query: Query;
 
-  private genres: KeyValuePair[];
-  private colors: KeyValuePair[];
-  private groups: KeyValuePair[];
-  private sortTypes: KeyValuePair[];
-  private titleTypes: KeyValuePair[];
-  private languages: KeyValuePair[];
-  private countries: KeyValuePair[];
+  genres: KeyValuePair[];
+  colors: KeyValuePair[];
+  groups: KeyValuePair[];
+  sortTypes: KeyValuePair[];
+  titleTypes: KeyValuePair[];
+  languages: KeyValuePair[];
+  countries: KeyValuePair[];
 
-
-  private ratingRangeTitle: string = 'Rating';
+  ratingRangeTitle: string = 'Rating';
 
   constructor(private enumService: EnumTranslatorService) {
     this.query = new Query();
