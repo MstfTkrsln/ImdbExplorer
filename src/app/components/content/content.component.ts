@@ -8,7 +8,7 @@ declare const $: any;
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit, AfterViewInit, OnChanges {
+export class ContentComponent implements OnInit, OnChanges {
 
   @Input() movies: Movie[];
 
@@ -18,34 +18,7 @@ export class ContentComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-    // this.mixAnimation();
-  }
-
   ngOnChanges(changes) {
-    console.log(changes);
-
-    if (changes.movies) {
-      setTimeout(() => {
-        this.mixAnimation();
-      });
-    }
-  }
-
-  private mixAnimation() {
-    $('.cd-gallery ul').mixItUp({
-      controls: {
-        enable: true
-      },
-      callbacks: {
-        onMixStart: function () {
-          $('.cd-fail-message').fadeOut(200);
-        },
-        onMixFail: function () {
-          $('.cd-fail-message').fadeIn(200);
-        }
-      }
-    });
   }
 
 }

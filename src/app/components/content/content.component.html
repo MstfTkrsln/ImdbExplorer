@@ -1,6 +1,9 @@
-<section class="cd-gallery">
-  <ul>
-      <li *ngFor="let movie of movies" class="mix"  ><app-movie [movie]="movie"></app-movie></li>
+<section class="cd-gallery filter-is-visible">
+
+  <ul class="row">
+    <li *ngFor="let movie of movies" class="col-md-12 col-lg-6 col-xxl-4">
+      <app-movie [movie]="movie"></app-movie>
+    </li>
   </ul>
-  <div class="cd-fail-message">{{'NoResult' | i18n }}</div>
+
 </section> <!-- cd-gallery -->

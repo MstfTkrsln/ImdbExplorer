@@ -11,10 +11,11 @@
     transform-origin: 310px 100px;
     caret-color: rgb(51, 51, 51);
     background: rgb(246, 246, 245) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0px none rgb(51, 51, 51);
     font: normal normal 400 normal 11px / normal Verdana, Arial, sans-serif;
     outline: rgb(51, 51, 51) none 0px;
     padding: 15px 20px;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    border: 1px solid #BFBFBF;
 }/*#DIV_1*/
 
 #DIV_1:after {
@@ -294,6 +295,8 @@
     border: 0px none rgb(165, 133, 0);
     font: normal normal 700 normal 15px / normal Verdana, Arial, sans-serif;
     outline: rgb(165, 133, 0) none 0px;
+    height: 18px;
+    overflow: hidden;
 }/*#H3_9*/
 
 #H3_9:after {
@@ -317,7 +320,7 @@
 }/*#H3_9:before*/
 
 #SPAN_10 {
-    color: rgb(51, 51, 51);
+    color:#331D35;
     text-decoration: none solid rgb(51, 51, 51);
     column-rule-color: rgb(51, 51, 51);
     perspective-origin: 0px 0px;
@@ -358,6 +361,7 @@
     border: 0px none rgb(19, 108, 178);
     font: normal normal 700 normal 15px / normal Verdana, Arial, sans-serif;
     outline: rgb(19, 108, 178) none 0px;
+    margin-left: 2px;
 }/*#A_11*/
 
 #A_11:after {
@@ -423,6 +427,8 @@
     font: normal normal 400 normal 11px / 15.4px Verdana, Arial, sans-serif;
     margin: 5.5px 0px 8.25px;
     outline: rgba(0, 0, 0, 0.6) none 0px;
+    height: 13px;
+    overflow: hidden;
 }/*#P_13*/
 
 #P_13:after {
@@ -1486,6 +1492,8 @@
     font: normal normal 400 normal 11px / 15.4px Verdana, Arial, sans-serif;
     margin: 5.5px 0px 8.25px;
     outline: rgba(0, 0, 0, 0.6) none 0px;
+    height: 30px;
+    overflow: auto;
 }/*#P_64*/
 
 #P_64:after {
@@ -1519,6 +1527,8 @@
     font: normal normal 400 normal 11px / 15.4px Verdana, Arial, sans-serif;
     margin: 5.5px 0px 8.25px;
     outline: rgb(51, 51, 51) none 0px;
+    height: 30px;
+    overflow: hidden;
 }/*#P_65*/
 
 #P_65:after {
