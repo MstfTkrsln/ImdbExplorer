@@ -5,6 +5,8 @@ import { config } from '../../../assets/config/imdb-explorer.config';
 import { Subject } from 'rxjs/internal/Subject';
 import { JsonApiService } from 'src/app/core/api/json-api.service';
 
+import { locale } from 'devextreme/localization';
+import 'devextreme-intl';
 
 @Injectable()
 export class I18nService {
@@ -26,6 +28,15 @@ export class I18nService {
     this.fetch(this.currentLanguage.key);
   }
 
+  private initLanguage(locale: string) {
+    let language = languages.find(lang => lang.key === locale || lang.key2 === locale);
+
+    if (!language)
+      language = languages.find(lang => lang.key === config.DEFAULT_LOCALE);
+
+    this.currentLanguage = language;
+  }
+
   private fetch(localeKey: any) {
     this.jsonApiService.fetch(`/langs/${localeKey}.json`)
       .subscribe((data: any) => {
@@ -34,20 +45,10 @@ export class I18nService {
         this.ref.tick();
       });
 
+    //Set locale for devexpress widgets
+    locale(localeKey);
+
     localStorage.setItem('currentLanguageKey', localeKey);
-  }
-
-  private initLanguage(locale: string) {
-    let language = languages.find((it) => {
-      return it.key === locale;
-    });
-    if (language) {
-      this.currentLanguage = language;
-    } else {
-      this.currentLanguage = config.DEFAULT_LOCALE;
-      // throw new Error(`Incorrect locale used for I18nService: ${locale}`);
-
-    }
   }
 
   setLanguage(language) {
