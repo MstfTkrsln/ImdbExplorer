@@ -12,11 +12,13 @@ import { I18nModule } from './shared/i18n/i18n.module';
 import { JsonApiService } from './core/api/json-api.service';
 import { ImdbSearhService } from './services/imdb-search.service';
 import { HttpModule } from '@angular/http';
-import { DevExtremeModule } from 'devextreme-angular';
 
 import 'src/app/core/extensions/extensions';
 import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
+
+import { DxButtonModule,DxRangeSelectorModule,DxTagBoxModule,DxSelectBoxModule,DxDateBoxModule,DxNumberBoxModule ,DxTextBoxModule} from 'devextreme-angular';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +35,15 @@ import { EnumTranslatorService } from 'src/app/services/enum-translater-service'
     FormsModule,
     HttpModule,
     I18nModule,
-    DevExtremeModule    
+    DxButtonModule,
+    DxRangeSelectorModule,
+    DxTagBoxModule,
+    DxSelectBoxModule,
+    DxDateBoxModule,
+    DxNumberBoxModule,
+    DxTextBoxModule
   ],
-  providers: [JsonApiService, ImdbSearhService,EnumTranslatorService],
+  providers: [JsonApiService, ImdbSearhService, EnumTranslatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
