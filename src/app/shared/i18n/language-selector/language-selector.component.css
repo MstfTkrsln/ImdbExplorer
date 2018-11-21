@@ -1,0 +1,27 @@
+
+.dx-dropdownlist-popup-wrapper .dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item-content {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.custom-item .product-name  {
+    padding-left: 45px;
+    text-indent: 0;
+    line-height: 30px;
+    width: 100%;
+}
+
+.custom-item {
+    position: relative;
+}
+.custom-item .dx-texteditor-buttons-container {
+    display: none;
+}
+
+.custom-item > img {
+    left: 1px;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+}
+
