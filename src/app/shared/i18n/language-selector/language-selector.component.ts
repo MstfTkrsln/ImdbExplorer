@@ -28,7 +28,7 @@ export class LanguageSelectorComponent implements OnInit {
 
   setLanguage(language) {
     this.i18n.setLanguage(language);
-    //location.reload();
+    location.reload();
   }
 
 }
