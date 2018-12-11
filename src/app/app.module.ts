@@ -17,8 +17,15 @@ import 'src/app/core/extensions/extensions';
 import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 
-import { DxButtonModule,DxRangeSelectorModule,DxTagBoxModule,DxSelectBoxModule,DxDateBoxModule,DxNumberBoxModule ,DxTextBoxModule} from 'devextreme-angular';
+//import { DxButtonModule,DxRangeSelectorModule,DxTagBoxModule,DxSelectBoxModule,DxDateBoxModule,DxNumberBoxModule ,DxTextBoxModule} from 'devextreme-angular';
 
+import { DxButtonModule } from 'devextreme-angular/ui/button';
+import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
+import { DxTagBoxModule } from 'devextreme-angular/ui/tag-box';
+import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
+import { DxDateBoxModule } from 'devextreme-angular/ui/date-box';
+import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
 
 @NgModule({
   declarations: [

@@ -4,7 +4,11 @@ import { CommonModule } from '@angular/common';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { I18nPipe } from './i18n.pipe';
 import { I18nService } from './i18n.service';
-import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+
+//import { DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+
+import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 
 @NgModule({
   imports: [
