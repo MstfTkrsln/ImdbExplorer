@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-bar',
@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bar.component.css']
 })
 export class BarComponent implements OnInit {
+  @ViewChild('navbar') navbar: ElementRef;
 
-  constructor() { }
+  navbarTopDefault: number;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.navbarTopDefault = this.navbar.nativeElement.getBoundingClientRect().top;
+    window.addEventListener('scroll', this.onScrollChanged.bind(this));
+  }
+
+  onScrollChanged() {
+    if (window.pageYOffset > (this.navbarTopDefault + 150))
+      this.navbar.nativeElement.classList.add('fixed-header');
+    else
+      this.navbar.nativeElement.classList.remove('fixed-header');
   }
 
 }

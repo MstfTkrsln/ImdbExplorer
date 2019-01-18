@@ -30,22 +30,11 @@ export class Query {
         this.MovieMeter = new MovieMeter(null, null);
     }
 
-    static getSample(): Query {
+    static getQueryForPopularMovies(): Query {
         let query: Query = new Query();
         query.Count = 50;
-        query.Title = '';
         query.TitleTypes = [TitleType.Feature];
-        query.ReleaseDate = new ReleaseDate(new Date('2010-01-01'), null);
-        query.UserRating = new UserRating(6.1, null),
-            query.NumVotes = new NumVotes(1000, null);
-        query.MovieMeter = new MovieMeter(1, 10000);
-        query.Genres = [Genre.Action];
-        //query.Groups = [Group.NowPlaying];
-        query.Colors = [Color.Color];
-        query.Languages = [Language.English];
-        query.Countries = [Country.UnitedStates];
-        query.Sort = SortType.PopularityAsc;
-        query.Page = 1;
+        query.Sort = SortType.PopularityDesc;
         return query;
     }
 }

@@ -38,7 +38,6 @@ Primary style
   
   .cd-main-content {
     position: relative;
-    min-height: 100vh;
   }
   .cd-main-content:after {
     content: "";
@@ -84,9 +83,8 @@ Primary style
   
   -------------------------------- */
   .cd-tab-filter-wrapper {
-    background-color: #ffffff;
+    background-color: #F5F5F4;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-    z-index: 1;
   }
   .cd-tab-filter-wrapper:after {
     content: "";
@@ -283,8 +281,7 @@ Primary style
     top: 0;
     left: 0;
     width: 280px;
-    height: 100%;
-    background: #ffffff;
+    background-color: #F5F5F4;
     box-shadow: 4px 4px 20px transparent;
     z-index: 2;
     /* Force Hardware Acceleration in WebKit */
@@ -396,4 +393,17 @@ Primary style
     }
   }
   
+    /* -------------------------------- 
   
+  Custom
+  
+  -------------------------------- */
+
+  .fixed-header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    -webkit-animation: fade-in-top .5s cubic-bezier(.39,.575,.565,1) both;
+    animation: fade-in-top .5s cubic-bezier(.39,.575,.565,1) both;
+}

@@ -1,13 +1,13 @@
 <dx-select-box [dataSource]="languages" displayExpr="title" [(value)]="currentLanguage" fieldTemplate="field" width="170" (onValueChanged)="onLanguageChanged($event)">
   <div *dxTemplate="let data of 'field'">
     <div class="custom-item">
-       <img src="/src/assets/img/flags/{{data.flag}}.svg" height="80%" alt="{{data.alt}}">
+       <img src="assets/img/flags/{{data.flag}}.svg" height="80%" alt="{{data.alt}}">
       <dx-text-box class="product-name" [value]="data.title" [readOnly]="true"></dx-text-box>
     </div>
   </div>
   <div *dxTemplate="let data of 'item'">
     <div class="custom-item">
-        <img src="/src/assets/img/flags/{{data.flag}}.svg" height="80%" alt="{{data.alt}}">
+        <img src="assets/img/flags/{{data.flag}}.svg" height="80%" alt="{{data.alt}}">
       <div class="product-name">
         {{data.title}}
       </div>

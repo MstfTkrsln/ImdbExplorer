@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 import { catchError, map } from 'rxjs/operators';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
+import { throwError } from 'rxjs';
 import { config } from 'src/assets/config/imdb-explorer.config';
 import { Query } from '../models/query/query';
 import { HttpHeaders } from '@angular/common/http';
@@ -58,11 +59,11 @@ export class ImdbSearhService {
     if (errorData.status === 0) {
       console.log('Connection Issue.!');
       console.log(errorData);
-      return Observable.throw(errorData);
+      return throwError(errorData);
     }
     let error = errorData.json();
     let errMsg = error.error || error;
-    return Observable.throw(errMsg);
+    return throwError(errMsg);
   }
 
 }

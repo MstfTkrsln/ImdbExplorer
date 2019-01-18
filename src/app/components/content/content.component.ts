@@ -1,14 +1,12 @@
-import { Component, OnInit, Input, AfterViewInit, OnChanges } from '@angular/core';
-import { Movie } from '../../models/movie';
-
-declare const $: any;
+import { Component, OnInit, Input } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit, OnChanges {
+export class ContentComponent implements OnInit {
 
   @Input() movies: Movie[];
 
@@ -16,9 +14,6 @@ export class ContentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes) {
   }
 
 }
