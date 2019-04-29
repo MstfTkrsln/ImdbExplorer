@@ -1,0 +1,21 @@
+:host {
+    text-align: center;
+    color: #EB3313;
+    font-size:x-large !important; 
+    font-weight:bold !important;
+  }  
+  
+  .block-ui-template {
+    position: sticky;
+    top: 50%;
+}
+
+@media only screen and (max-width: 1170px) {
+    .block-ui-template {
+      position: fixed; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+}
+ 

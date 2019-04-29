@@ -7,18 +7,18 @@
 	"GenreType": "İçerik Türü",
 	"GroupType": "Grup Türü",
 	"ColorType": "Renk Türü",
-	"SortType": "Sıralama Türü",
+	"SortType": "Sıralama",
 	"Country": "Ülke",
 	"Language": "Dil",
-	"StartDate": "Başlangıç Tarihi",
-	"EndDate": "Biriş Tarihi",
-	"MinVote": "Min Oylama",
-	"MaxVote": "Maks Oylama",
+	"MinRatingCount": "Min Oylama Sayısı",
+	"MaxRatingCount": "Maks Oylama Sayısı",
 	"MinPopularity": "Min Popülarite",
 	"MaxPopularity": "Maks Popülarite",
 	"MovieTitle": "Film Adı...",
 	"Count": "Adet",
 	"Explore": "Keşfet",
+	"Rating":"Reyting",
+	"Year":"Yıl",
 
 	"Color": "Renk",
 	"BlackAndWhite": "Siyah-Beyaz",
@@ -165,5 +165,7 @@
 	"Ukraine": "Ukrayna",
 	"UnitedKingdom": "İngiltere",
 
-	"TrendingNow":"Şu Anda Popüler"
+	"TrendingNow":"Şu Anda Popüler",
+	
+	"Clear":"Temizle"
 }

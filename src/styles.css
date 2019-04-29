@@ -313,7 +313,10 @@ Primary style
     z-index: 2;
   }
   .cd-filter form {
-    padding: 70px 5%;
+    padding-top: 70px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .cd-filter .cd-close {
     position: absolute;

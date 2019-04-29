@@ -24,17 +24,27 @@ export class Query {
     constructor(
     ) {
         this.Count = 50;
-        this.ReleaseDate = new ReleaseDate(null, null);
+        this.Sort = SortType.PopularityDesc;
+        this.ReleaseDate = new ReleaseDate(new Date('1900-01-01'), null);
         this.UserRating = new UserRating(null, null);
         this.NumVotes = new NumVotes(null, null);
         this.MovieMeter = new MovieMeter(null, null);
     }
 
+    static getQueryForPopular(): Query {
+        let query: Query = new Query();
+        return query;
+    }
+
     static getQueryForPopularMovies(): Query {
         let query: Query = new Query();
-        query.Count = 50;
         query.TitleTypes = [TitleType.Feature];
-        query.Sort = SortType.PopularityDesc;
+        return query;
+    }
+
+    static getQueryForPopularSeries(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.TvSeries];
         return query;
     }
 }

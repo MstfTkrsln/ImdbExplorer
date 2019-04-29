@@ -4,7 +4,7 @@ import { EnumTranslatorService } from 'src/app/services/enum-translater-service'
 import { Genre, Color, Group, SortType, TitleType, Language, Country } from 'src/app/models/enums';
 import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { Utils } from '../shared/utils';
-import { I18nService } from 'src/app/shared/i18n/i18n.service';
+import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
 
 declare const $: any;
 
@@ -14,7 +14,11 @@ declare const $: any;
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @ViewChild('ratingSelector') ratingSelector: DxRangeSelectorComponent;
+  @ViewChild('yearSelector') yearSelector: DxRangeSelectorComponent;
+
   @ViewChild('filterBar') filterBar: ElementRef;
+
   @Output() onSearch = new EventEmitter<Query>();
 
   filterBarTopDefault: number;
@@ -29,9 +33,12 @@ export class FilterComponent implements OnInit {
   languages: KeyValuePair[];
   countries: KeyValuePair[];
 
-  ratingRangeTitle: string = 'Rating';
-
   isFilterSearchable: boolean = true;
+
+  currentYear: number = new Date().getFullYear();
+
+  ratingRange: any[2] = [null, null];
+  yearRange: any[2] = [null, null];
 
   constructor(private enumService: EnumTranslatorService) {
     this.query = new Query();
@@ -55,15 +62,15 @@ export class FilterComponent implements OnInit {
   }
 
   explore() {
-    console.log(this.query);
+    this.query.UserRating.Min = this.ratingRange[0];
+    this.query.UserRating.Max = this.ratingRange[1];
+
+    if (this.yearRange[0])
+      this.query.ReleaseDate.Min = new Date(this.yearRange[0] + '-01-01');
+    if (this.yearRange[1])
+      this.query.ReleaseDate.Max = new Date(this.yearRange[1] + '-12-31');
+
     this.onSearch.emit(this.query);
-  }
-
-  onRatingChanged(e) {
-    this.query.UserRating.Min = e.value[0];
-    this.query.UserRating.Max = e.value[1];
-
-    this.ratingRangeTitle = `Rating (${this.query.UserRating.Min} - ${this.query.UserRating.Max})`;
   }
 
   triggerFilter(isFilterPanelVisible: boolean) {
@@ -79,4 +86,24 @@ export class FilterComponent implements OnInit {
     else
       this.filterBar.nativeElement.classList.remove('fixed-header');
   }
+
+  clearFilter() {
+    this.ratingRange = [null, null];
+    this.yearRange = [null, null];
+
+    this.query = new Query();
+  }
+
+  numberWithK(x) {
+    if (x === 0)
+      return "0";
+    else
+      return x.toString().replace(/0/g, "") + 'K';
+  }
+
+  numberWithDot(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+
 }

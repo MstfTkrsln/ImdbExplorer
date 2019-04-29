@@ -7,18 +7,18 @@
 	"GenreType": "Genre Type",
 	"GroupType": "Group Type",
 	"ColorType": "Color Type",
-	"SortType": "Sort Type",
+	"SortType": "Sort By",
 	"Country": "Country",
 	"Language": "Language",
-	"StartDate": "Start Date",
-	"EndDate": "End Date",
-	"MinVote": "Min Vote",
-	"MaxVote": "Max Vote",
+	"MinRatingCount": "Min Rating Count",
+	"MaxRatingCount": "Max Rating Count",
 	"MinPopularity": "Min Popularity",
 	"MaxPopularity": "Max Popularity",
 	"MovieTitle": "Title...",
 	"Count": "Count",
 	"Explore": "Explore",
+	"Rating":"Rating",
+	"Year":"Year",
 
 	"Color": "Color",
 	"BlackAndWhite": "Black And White",
@@ -123,7 +123,7 @@
 	"Canada": "Canada",
 	"China": "China",
 	"Colombia": "Colombia",
-	"CostaRica": "CostaRica",
+	"CostaRica": "Costa Rica",
 	"Croatia": "Croatia",
 	"Cyprus": "Cyprus",
 	"CzechRepublic": "Czech Republic",
@@ -165,5 +165,7 @@
 	"Ukraine": "Ukraine",
 	"UnitedKingdom": "United Kingdom",
 
-	"TrendingNow":"Trending Now"
+	"TrendingNow":"Trending Now",
+	
+	"Clear":"Clear"
 }

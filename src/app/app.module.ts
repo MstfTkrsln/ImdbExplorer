@@ -17,6 +17,9 @@ import 'src/app/core/extensions/extensions';
 import { CommaSeperatedPipe } from './pipes/comma-seperated.pipe';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 
+import { BlockUIModule } from 'ng-block-ui';
+import { BlockTemplateComponent } from './shared/ui-block/block-template.component';
+
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxRangeSelectorModule } from 'devextreme-angular/ui/range-selector';
 import { DxTagBoxModule } from 'devextreme-angular/ui/tag-box';
@@ -24,8 +27,25 @@ import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxDateBoxModule } from 'devextreme-angular/ui/date-box';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
+import { DxSliderModule } from 'devextreme-angular/ui/slider';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    I18nModule,
+    BlockUIModule.forRoot(),
+
+    DxButtonModule,
+    DxRangeSelectorModule,
+    DxTagBoxModule,
+    DxSelectBoxModule,
+    DxDateBoxModule,
+    DxNumberBoxModule,
+    DxTextBoxModule,
+    DxSliderModule
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -33,22 +53,11 @@ import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
     BarComponent,
     ContentComponent,
     MovieComponent,
-    CommaSeperatedPipe
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    I18nModule,
-    DxButtonModule,
-    DxRangeSelectorModule,
-    DxTagBoxModule,
-    DxSelectBoxModule,
-    DxDateBoxModule,
-    DxNumberBoxModule,
-    DxTextBoxModule
+    CommaSeperatedPipe,
+    BlockTemplateComponent
   ],
   providers: [JsonApiService, ImdbSearhService, EnumTranslatorService],
+  entryComponents: [BlockTemplateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

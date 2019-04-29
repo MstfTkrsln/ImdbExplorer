@@ -3,86 +3,123 @@
 
     <form (ngSubmit)="explore()" class="form-horizontal">
 
+      <!-- IMDB Rating -->
       <fieldset>
         <div class="form-group input-group">
-          <dx-range-selector [title]="ratingRangeTitle" class="range-selector" (onValueChanged)="onRatingChanged($event)">
+          <dx-range-selector #ratingSelector [(value)]="ratingRange" class="range-selector">
+            <dxo-size height="120"></dxo-size>
             <dxo-scale [startValue]="0" [endValue]="10" [minorTickInterval]="0.1" [tickInterval]="1">
               <dxo-minor-tick [visible]="true"></dxo-minor-tick>
-            </dxo-scale>
-            <dxo-slider-marker [paddingLeftRight]="20"></dxo-slider-marker>
+            </dxo-scale>           
+            <dxo-slider-marker [paddingLeftRight]="20">
+              <dxo-font [size]="15"></dxo-font>
+            </dxo-slider-marker>
+            <dxo-title text="{{'Rating' | i18n}}" margin="0">
+                <dxo-font [size]="26"></dxo-font>
+            </dxo-title>
+            <!-- <dxo-behavior callValueChanged="onMoving"></dxo-behavior> -->
           </dx-range-selector>
           <!-- <dx-number-box class="side-by-side" [(value)]="query.UserRating.Min" [min]="0" [max]="10" step="0.5" [showSpinButtons]="true" [showClearButton]="true"></dx-number-box>
             <dx-number-box class="side-by-side" [(value)]="query.UserRating.Max" [min]="0" [max]="10" step="0.5" [showSpinButtons]="true" [showClearButton]="true"></dx-number-box> -->
         </div>
       </fieldset>
 
+      <!-- Title Type -->
       <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'TitleType' | i18n}}" [(value)]="query.TitleTypes" [items]="titleTypes" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'TitleType' | i18n}}" [(value)]="query.TitleTypes" [items]="titleTypes" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
       </fieldset>
 
+      <!-- Genre Type -->
       <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'GenreType' | i18n}}" [(value)]="query.Genres" [items]="genres" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'GenreType' | i18n}}" [(value)]="query.Genres" [items]="genres" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
       </fieldset>
 
+      <!-- Group Type -->
       <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'GroupType' | i18n}}" [(value)]="query.Groups" [items]="groups" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'GroupType' | i18n}}" [(value)]="query.Groups" [items]="groups" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
       </fieldset>
 
-      <fieldset>
+      <!-- Color Type -->
+      <!-- <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'ColorType' | i18n}}" [(value)]="query.Colors" [items]="colors" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'ColorType' | i18n}}" [(value)]="query.Colors" [items]="colors" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
-      </fieldset>
+      </fieldset> -->
 
+      <!-- Sort Type -->
       <fieldset>
         <div class="form-group">
-          <dx-select-box placeholder="{{'SortType' | i18n}}" [(value)]="query.Sort" [items]="sortTypes" [showClearButton]="true" displayExpr="Value"
+          <dx-select-box  placeholder="{{'SortType' | i18n}}" [(value)]="query.Sort" [items]="sortTypes" [showClearButton]="false" displayExpr="Value"
             valueExpr="Key"></dx-select-box>
         </div>
       </fieldset>
 
+      <!-- Country -->
       <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'Country' | i18n}}" [(value)]="query.Countries" [items]="countries" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'Country' | i18n}}" [(value)]="query.Countries" [items]="countries" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
       </fieldset>
 
+      <!-- Language -->
       <fieldset>
         <div class="form-group">
-          <dx-tag-box placeholder="{{'Language' | i18n}}" [(value)]="query.Languages" [items]="languages" displayExpr="Value" valueExpr="Key"
+          <dx-tag-box  placeholder="{{'Language' | i18n}}" [(value)]="query.Languages" [items]="languages" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
         </div>
       </fieldset>
 
+      <!-- Release Year -->
       <fieldset>
         <div class="form-group input-group">
-          <dx-date-box placeholder="{{'StartDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Min" displayFormat="dd/MM/yyyy"
+            <dx-range-selector #yearSelector [(value)]="yearRange" class="range-selector">
+              <dxo-size height="100"></dxo-size>
+              <dxo-scale [startValue]="1900" [endValue]="currentYear" [minorTickInterval]="1" [tickInterval]="1">
+                  <dxo-minor-tick [visible]="true"></dxo-minor-tick>
+              </dxo-scale>           
+              <dxo-slider-marker [paddingLeftRight]="5">
+                  <dxo-font [size]="12"></dxo-font>
+              </dxo-slider-marker>
+              <dxo-title text="{{'Year' | i18n}}" margin="0">
+                  <dxo-font [size]="20"></dxo-font>
+              </dxo-title>
+          </dx-range-selector>
+
+          <!-- <dx-date-box placeholder="{{'Year' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Min" displayFormat="dd/MM/yyyy"
             [showClearButton]="true" [(max)]="query.ReleaseDate.Max" type="date"></dx-date-box>
-          <dx-date-box placeholder="{{'EndDate' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Max" displayFormat="dd/MM/yyyy"
-            [showClearButton]="true" [(min)]="query.ReleaseDate.Min" type="date"></dx-date-box>
+          <dx-date-box placeholder="{{'Year' | i18n}}" class="side-by-side" [(value)]="query.ReleaseDate.Max" displayFormat="dd/MM/yyyy"
+            [showClearButton]="true" [(min)]="query.ReleaseDate.Min" type="date"></dx-date-box> -->
         </div>
       </fieldset>
 
+      <!-- Voted Count -->
       <fieldset>
         <div class="form-group input-group">
-          <dx-number-box placeholder="{{'MinVote' | i18n}}" class="side-by-side" [(value)]="query.NumVotes.Min" [min]="0" step="1000"
+          <div class="slider-title">{{'MinRatingCount' | i18n}}</div>          
+          <dx-slider width="100%" [min]="0" [max]="100000" [step]="1000" [(value)]="query.NumVotes.Min">
+              <dxo-tooltip [enabled]="true" [format]="numberWithK" showMode="always" position="top"></dxo-tooltip>
+              <dxo-label [visible]="true" position="bottom" [format]="numberWithDot"></dxo-label>
+          </dx-slider>
+
+          <!-- <dx-number-box placeholder="{{'MinVote' | i18n}}" class="side-by-side" [(value)]="query.NumVotes.Min" [min]="0" step="1000"
             [showSpinButtons]="true" [showClearButton]="true"></dx-number-box>
           <dx-number-box placeholder="{{'MaxVote' | i18n}}" class="side-by-side" [(value)]="query.NumVotes.Max" [min]="0" step="1000"
-            [showSpinButtons]="true" [showClearButton]="true"></dx-number-box>
+            [showSpinButtons]="true" [showClearButton]="true"></dx-number-box> -->
         </div>
       </fieldset>
 
+      <!-- Popularity -->
       <!-- <fieldset>
         <div class="form-group input-group">
           <dx-number-box placeholder="{{'MinPopularity' | i18n}}" class="side-by-side" [(value)]="query.MovieMeter.Min" [min]="0"  step="1000" [showSpinButtons]="true" [showClearButton]="true"></dx-number-box>
@@ -92,7 +129,7 @@
 
       <fieldset>
         <div class="form-group">
-          <dx-text-box [(value)]="query.Title" placeholder="{{'MovieTitle' | i18n}}" [showClearButton]="true"></dx-text-box>
+          <dx-text-box height="40" [(value)]="query.Title" placeholder="{{'MovieTitle' | i18n}}" [showClearButton]="true"></dx-text-box>
         </div>
       </fieldset>
 
@@ -100,9 +137,14 @@
       <div class="form-group">
         <dx-select-box [(value)]="query.Count" [dataSource]="[50,100,250]" placeholder="{{'Count' | i18n}}"></dx-select-box>
       </div>
-    </fieldset> -->
+      </fieldset> -->
 
-      <dx-button class="align-right yellow-button" icon="search" text="{{'Explore' | i18n}}" [useSubmitBehavior]="true"></dx-button>
+      <fieldset>
+        <div class="form-group">
+          <dx-button icon="trash" height="50" width="15%" type="normal" hint="{{'Clear' | i18n}}" (onClick)="clearFilter()"></dx-button>          
+          <dx-button class="explore-button" icon="search" height="50" width="85%" stylingMode="contained" type="default" text="{{'Explore' | i18n}}" [useSubmitBehavior]="true"></dx-button>          
+        </div>
+      </fieldset>
     </form>
 
 

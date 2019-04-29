@@ -15,9 +15,24 @@
   width: 100%
 }
 
-.yellow-button{
-  background-color: #41307c;
-  border-color: #41307c;
-  color: white;
+.explore-button{
+  font-size: large;
 }
 
+.slider-title{
+  width: 100%;
+  text-align: center;
+  white-space: pre;
+  font-size: 18px;
+  font-family: 'Segoe UI Light';
+  font-weight: 200;
+  fill: #333;
+  cursor: default;
+  margin-bottom:30px; 
+}
+
+::ng-deep .dx-resizable{
+  background-color:#F05B41 !important;
+  color: #ffffff !important;
+
+}
