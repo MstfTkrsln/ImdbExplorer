@@ -5,7 +5,7 @@
 
       <!-- IMDB Rating -->
       <fieldset>
-        <div class="form-group input-group">
+        <div class="input-group">
           <dx-range-selector #ratingSelector [(value)]="ratingRange" class="range-selector">
             <dxo-size height="120"></dxo-size>
             <dxo-scale [startValue]="0" [endValue]="10" [minorTickInterval]="0.1" [tickInterval]="1">
@@ -89,7 +89,7 @@
                   <dxo-minor-tick [visible]="true"></dxo-minor-tick>
               </dxo-scale>           
               <dxo-slider-marker [paddingLeftRight]="5">
-                  <dxo-font [size]="12"></dxo-font>
+                  <dxo-font [size]="14"></dxo-font>
               </dxo-slider-marker>
               <dxo-title text="{{'Year' | i18n}}" margin="0">
                   <dxo-font [size]="20"></dxo-font>
