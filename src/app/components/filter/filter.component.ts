@@ -71,6 +71,9 @@ export class FilterComponent implements OnInit {
       this.query.ReleaseDate.Max = new Date(this.yearRange[1] + '-12-31');
 
     this.onSearch.emit(this.query);
+
+    if (!Utils.isDesktopScreen())
+      this.triggerFilter(false);
   }
 
   triggerFilter(isFilterPanelVisible: boolean) {
