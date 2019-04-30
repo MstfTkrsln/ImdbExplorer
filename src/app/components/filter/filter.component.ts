@@ -94,14 +94,14 @@ export class FilterComponent implements OnInit {
     this.query = new Query();
   }
 
-  numberWithK(x) {
+  formatWithK(x: number) {
     if (x === 0)
       return "0";
-    else
-      return x.toString().replace(/0/g, "") + 'K';
+
+    return x.thousandFormat();
   }
 
-  numberWithDot(x) {
+  formatWithDot(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
