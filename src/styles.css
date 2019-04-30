@@ -373,7 +373,7 @@ Primary style
   .cd-filter-trigger.filter-is-visible {
     pointer-events: none;
   }
-  @media only screen and (min-width: 1170px) {
+  @media only screen and (min-width: 768px) {
     .cd-filter-trigger {
       width: auto;
       left: 2%;
