@@ -56,14 +56,6 @@
         </div>
       </fieldset> -->
 
-      <!-- Sort Type -->
-      <fieldset>
-        <div class="form-group">
-          <dx-select-box  placeholder="{{'SortType' | i18n}}" [(value)]="query.Sort" [items]="sortTypes" [showClearButton]="false" displayExpr="Value"
-            valueExpr="Key"></dx-select-box>
-        </div>
-      </fieldset>
-
       <!-- Country -->
       <fieldset>
         <div class="form-group">
@@ -77,6 +69,13 @@
         <div class="form-group">
           <dx-tag-box  placeholder="{{'Language' | i18n}}" [(value)]="query.Languages" [items]="languages" displayExpr="Value" valueExpr="Key"
             applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
+        </div>
+      </fieldset>
+
+            <!-- Sort Type -->
+      <fieldset>
+        <div class="form-group">
+          <dx-select-box  placeholder="{{'SortType' | i18n}}" [(value)]="query.Sort" [items]="sortTypes" [showClearButton]="false" displayExpr="Value" valueExpr="Key"></dx-select-box>
         </div>
       </fieldset>
 
