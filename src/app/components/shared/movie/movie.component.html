@@ -33,17 +33,15 @@
     </p>
 
     <p id="P_65">
-      Director:
-      <a id="A_66" *ngFor="let director of movie.Directors;let isLast=last" [href]="director.Url"  target="_blank">{{director.Name}}{{isLast ? '' : ' - '}}</a>
+      {{'Director' | i18n}}: <a id="A_66" *ngFor="let director of movie.Directors;let isLast=last" [href]="director.Url" target="_blank">{{director.Name}}{{isLast ? '' : ' - '}}</a>
       <br>
-      Stars:
-      <a  id="A_68" *ngFor="let star of movie.Stars;let isLast=last" [href]="star.Url" target="_blank">{{star.Name}}{{isLast ? '' : ' - '}}</a>
+      {{'Stars' | i18n}}: <a id="A_68" *ngFor="let star of movie.Stars;let isLast=last" [href]="star.Url" target="_blank">{{star.Name}}{{isLast ? '' : ' - '}}</a>
     </p>
 
     <p id="P_72">
-      <span id="SPAN_73">Votes:</span> <span id="SPAN_74">{{movie.Votes}}</span> 
-      <span id="SPAN_75"> | </span> 
-      <span id="SPAN_76">Gross:</span><span id="SPAN_77">{{movie.Gross}}</span>
+      <span id="SPAN_73">{{'Votes' | i18n}}: </span> <span id="SPAN_74">{{movie.Votes}}</span>
+      <span id="SPAN_75"> | </span>
+      <span id="SPAN_76">{{'Gross' | i18n}}: </span><span id="SPAN_77">{{movie.Gross}}</span>
     </p>
   </div>
 </div>

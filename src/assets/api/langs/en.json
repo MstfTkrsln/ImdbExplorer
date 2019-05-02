@@ -20,6 +20,11 @@
 	"Rating":"Rating",
 	"Year":"Year",
 
+	"Director":"Director",
+	"Stars":"Stars",
+	"Votes":"Votes",
+	"Gross":"Gross",	
+
 	"Color": "Color",
 	"BlackAndWhite": "Black And White",
 	"Colorized": "Colorized",
@@ -167,5 +172,7 @@
 
 	"TrendingNow":"Trending Now",
 	
-	"Clear":"Clear"
+	"Clear":"Clear",
+
+	"MovieNotFound":"We couldn’t find any movie that matches your search!"
 }
