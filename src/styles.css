@@ -283,6 +283,7 @@ Primary style
     width: 280px;
     background-color: #F5F5F4;
     box-shadow: 4px 4px 20px transparent;
+    border-radius: 16px;
     z-index: 2;
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);

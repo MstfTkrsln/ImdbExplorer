@@ -1,3 +1,21 @@
 .content{
     min-height: calc(100vh - 200px); 
 }
+
+.not-found{
+    position: sticky;
+    max-width: 50vw;
+    top: 50%;
+    color:#EB3313;
+    text-align: center;
+    vertical-align: middle;    
+    font-family: 'Lobster', cursive;
+    font-size: x-large;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 0 2px rgb(187, 43, 18);
+    border-radius: 16px;
+    border: 3px solid;
+    display: table;
+    margin: 0 auto;
+}
