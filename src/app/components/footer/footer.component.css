@@ -38,3 +38,23 @@ footer p {
     height:20px;
     text-align:center;
   }
+
+  .remove-margin{
+    margin-left: 5px !important; 
+    margin-right: 5px !important; 
+    bottom: 0px;
+  }   
+
+  .language-selector{
+    display:table;
+    margin:15px auto 0 auto; 
+  }
+
+  @media only screen and (min-width: 768px) {
+    .language-selector{
+      float: left;
+    }
+  }
+
+  
+  

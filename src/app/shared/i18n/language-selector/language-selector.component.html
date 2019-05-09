@@ -1,4 +1,4 @@
-<dx-select-box [dataSource]="languages" displayExpr="title" [(value)]="currentLanguage" fieldTemplate="field" width="170" (onValueChanged)="onLanguageChanged($event)">
+<dx-select-box [dataSource]="languages" displayExpr="title" [(value)]="currentLanguage" fieldTemplate="field" width="110" (onValueChanged)="onLanguageChanged($event)">
   <div *dxTemplate="let data of 'field'">
     <div class="custom-item">
        <img src="assets/img/flags/{{data.flag}}.svg" height="80%" alt="{{data.alt}}">
