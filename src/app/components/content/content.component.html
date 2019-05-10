@@ -1,15 +1,19 @@
 <section *blockUI="'content-section'; template: blockTemplate" class="cd-gallery filter-is-visible content">
-  <div *ngIf="movies.length>0">
-    <ul class="row">
-      <li *ngFor="let movie of movies" class="col-md-12 col-lg-6 col-xxl-4">
-        <app-movie [movie]="movie"></app-movie>
-      </li>
-    </ul>
-  </div>
+  <div *ngIf="movies">
 
-  <div *ngIf="movies.length===0" class="not-found">
+    <div *ngIf="movies.length>0">
+      <ul class="row">
+        <li *ngFor="let movie of movies" class="col-md-12 col-lg-6 col-xxl-4">
+          <app-movie [movie]="movie"></app-movie>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="movies.length===0" class="not-found">
       <i class="far fa-frown fa-4x" aria-hidden="true" style="margin-bottom: 15px;"></i>
       <br>
       <h3>{{'MovieNotFound' | i18n}}</h3>
+    </div>
+
   </div>
 </section>

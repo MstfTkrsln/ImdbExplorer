@@ -4,7 +4,7 @@
 
 	<app-bar></app-bar>
 
-	<app-content [(isLoaderActive)]="isSearching" *ngIf="searchResult" [movies]="searchResult.Movies"></app-content>
+	<app-content [(isLoaderActive)]="isSearching" [movies]="searchResult?.Movies"></app-content>
 
 	<!-- pager will be here -->
 
