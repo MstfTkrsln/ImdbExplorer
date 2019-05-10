@@ -19,6 +19,9 @@
   font-size: large;
 }
 
+.clear-button{
+}
+
 .slider-title{
   width: 100%;
   text-align: center;
@@ -35,4 +38,8 @@
   background-color:#F05B41 !important;
   color: #ffffff !important;
 
+}
+
+.fit-scrren{
+  max-height: 100vh; 
 }

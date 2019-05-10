@@ -1,7 +1,8 @@
 <div #filterBar>
   <div class="cd-filter filter-is-visible">
-
-    <form (ngSubmit)="explore()" class="form-horizontal">
+  <dx-scroll-view showScrollbar="Always" height="auto">
+    
+    <form (ngSubmit)="explore()" class="form-horizontal fit-scrren">
 
       <!-- IMDB Rating -->
       <fieldset>
@@ -72,7 +73,7 @@
         </div>
       </fieldset>
 
-            <!-- Sort Type -->
+      <!-- Sort Type -->
       <fieldset>
         <div class="form-group">
           <dx-select-box  placeholder="{{'SortType' | i18n}}" [(value)]="query.Sort" [items]="sortTypes" [showClearButton]="false" displayExpr="Value" valueExpr="Key"></dx-select-box>
@@ -141,11 +142,13 @@
 
       <fieldset>
         <div class="form-group">
-          <dx-button icon="trash" height="50" width="15%" type="normal" hint="{{'Clear' | i18n}}" (onClick)="clearFilter()"></dx-button>          
-          <dx-button class="explore-button" icon="search" height="50" width="85%" stylingMode="contained" type="default" text="{{'Explore' | i18n}}" [useSubmitBehavior]="true"></dx-button>          
+          <dx-button class="clear-button" icon="trash" height="50" width="16%" type="normal" hint="{{'Clear' | i18n}}" (onClick)="clearFilter()"></dx-button>          
+          <dx-button class="explore-button" icon="search" height="50" width="84%" stylingMode="contained" type="default" text="{{'Explore' | i18n}}" [useSubmitBehavior]="true"></dx-button>          
         </div>
       </fieldset>
     </form>
+
+  </dx-scroll-view>
 
 
     <a href="#0" class="cd-close" (click)="triggerFilter(false)">{{ 'Hide' | i18n}}</a>

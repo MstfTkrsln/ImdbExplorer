@@ -1,3 +1,6 @@
+a {
+  cursor: pointer;
+}
 
 footer {
    width:100%;
@@ -55,6 +58,7 @@ footer p {
       float: left;
     }
   }
+
 
   
   
