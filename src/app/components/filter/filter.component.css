@@ -41,5 +41,5 @@
 }
 
 .fit-scrren{
-  max-height: 100vh; 
+  max-height: calc(100vh - 10px); 
 }
