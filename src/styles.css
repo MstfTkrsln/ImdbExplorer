@@ -350,7 +350,7 @@ Primary style
   .cd-filter.filter-is-visible .cd-close {
     opacity: 1;
   }
-  @media only screen and (min-width: 1400px) {
+  @media only screen and (min-width: 1170px) {
     .cd-filter {
       width: 20%;
     }
