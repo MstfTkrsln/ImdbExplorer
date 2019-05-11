@@ -4,9 +4,8 @@
 
 	<app-bar></app-bar>
 
-	<app-content [(isLoaderActive)]="isSearching" [movies]="searchResult?.Movies"></app-content>
+	<app-content (onShowMore)="onShowMore()" [(isLoaderActive)]="isSearching" [movies]="searchResult?.Movies"></app-content>
 
-	<!-- pager will be here -->
 
 	<app-filter (onSearch)="onSearch($event)"></app-filter>
 
@@ -14,5 +13,6 @@
 
 <app-footer></app-footer>
 
-<i #backToTopButton id="backToTopButton" class="fa fa-chevron-circle-up fa-3x" aria-hidden="true" (click)="backToTop($event)"></i>
+<i #backToTopButton id="backToTopButton" class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"
+	(click)="backToTop()"></i>
 <!-- <a class="show" id="backToTopButton" (click)="backToTop($event)"></a> -->

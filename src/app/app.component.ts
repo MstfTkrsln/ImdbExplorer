@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
+  CurrentQuery: Query;
+
   searchResult: SearchResult;
   isSearching: boolean = false;
 
@@ -34,6 +36,8 @@ export class AppComponent implements OnInit {
 
     console.log(query);
 
+    this.CurrentQuery = query;
+
     this.imdbService.Search(query)
       .subscribe(result => {
         console.log(result);
@@ -48,6 +52,12 @@ export class AppComponent implements OnInit {
         });
   }
 
+  onShowMore() {
+    this.CurrentQuery.Page++;
+    this.onSearch(this.CurrentQuery);
+    this.backToTop(null));
+  }
+
   startSearching() {
     this.isSearching = true;
   }
@@ -56,8 +66,7 @@ export class AppComponent implements OnInit {
     this.isSearching = false;
   }
 
-  backToTop(e) {
-    e.preventDefault();
+  backToTop() {
     $('html, body').animate({ scrollTop: 0 }, '300');
   }
 

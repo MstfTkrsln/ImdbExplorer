@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
 
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
@@ -12,6 +12,8 @@ import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.c
 export class ContentComponent implements OnInit, OnChanges {
   @Input() movies: Movie[];
   @Input() isLoaderActive: boolean = false;
+
+  @Output() onShowMore = new EventEmitter();
 
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
@@ -37,6 +39,10 @@ export class ContentComponent implements OnInit, OnChanges {
 
   stopLoader() {
     this.blockUI.stop();
+  }
+
+  showMore() {
+    this.onShowMore.emit();
   }
 
 }

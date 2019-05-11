@@ -24,6 +24,7 @@ export class Query {
     constructor(
     ) {
         this.Count = 50;
+        this.Page = 1;
         this.Sort = SortType.PopularityDesc;
         this.ReleaseDate = new ReleaseDate(new Date('1900-01-01'), null);
         this.UserRating = new UserRating(null, null);

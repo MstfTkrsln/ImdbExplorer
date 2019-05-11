@@ -7,6 +7,8 @@
           <app-movie [movie]="movie"></app-movie>
         </li>
       </ul>
+
+      <dx-button (click)="showMore()" class="show-more-button" icon="fa fa-sync" stylingMode="contained" type="default" text="{{'ShowMore' | i18n}}"></dx-button>
     </div>
 
     <div *ngIf="movies.length===0" class="not-found">
