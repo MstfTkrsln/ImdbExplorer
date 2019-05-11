@@ -17,9 +17,11 @@
 
 .explore-button{
   font-size: large;
+  border-radius: 27px;
 }
 
 .clear-button{
+  border-radius: 27px;
 }
 
 .slider-title{
