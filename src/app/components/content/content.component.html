@@ -1,17 +1,22 @@
 <section *blockUI="'content-section'; template: blockTemplate" class="cd-gallery filter-is-visible content">
-  <div *ngIf="movies">
+  <div *ngIf="searchResult">
 
-    <div *ngIf="movies.length>0">
+    <div *ngIf="searchResult.Movies.length>0">
       <ul class="row">
-        <li *ngFor="let movie of movies" class="col-md-12 col-lg-6 col-xxl-4">
+        <li *ngFor="let movie of searchResult.Movies" class="col-md-12 col-lg-6 col-xxl-4">
           <app-movie [movie]="movie"></app-movie>
         </li>
       </ul>
 
-      <dx-button (click)="showMore()" class="show-more-button" icon="fa fa-sync" stylingMode="contained" type="default" text="{{'ShowMore' | i18n}}"></dx-button>
+      <div class="show-more-panel">
+        <dx-load-indicator [visible]="isSpinnerVisible" class='button-spinner'  indicatorSrc='assets/img/gifs/spinner.gif'></dx-load-indicator>
+        <dx-button [disabled]="searchResult.TotalCount === searchResult.Last" class="show-more-button" (click)="showMore()" text="{{'ShowMore' | i18n}}" icon="fas fa-angle-double-down" stylingMode="contained" type="default"></dx-button>
+        <dx-load-indicator [visible]="isSpinnerVisible" class='button-spinner' indicatorSrc='assets/img/gifs/spinner.gif'></dx-load-indicator>
+      </div>
+
     </div>
 
-    <div *ngIf="movies.length===0" class="not-found">
+    <div *ngIf="searchResult.Movies.length===0" class="not-found">
       <i class="far fa-frown fa-4x" aria-hidden="true" style="margin-bottom: 15px;"></i>
       <br>
       <h3>{{'MovieNotFound' | i18n}}</h3>

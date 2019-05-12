@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
 
   searchResult: SearchResult;
   isSearching: boolean = false;
+  isLoadingMore: boolean = false;
+
+  currentPage: number;
 
   constructor(private imdbService: ImdbSearhService) {
     this.onSearch(Query.getQueryForPopular());
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit {
     console.log(query);
 
     this.CurrentQuery = query;
+    this.currentPage = this.CurrentQuery.Page;
 
     this.imdbService.Search(query)
       .subscribe(result => {
@@ -52,10 +56,35 @@ export class AppComponent implements OnInit {
         });
   }
 
+  nextPage(query: Query) {
+    this.isLoadingMore = true;
+
+    console.log(query);
+
+    this.imdbService.Search(query)
+      .subscribe(result => {
+        console.log(result);
+
+        this.searchResult.Count = result.Count;
+        this.searchResult.First = result.First;
+        this.searchResult.Last = result.Last;
+        this.searchResult.TotalCount = result.TotalCount;
+        this.searchResult.SearchUrl = result.SearchUrl;
+        this.searchResult.Movies.push(...result.Movies);
+      },
+        (error) => {
+          console.log(error);
+          this.isLoadingMore = false;
+        },
+        () => {
+          this.isLoadingMore = false;
+        });
+  }
+
   onShowMore() {
-    this.CurrentQuery.Page++;
-    this.onSearch(this.CurrentQuery);
-    this.backToTop(null));
+    let nextPageQuery = this.CurrentQuery.deepCopy();
+    nextPageQuery.Page = ++this.currentPage;
+    this.nextPage(nextPageQuery);
   }
 
   startSearching() {

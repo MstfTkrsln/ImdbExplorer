@@ -4,8 +4,7 @@
 
 	<app-bar></app-bar>
 
-	<app-content (onShowMore)="onShowMore()" [(isLoaderActive)]="isSearching" [movies]="searchResult?.Movies"></app-content>
-
+	<app-content [searchResult]="searchResult" [(isBlockingActive)]="isSearching" [(isSpinnerVisible)]="isLoadingMore" (onShowMore)="onShowMore()" ></app-content>
 
 	<app-filter (onSearch)="onSearch($event)"></app-filter>
 

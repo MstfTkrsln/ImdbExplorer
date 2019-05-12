@@ -32,6 +32,10 @@ export class Query {
         this.MovieMeter = new MovieMeter(null, null);
     }
 
+    public deepCopy() {
+        return JSON.parse(JSON.stringify(this));
+    }
+
     static getQueryForPopular(): Query {
         let query: Query = new Query();
         return query;

@@ -29,6 +29,7 @@ import { DxDateBoxModule } from 'devextreme-angular/ui/date-box';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
 import { DxSliderModule } from 'devextreme-angular/ui/slider';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
+import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -48,7 +49,8 @@ import { FooterComponent } from './components/footer/footer.component';
     DxNumberBoxModule,
     DxTextBoxModule,
     DxSliderModule,
-    DxScrollViewModule
+    DxScrollViewModule,
+    DxLoadIndicatorModule
   ],
   declarations: [
     AppComponent,

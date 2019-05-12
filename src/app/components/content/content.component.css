@@ -11,21 +11,28 @@
     vertical-align: middle;    
     font-family: 'Lobster', cursive;
     font-size: x-large;
-    margin: 20px;
     padding: 20px;
-    box-shadow: 0 0 0 2px rgb(187, 43, 18);
-    border-radius: 16px;
-    border: 3px solid;
+    border-radius: 30px;
+    border: 5px solid;
     display: table;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
-.show-more-button{
+.show-more-panel{
     display: table;
     margin: 0 auto;
-    border: 1px solid #EB3313;
-    border-radius: 27px 27px 27px 27px;
-    font-size: large;
     margin-bottom: 10px;
     clear: both;
 }
+
+.show-more-button{
+    border: 1px solid #EB3313;
+    border-radius: 27px 27px 27px 27px;
+    font-size: large;
+}
+
+.button-spinner {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+  }

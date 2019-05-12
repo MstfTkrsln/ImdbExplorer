@@ -3,6 +3,7 @@ import { Movie } from 'src/app/models/movie';
 
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.component';
+import { SearchResult } from 'src/app/models/search-result';
 
 @Component({
   selector: 'app-content',
@@ -10,9 +11,9 @@ import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.c
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit, OnChanges {
-  @Input() movies: Movie[];
-  @Input() isLoaderActive: boolean = false;
-
+  @Input() searchResult: SearchResult;
+  @Input() isBlockingActive: boolean = false;
+  @Input() isSpinnerVisible: boolean = false;
   @Output() onShowMore = new EventEmitter();
 
   @BlockUI('content-section') blockUI: NgBlockUI;
@@ -25,19 +26,25 @@ export class ContentComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    if (changes.isLoaderActive) {
-      if (changes.isLoaderActive.currentValue)
-        this.startLoader("Exploring...");
+    if (changes.isBlockingActive) {
+      if (changes.isBlockingActive.currentValue)
+        this.startBlocking("Exploring...");
       else
-        this.stopLoader();
+        this.stopBlocking();
+    }
+    if (changes.isSpinnerVisible) {
+      if (changes.isSpinnerVisible.currentValue)
+        this.isSpinnerVisible = true;
+      else
+        this.isSpinnerVisible = false;
     }
   }
 
-  startLoader(message: string) {
+  startBlocking(message: string) {
     this.blockUI.start(message);
   }
 
-  stopLoader() {
+  stopBlocking() {
     this.blockUI.stop();
   }
 
