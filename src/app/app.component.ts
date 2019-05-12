@@ -54,6 +54,8 @@ export class AppComponent implements OnInit {
         () => {
           this.stopSearching();
         });
+        
+    this.backToTop();
   }
 
   nextPage(query: Query) {
