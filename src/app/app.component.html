@@ -5,13 +5,11 @@
 	<app-bar></app-bar>
 
 	<app-content [searchResult]="searchResult" [(isBlockingActive)]="isSearching" [(isSpinnerVisible)]="isLoadingMore" (onShowMore)="onShowMore()" ></app-content>
-
+ 
 	<app-filter (onSearch)="onSearch($event)"></app-filter>
 
 </main> <!-- cd-main-content -->
 
 <app-footer></app-footer>
 
-<i #backToTopButton id="backToTopButton" class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"
-	(click)="backToTop()"></i>
-<!-- <a class="show" id="backToTopButton" (click)="backToTop($event)"></a> -->
+<i #backToTopButton id="backToTopButton" class="fa fa-chevron-circle-up fa-3x" aria-hidden="true" (click)="backToTop()"></i>
