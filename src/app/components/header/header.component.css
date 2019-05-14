@@ -1,8 +1,10 @@
 .header {
   position: relative;
-  height: 150px;
+  height: 120px;
   background-color: #331d35;
 }
 
-
+.logo{
+  margin-left: 10px;
+}
   
