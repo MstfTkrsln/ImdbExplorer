@@ -47,9 +47,25 @@ export class Query {
         return query;
     }
 
+    static getQueryForTopRatedMovies(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.UserRatingDesc;
+        query.Groups = [Group.Top1000];
+        query.TitleTypes = [TitleType.Feature];
+        return query;
+    }
+
     static getQueryForPopularSeries(): Query {
         let query: Query = new Query();
-        query.TitleTypes = [TitleType.TvSeries];
+        query.TitleTypes = [TitleType.TvSeries,TitleType.MiniSeries];
+        return query;
+    }
+
+    static getQueryForTopRatedSeries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.UserRatingDesc;
+        query.NumVotes = new NumVotes(25000, null);
+        query.TitleTypes = [TitleType.TvSeries,TitleType.MiniSeries];
         return query;
     }
 }

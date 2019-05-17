@@ -169,11 +169,15 @@
 	"Thailand": "Tayland",
 	"Ukraine": "Ukrayna",
 	"UnitedKingdom": "İngiltere",
-
-	"TrendingNow":"Şu Anda Popüler",
 	
 	"Clear":"Temizle",
 	"ShowMore":"Daha Fazla Göster",
 
-	"MovieNotFound":"Arama filtrelerinize uygun film bulunamadı!"
+	"MovieNotFound":"Arama filtrelerinize uygun film bulunamadı!",
+
+	"Movies":"Film",
+	"Series":"Dizi",
+	"TopRated":"En Çok Oy Alan",
+	"TrendingNow":"Şu Anda Popüler"
+
 }

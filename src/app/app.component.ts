@@ -4,6 +4,7 @@ import { Query } from './models/query/query';
 import { SearchResult } from './models/search-result';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.component';
+import { DataService } from './services/data.service';
 
 declare const $: any;
 
@@ -26,13 +27,18 @@ export class AppComponent implements OnInit {
 
   currentPage: number;
 
-  constructor(private imdbService: ImdbSearhService) {
-    this.onSearch(Query.getQueryForPopular());
+  constructor(private imdbService: ImdbSearhService, private dataService: DataService) {
   }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
+
+    this.dataService.currentQuery.subscribe(query => this.onSearch(query))
   }
+
+  // getLastPartOfUri) {
+  //   return location.pathname.substr(1)
+  // }
 
   onSearch(query: Query) {
     this.startSearching();
@@ -54,7 +60,7 @@ export class AppComponent implements OnInit {
         () => {
           this.stopSearching();
         });
-        
+
     this.backToTop();
   }
 

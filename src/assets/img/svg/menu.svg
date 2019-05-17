@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 192 192"
+    width="80px" height="80px">
+    <g transform="translate(0.96,0.96) scale(0.99,0.99)">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt"
+            stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+            font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <g id="&#x421;&#x43B;&#x43E;&#x439;_1 1" fill="#eb3313" stroke="#eb3313" stroke-width="2"
+                stroke-linejoin="round">
+                <path
+                    d="M96,174c-43.011,0 -78,-34.989 -78,-78c0,-43.011 34.989,-78 78,-78c43.011,0 78,34.989 78,78c0,43.011 -34.989,78 -78,78zM96,24c-39.699,0 -72,32.301 -72,72c0,39.699 32.301,72 72,72c39.699,0 72,-32.301 72,-72c0,-39.699 -32.301,-72 -72,-72z" />
+                <path
+                    d="M96,156c-33.084,0 -60,-26.916 -60,-60c0,-33.084 26.916,-60 60,-60c33.084,0 60,26.916 60,60c0,33.084 -26.916,60 -60,60zM96,42c-29.775,0 -54,24.225 -54,54c0,29.775 24.225,54 54,54c29.775,0 54,-24.225 54,-54c0,-29.775 -24.225,-54 -54,-54z" />
+                <path
+                    d="M126,75c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+                <path
+                    d="M126,99c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+                <path
+                    d="M126,123c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+            </g>
+            <path d="M0,192v-192h192v192z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+            <g id="&#x421;&#x43B;&#x43E;&#x439;_1" fill="#eb3313" stroke="none" stroke-width="1"
+                stroke-linejoin="miter">
+                <path
+                    d="M96,174c-43.011,0 -78,-34.989 -78,-78c0,-43.011 34.989,-78 78,-78c43.011,0 78,34.989 78,78c0,43.011 -34.989,78 -78,78zM96,24c-39.699,0 -72,32.301 -72,72c0,39.699 32.301,72 72,72c39.699,0 72,-32.301 72,-72c0,-39.699 -32.301,-72 -72,-72z" />
+                <path
+                    d="M96,156c-33.084,0 -60,-26.916 -60,-60c0,-33.084 26.916,-60 60,-60c33.084,0 60,26.916 60,60c0,33.084 -26.916,60 -60,60zM96,42c-29.775,0 -54,24.225 -54,54c0,29.775 24.225,54 54,54c29.775,0 54,-24.225 54,-54c0,-29.775 -24.225,-54 -54,-54z" />
+                <path
+                    d="M126,75c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+                <path
+                    d="M126,99c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+                <path
+                    d="M126,123c0,1.656 -1.344,3 -3,3h-54c-1.656,0 -3,-1.344 -3,-3v-6c0,-1.656 1.344,-3 3,-3h54c1.656,0 3,1.344 3,3z" />
+            </g>
+            <path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+            <path
+                d="M96,192c-53.01934,0 -96,-42.98066 -96,-96v0c0,-53.01934 42.98066,-96 96,-96v0c53.01934,0 96,42.98066 96,96v0c0,53.01934 -42.98066,96 -96,96z"
+                fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+            <path
+                d="M96,188.16c-50.89856,0 -92.16,-41.26144 -92.16,-92.16v0c0,-50.89856 41.26144,-92.16 92.16,-92.16v0c50.89856,0 92.16,41.26144 92.16,92.16v0c0,50.89856 -41.26144,92.16 -92.16,92.16z"
+                fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+            <path d="M0,192v-192h192v192z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+            <path d="M3.84,188.16v-184.32h184.32v184.32z" fill="none" stroke="none" stroke-width="1"
+                stroke-linejoin="miter" />
+            <path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter" />
+        </g>
+    </g>
+</svg>

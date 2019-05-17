@@ -1,16 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { Utils } from '../shared/utils';
+import { DataService } from 'src/app/services/data.service';
+import { NavigationMenu } from 'src/app/models/navigation-menu';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
-  }
+    isDesktopScreen: boolean;
+    menus: any[];
+    mobileMenus: any[]
 
-  ngOnInit() {
-  }
+    constructor(private navigationService: NavigationService, private dataService: DataService) {
+        this.isDesktopScreen = Utils.isDesktopScreen();
+        this.menus = this.navigationService.getDesktopNavigations();
+        this.mobileMenus = this.navigationService.getMobileNavigations();
+    }
+
+    ngOnInit() {
+    }
+
+    navigationSelected(e) {
+        let navigation: NavigationMenu = e.itemData
+        if (navigation.Query)
+            this.dataService.changeQuery(navigation.Query);
+    }
 
 }

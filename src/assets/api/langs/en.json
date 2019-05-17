@@ -169,11 +169,14 @@
 	"Thailand": "Thailand",
 	"Ukraine": "Ukraine",
 	"UnitedKingdom": "United Kingdom",
-
-	"TrendingNow":"Trending Now",
 	
 	"Clear":"Clear",
 	"ShowMore":"Show More",
 
-	"MovieNotFound":"We couldn’t find any movie that matches your search!"
+	"MovieNotFound":"We couldn’t find any movie that matches your search!",
+
+	"Movies":"Movies",
+	"Series":"Series",
+	"TopRated":"Top Rated",
+	"TrendingNow":"Trending Now"
 }

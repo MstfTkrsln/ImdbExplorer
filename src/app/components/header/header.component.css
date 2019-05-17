@@ -1,10 +1,186 @@
 .header {
   position: relative;
-  height: 120px;
+  height: 80px;
   background-color: #331d35;
+  padding: 0 40px;
 }
 
 .logo{
-  margin-left: 10px;
+  display: inline-block;
+  margin-top: -14px;
 }
   
+nav{
+  float: right;
+  height: 100%;
+}
+
+ dx-menu {
+  float: left;
+}
+
+.top-menu{
+  margin-top: 15px;
+}
+
+::ng-deep .top-menu .dx-context-menu-container-border, ::ng-deep .button-menu .dx-context-menu-container-border {
+  border: none;
+}
+::ng-deep .top-menu .dx-context-menu-content-delimiter, ::ng-deep .button-menu .dx-context-menu-content-delimiter {
+  background-color: transparent;
+}
+::ng-deep .top-menu .dx-menu-item .dx-menu-item-content, ::ng-deep .button-menu .dx-menu-item .dx-menu-item-content {
+  padding: 0;
+}
+::ng-deep .top-menu .menu-item,
+::ng-deep .button-menu .menu-item {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: 10px 0;
+  display: block;
+  text-decoration: none;
+}
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .dx-menu-item.dx-menu-item-expanded, 
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .dx-menu-item.dx-state-hover, 
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .dx-menu-item.dx-state-focused {
+  background-color: #EB3313;
+}
+
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .dx-menu-item .menu-item {
+  color: #fff !important;
+}
+
+ ::ng-deep .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-popout-container {
+  color: #EB3313;
+}
+
+::ng-deep .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-popout-container : hover {
+  color: #fff;
+}
+
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .menu-item {
+  padding-right: 25px;
+} 
+
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper {
+  min-width: 100px;
+  text-align: center;
+  position: relative;
+}
+
+::ng-deep .top-menu.dx-context-menu .dx-submenu .menu-item {
+  min-width: 200px;
+} 
+
+
+
+
+/* ::ng-deep .top-menu .dx-menu-horizontal {
+  height: 100%;
+}  */
+/*
+ ::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper {
+  width: 290px;
+  text-align: right;
+  position: relative;
+}
+::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper:after {
+  font: 20px/1 DXIcons;
+  content: "\F001";
+  color: #fff;
+  position: absolute;
+  top: 22px;
+  right: 16px;
+} 
+ ::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .menu-item {
+  padding-right: 46px;
+}   */
+
+
+
+
+/* ::ng-deep .top-menu.dx-context-menu .dx-submenu .menu-item {
+  width: 200px;
+} */
+
+/* ::ng-deep .dx-menu-item-wrapper{
+  color: #fff !important;
+} */
+
+
+/* 
+::ng-deep .top-menu.dx-context-menu .dx-submenu .dx-menu-item-wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, .18);
+}
+::ng-deep .top-menu.dx-context-menu .dx-submenu .dx-menu-item-wrapper:last-child {
+  border-bottom: none;
+}
+::ng-deep .button-menu.dx-menu .dx-menu-item {
+  height: 60px;
+  line-height: 60px;
+}
+::ng-deep .button-menu.dx-menu .dx-menu-item.dx-menu-item-expanded, ::ng-deep .button-menu.dx-menu .dx-menu-item.dx-state-hover, ::ng-deep .button-menu.dx-menu .dx-menu-item.dx-state-focused {
+  background-color: #EB3313;
+}
+::ng-deep .button-menu.dx-menu .dx-menu-item .dx-menu-item-content .dx-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 14px;
+}
+::ng-deep .button-menu.dx-context-menu .dx-submenu {
+  padding-bottom: 15px;
+} */
+
+
+/* ::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-items-container:before {
+  content: "Color Schemes";
+  display: block;
+  margin: 20px 14px 15px;
+  font-family: 'Open Sans Condensed', 'HelveticaNeue-CondensedBold', Helvetica, 'Arial Narrow', Calibri, Arial, 'Lucida Grande', sans-serif;
+  font-size: 18px;
+} */
+
+
+/* 
+::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-item {
+  height: 45px;
+  line-height: 40px;
+}
+::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-item .dx-menu-item-content .dx-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 0px 14px;
+}
+::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-item .dx-menu-item-content .dx-menu-item-text {
+  padding-left: 0;
+  padding-right: 40px;
+}
+::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-item .dx-menu-item-content .dx-menu-item-text.dx-theme-accent-as-text-color {
+  font-weight: bold;
+}
+::ng-deep .button-menu.dx-context-menu .dx-submenu .dx-menu-item.dx-state-focused .dx-menu-item-text.dx-theme-accent-as-text-color {
+  color: #fff !important;
+} */
+
+
+/* ::ng-deep .dx-menu-item.dx-state-hover {
+  background-color: #EB3313;
+  color: #fff;
+} */
+
+
+/* .header-container {
+  background-color: rgba(53, 53, 53, 0.9);
+} */
+/* .header-container .content {
+  min-width: 800px;
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: 0 auto;
+  height: 60px;
+  color: #fff !important;
+} */

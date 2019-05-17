@@ -30,8 +30,13 @@ import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
 import { DxSliderModule } from 'devextreme-angular/ui/slider';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
+import { DxMenuModule } from 'devextreme-angular/ui/menu';
 
 import { FooterComponent } from './components/footer/footer.component';
+import { NavigationService } from './services/navigation.service';
+import { DataService } from './services/data.service';
+//import { appRouting } from './app.routing';
+
 
 @NgModule({
   imports: [
@@ -40,6 +45,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpModule,
     I18nModule,
     BlockUIModule.forRoot(),
+    //appRouting,
 
     DxButtonModule,
     DxRangeSelectorModule,
@@ -50,7 +56,8 @@ import { FooterComponent } from './components/footer/footer.component';
     DxTextBoxModule,
     DxSliderModule,
     DxScrollViewModule,
-    DxLoadIndicatorModule
+    DxLoadIndicatorModule,
+    DxMenuModule
   ],
   declarations: [
     AppComponent,
@@ -63,7 +70,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CommaSeperatedPipe,
     BlockTemplateComponent
   ],
-  providers: [JsonApiService, ImdbSearhService, EnumTranslatorService],
+  providers: [JsonApiService, DataService, ImdbSearhService, EnumTranslatorService, NavigationService],
   entryComponents: [BlockTemplateComponent],
   bootstrap: [AppComponent]
 })
