@@ -31,6 +31,7 @@ import { DxSliderModule } from 'devextreme-angular/ui/slider';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import { DxMenuModule } from 'devextreme-angular/ui/menu';
+import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationService } from './services/navigation.service';
@@ -57,7 +58,8 @@ import { DataService } from './services/data.service';
     DxSliderModule,
     DxScrollViewModule,
     DxLoadIndicatorModule,
-    DxMenuModule
+    DxMenuModule,
+    DxCheckBoxModule
   ],
   declarations: [
     AppComponent,

@@ -65,16 +65,20 @@
 	"BestPictureWinner": "Best Picture Winner",
 	"BestDirectorWinner": "Best Director Winner",
 	"EmmyWinner": "Emmy Winner",
-	"EmmyNominess": "Emmy Nominess",
+	"EmmyNominee": "Emmy Nominee",
+	"GoldenGlobeWinner":"Golden Globe Winner",
+	"GoldenGlobeNominee":"Golden Globe Nominee",
 
 	"PopularityAsc": "Popularity Asc",
 	"PopularityDesc": "Popularity Desc",
 	"UserRatingAsc": "User Rating Asc",
 	"UserRatingDesc": "User Rating Desc",
-	"NumVotesAsc": "Votes Asc",
-	"NumVotesDesc": "Votes Desc",
+	"NumVotesAsc": "Number Of Votes Asc",
+	"NumVotesDesc": "Number Of Votes Desc",
 	"ReleaseDateAsc": "Release Date Asc",
 	"ReleaseDateDesc": "Release Date Desc",
+	"BoxOfficeDesc":"US Box Office Desc",
+	"BoxOfficeAsc":"US Box Office Asc",
 	
 	"Feature": "Movie",
 	"TvMovie": "Tv Movie",
@@ -169,6 +173,9 @@
 	"Thailand": "Thailand",
 	"Ukraine": "Ukraine",
 	"UnitedKingdom": "United Kingdom",
+
+	"OnNetflix":"On Netflix",
+	"OnAmazonPrime":"On Amazon Prime",
 	
 	"Clear":"Clear",
 	"ShowMore":"Show More",

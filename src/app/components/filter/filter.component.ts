@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { Query } from 'src/app/models/query/query';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
-import { Genre, Color, Group, SortType, TitleType, Language, Country } from 'src/app/models/enums';
+import { Genre, Color, Group, SortType, TitleType, Language, Country, Compnay } from 'src/app/models/enums';
 import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { Utils } from '../shared/utils';
 import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
@@ -31,6 +31,9 @@ export class FilterComponent implements OnInit {
   titleTypes: KeyValuePair[];
   languages: KeyValuePair[];
   countries: KeyValuePair[];
+
+  onNetflix: boolean = false;
+  onAmazon: boolean = false;
 
   isFilterSearchable: boolean = true;
 
@@ -68,6 +71,16 @@ export class FilterComponent implements OnInit {
       this.query.ReleaseDate.Min = new Date(this.yearRange[0] + '-01-01');
     if (this.yearRange[1])
       this.query.ReleaseDate.Max = new Date(this.yearRange[1] + '-12-31');
+
+    if (this.onNetflix || this.onAmazon) {
+      this.query.Companies = [];
+      if (this.onNetflix)
+        this.query.Companies.push(Compnay.Netflix)
+      if (this.onAmazon)
+        this.query.Companies.push(Compnay.AmazonPrime)
+    }
+    else
+      this.query.Companies = null;
 
     this.dataService.changeQuery(this.query);
 

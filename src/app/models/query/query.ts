@@ -1,4 +1,4 @@
-import { TitleType, Genre, Group, Color, Language, Country, SortType } from 'src/app/models/enums';
+import { TitleType, Genre, Group, Color, Language, Country, SortType, Compnay } from 'src/app/models/enums';
 import { UserRating } from './user-rating';
 import { ReleaseDate } from './release-date';
 import { NumVotes } from './num-votes';
@@ -17,6 +17,7 @@ export class Query {
     public Colors: Color[];
     public Languages: Language[];
     public Countries: Country[];
+    public Companies: Compnay[];
     public MovieMeter: MovieMeter;
     public Sort: SortType;
     public Page: number;

@@ -65,7 +65,9 @@
 	"BestPictureWinner": "En İyi Yapım Ödüllü",
 	"BestDirectorWinner": "En İyi Yönetmen Ödüllü",
 	"EmmyWinner": "Emmy Ödüllü",
-	"EmmyNominess": "Emmy Adayı",
+	"EmmyNominee": "Emmy Adayı",
+	"GoldenGlobeWinner":"Altın Küre Ödüllü",
+	"GoldenGlobeNominee":"Altın Küre Adayı",
 
 	"PopularityAsc": "Popülarite (Artan)",
 	"PopularityDesc": "Popülarite (Azalan)",
@@ -75,6 +77,8 @@
 	"NumVotesDesc": "Oylama Sayısı (Azalan)",
 	"ReleaseDateAsc": "Çıkış Tarihi (Artan)",
 	"ReleaseDateDesc": "Çıkış Tarihi (Azalan)",
+	"BoxOfficeAsc":"US Box Office (Artan)",
+	"BoxOfficeDesc":"US Box Office (Azalan)",
 
 	"Feature": "Film",
 	"TvMovie": "Tv Film",
@@ -169,6 +173,9 @@
 	"Thailand": "Tayland",
 	"Ukraine": "Ukrayna",
 	"UnitedKingdom": "İngiltere",
+
+	"OnNetflix":"Netflix'te",
+	"OnAmazonPrime":"Amazon Prime'da",
 	
 	"Clear":"Temizle",
 	"ShowMore":"Daha Fazla Göster",
@@ -179,5 +186,4 @@
 	"Series":"Dizi",
 	"TopRated":"En Çok Oy Alan",
 	"TrendingNow":"Şu Anda Popüler"
-
 }

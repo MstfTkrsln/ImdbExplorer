@@ -41,10 +41,12 @@ export enum Group {
     NowPlaying = 3,
     OscarWinner = 4,
     OscarNominee = 5,
-    BestPictureWinner = 6,
-    BestDirectorWinner = 7,
     EmmyWinner = 8,
-    EmmyNominess = 9
+    EmmyNominee = 9,
+    GoldenGlobeWinner = 10,
+    GoldenGlobeNominee = 11,
+    BestPictureWinner = 6,
+    BestDirectorWinner = 7
 }
 
 export enum SortType {
@@ -56,6 +58,8 @@ export enum SortType {
     NumVotesAsc = 4,
     ReleaseDateDesc = 7,
     ReleaseDateAsc = 6,
+    BoxOfficeDesc = 8,
+    BoxOfficeAsc = 9
 }
 
 export enum TitleType {
@@ -158,4 +162,17 @@ export enum Country {
     Thailand,
     Ukraine,
     UnitedKingdom
+}
+
+export enum Compnay {
+    Netflix = 0,
+    AmazonPrime = 1,
+    CenturyFox = 2,
+    Sony = 3,
+    Dreamworks = 4,
+    MGM = 5,
+    Paramount = 6,
+    Universal = 7,
+    WaltDisney = 8,
+    WarnerBros = 9
 }

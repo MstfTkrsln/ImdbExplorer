@@ -127,11 +127,19 @@
         </div>
       </fieldset> -->
 
+      <fieldset class="margin-top-5-bottom-10">
+          <div class="form-group">           
+            <dx-check-box [(value)]="onNetflix" text="{{'OnNetflix' | i18n}}" style="float: left;"></dx-check-box>
+            <dx-check-box [(value)]="onAmazon" text="{{'OnAmazonPrime' | i18n}}" style="float: right;"></dx-check-box>
+          </div>
+      </fieldset>
+
       <fieldset>
         <div class="form-group">
           <dx-text-box height="40" [(value)]="query.Title" placeholder="{{'MovieTitle' | i18n}}" [showClearButton]="true"></dx-text-box>
         </div>
       </fieldset>
+
 
       <!-- Result Count -->
       <!-- <fieldset>
