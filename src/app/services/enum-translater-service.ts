@@ -14,17 +14,20 @@ export class EnumTranslatorService {
             err => console.log(err));
     }
 
-    getEnumValues(enumType): KeyValuePair[] {
+    getEnumValues(enumType, sortByName: boolean = false): KeyValuePair[] {
         let result: KeyValuePair[] = [];
         for (let value in enumType) {
             if (value.startsWith('_'))
                 continue;
-                
+
             if (typeof enumType[value] === 'number') {
                 let translatedName = this.i18nService.getTranslation(value);
                 result.push(new KeyValuePair(translatedName, enumType[value]));
             }
         }
+        if (sortByName)
+            result.sort((a, b) => a.Value.localeCompare(b.Value));
+            //result.sort((a, b) => (a.Value > b.Value) ? 1 : ((b.Value > a.Value) ? -1 : 0));
         return result;
     }
 

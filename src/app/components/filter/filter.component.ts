@@ -46,13 +46,13 @@ export class FilterComponent implements OnInit {
     this.query = new Query();
 
     this.enumService.onReady.subscribe(() => {
-      this.genres = this.enumService.getEnumValues(Genre);
+      this.genres = this.enumService.getEnumValues(Genre, true);
       this.colors = this.enumService.getEnumValues(Color);
       this.groups = this.enumService.getEnumValues(Group);
       this.sortTypes = this.enumService.getEnumValues(SortType);
       this.titleTypes = this.enumService.getEnumValues(TitleType);
-      this.languages = this.enumService.getEnumValues(Language);
-      this.countries = this.enumService.getEnumValues(Country);
+      this.languages = this.enumService.getEnumValues(Language, true);
+      this.countries = this.enumService.getEnumValues(Country, true);
     }, err => console.log(err));
 
     this.isFilterSearchable = Utils.isDesktopScreen();
