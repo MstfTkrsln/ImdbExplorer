@@ -51,7 +51,7 @@ export class Query {
     static getQueryForTopRatedMovies(): Query {
         let query: Query = new Query();
         query.Sort = SortType.UserRatingDesc;
-        query.Groups = [Group.Top1000];
+        query.Groups = [Group._Top1000];
         query.TitleTypes = [TitleType.Feature];
         return query;
     }

@@ -15,6 +15,7 @@ export enum Genre {
     Drama = 7,
     Family = 8,
     Fantasy = 9,
+    FilmNoir = 10,
     History = 12,
     Horror = 13,
     Music = 14,
@@ -27,18 +28,17 @@ export enum Genre {
     War = 24,
     Western = 25,
 
-    FilmNoir = 10,
-    GameShow = 11,
-    News = 17,
-    RealityTv = 18,
-    TalkShow = 22
+    _GameShow = 11,
+    _News = 17,
+    _RealityTv = 18,
+    _TalkShow = 22
 }
 
 export enum Group {
-    Top100 = 0,
-    Top250 = 1,
-    Top1000 = 2,
-    NowPlaying = 3,
+    _Top100 = 0,
+    _Top250 = 1,
+    _Top1000 = 2,
+    _NowPlaying = 3,
     OscarWinner = 4,
     OscarNominee = 5,
     EmmyWinner = 8,

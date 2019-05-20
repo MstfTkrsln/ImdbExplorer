@@ -17,6 +17,9 @@ export class EnumTranslatorService {
     getEnumValues(enumType): KeyValuePair[] {
         let result: KeyValuePair[] = [];
         for (let value in enumType) {
+            if (value.startsWith('_'))
+                continue;
+                
             if (typeof enumType[value] === 'number') {
                 let translatedName = this.i18nService.getTranslation(value);
                 result.push(new KeyValuePair(translatedName, enumType[value]));
