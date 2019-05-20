@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
 
-    this.dataService.currentQuery.subscribe(query => this.onSearch(query))
+    this.dataService.CurrentQuery.subscribe(query => this.onSearch(query))
   }
 
   // getLastPartOfUri) {

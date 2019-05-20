@@ -6,7 +6,7 @@ import { Query } from '../models/query/query';
 export class DataService {
 
     private QuerySource = new BehaviorSubject<Query>(new Query())
-    currentQuery = this.QuerySource.asObservable();
+    CurrentQuery = this.QuerySource.asObservable();
 
     constructor() { }
 

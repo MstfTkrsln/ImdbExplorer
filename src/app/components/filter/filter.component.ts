@@ -5,6 +5,7 @@ import { Genre, Color, Group, SortType, TitleType, Language, Country } from 'src
 import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { Utils } from '../shared/utils';
 import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
+import { DataService } from 'src/app/services/data.service';
 
 declare const $: any;
 
@@ -18,8 +19,6 @@ export class FilterComponent implements OnInit {
   @ViewChild('yearSelector') yearSelector: DxRangeSelectorComponent;
 
   @ViewChild('filterBar') filterBar: ElementRef;
-
-  @Output() onSearch = new EventEmitter<Query>();
 
   filterBarTopDefault: number;
 
@@ -40,7 +39,7 @@ export class FilterComponent implements OnInit {
   ratingRange: any[2] = [null, null];
   yearRange: any[2] = [null, null];
 
-  constructor(private enumService: EnumTranslatorService) {
+  constructor(private enumService: EnumTranslatorService, private dataService: DataService) {
     this.query = new Query();
 
     this.enumService.onReady.subscribe(() => {
@@ -70,7 +69,7 @@ export class FilterComponent implements OnInit {
     if (this.yearRange[1])
       this.query.ReleaseDate.Max = new Date(this.yearRange[1] + '-12-31');
 
-    this.onSearch.emit(this.query);
+    this.dataService.changeQuery(this.query);
 
     if (!Utils.isDesktopScreen())
       this.triggerFilter(false);
