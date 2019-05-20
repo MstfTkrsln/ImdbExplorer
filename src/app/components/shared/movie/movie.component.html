@@ -15,7 +15,9 @@
     <p id="P_13">
       <span id="SPAN_16">{{movie.Duration}}</span>
       <span id="SPAN_17"> | </span>
-      <span id="SPAN_18">{{movie.Genres | commaSeperated}}</span>
+      <span id="SPAN_18" *ngFor="let genre of movie.Genres;let isLast=last">
+        {{genre | i18n}}{{isLast ? '' : ' - '}}
+      </span>
     </p>
 
     <div id="DIV_19">
@@ -33,9 +35,11 @@
     </p>
 
     <p id="P_65">
-      {{'Director' | i18n}}: <a id="A_66" *ngFor="let director of movie.Directors;let isLast=last" [href]="director.Url" target="_blank">{{director.Name}}{{isLast ? '' : ' - '}}</a>
+      {{'Director' | i18n}}: <a id="A_66" *ngFor="let director of movie.Directors;let isLast=last" [href]="director.Url"
+        target="_blank">{{director.Name}}{{isLast ? '' : ' - '}}</a>
       <br>
-      {{'Stars' | i18n}}: <a id="A_68" *ngFor="let star of movie.Stars;let isLast=last" [href]="star.Url" target="_blank">{{star.Name}}{{isLast ? '' : ' - '}}</a>
+      {{'Stars' | i18n}}: <a id="A_68" *ngFor="let star of movie.Stars;let isLast=last" [href]="star.Url"
+        target="_blank">{{star.Name}}{{isLast ? '' : ' - '}}</a>
     </p>
 
     <p id="P_72">
