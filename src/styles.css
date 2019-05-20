@@ -235,6 +235,7 @@ Primary style
     padding-right: 15px; 
     padding-left: 15px; 
     width: 100%;
+    z-index: 1;
   }
   
   .cd-gallery li {
