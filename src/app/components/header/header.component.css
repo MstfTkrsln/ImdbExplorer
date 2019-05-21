@@ -74,10 +74,6 @@ nav{
   min-width: 200px;
 } 
 
-::ng-deep .dx-resizable {
-  width: 50px !important;
-} 
-
 
 /* ::ng-deep .top-menu .dx-menu-horizontal {
   height: 100%;

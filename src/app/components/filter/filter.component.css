@@ -44,9 +44,12 @@
 ::ng-deep .dx-resizable{
   background-color:#F05B41 !important;
   color: #ffffff !important;
-
 }
 
 .fit-scrren{
   max-height: calc(100vh - 10px); 
+}
+
+::ng-deep #votingSlider .dx-resizable {
+  width: 50px !important;
 }
