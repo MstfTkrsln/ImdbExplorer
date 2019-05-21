@@ -13,7 +13,7 @@
     </h3>
 
     <p id="P_13">
-      <span id="SPAN_16">{{movie.Duration}}</span>
+      <span id="SPAN_16">{{movie.Duration}} {{'min' | i18n}}</span>
       <span id="SPAN_17"> | </span>
       <span id="SPAN_18" *ngFor="let genre of movie.Genres;let isLast=last">
         {{genre | i18n}}{{isLast ? '' : ' - '}}
