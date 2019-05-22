@@ -5,7 +5,6 @@ import { NumVotes } from './num-votes';
 import { MovieMeter } from './movie-meter';
 
 export class Query {
-
     public Count: number;
     public Title: string;
     public TitleTypes: TitleType[];
@@ -42,6 +41,18 @@ export class Query {
         return query;
     }
 
+    static getQueryForInTheaters(): Query {
+        let today: Date = new Date();
+        today.setMonth(today.getMonth() - 3);
+
+        let query: Query = new Query();
+        query.Groups = [Group._NowPlaying];
+        query.ReleaseDate = new ReleaseDate(today, null);
+        return query;
+    }
+
+
+    //#region Movies
     static getQueryForPopularMovies(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Feature];
@@ -56,9 +67,46 @@ export class Query {
         return query;
     }
 
+    static getQueryForBoxOfficeMovies(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.BoxOfficeDesc;
+        query.TitleTypes = [TitleType.Feature];
+        return query;
+    }
+
+    static getQueryForTop250Movies(): Query {
+        let query: Query = new Query();
+        query.Groups = [Group._Top250];
+        query.TitleTypes = [TitleType.Feature];
+        query.Sort = SortType.UserRatingDesc;
+        query.Count = 250;
+        return query;
+    }
+        static getQueryForOscarWinnerMovies(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.Groups = [Group.OscarWinner];
+        return query;
+    }
+    static getQueryForPictureWinnerMovies(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.Groups = [Group.BestPictureWinner];
+        return query;
+    }
+    static getQueryForDirectorWinnerMovies(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.Groups = [Group.BestDirectorWinner];
+        return query;
+    }
+    //#endregion
+
+
+    //#region Series
     static getQueryForPopularSeries(): Query {
         let query: Query = new Query();
-        query.TitleTypes = [TitleType.TvSeries,TitleType.MiniSeries];
+        query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
         return query;
     }
 
@@ -66,7 +114,74 @@ export class Query {
         let query: Query = new Query();
         query.Sort = SortType.UserRatingDesc;
         query.NumVotes = new NumVotes(25000, null);
-        query.TitleTypes = [TitleType.TvSeries,TitleType.MiniSeries];
+        query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
         return query;
     }
+    static getQueryForGoldenGlobeWinnerSeries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.NumVotes = new NumVotes(25000, null);
+        query.Groups = [Group.GoldenGlobeWinner];
+        query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
+        return query;
+    }
+    static getQueryForEmmyWinnerSeries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.NumVotes = new NumVotes(25000, null);
+        query.Groups = [Group.EmmyWinner];
+        query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
+        return query;
+    }
+    //#endregion
+
+
+    //#region Series
+    static getQueryForPopularDocumentaries(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.Documentary];
+        return query;
+    }
+    static getQueryForTopRatedDocumentaries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.UserRatingDesc;
+        query.NumVotes = new NumVotes(10000, null);
+        query.Genres = [Genre.Documentary];
+        return query;
+    }
+    static getQueryForEmmyWinnerDocumentaries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.Groups = [Group.EmmyWinner];
+        query.TitleTypes = [TitleType.Documentary];
+        return query;
+    }
+    static getQueryForOscarWinnerDocumentaries(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.ReleaseDateDesc;
+        query.Groups = [Group.OscarWinner];
+        query.TitleTypes = [TitleType.Documentary];
+        return query;
+    }
+    //#endregion
+
+
+    //#region Series
+    static getQueryForPopularGames(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.Game];
+        return query;
+    }
+    static getQueryForTopRatedGames(): Query {
+        let query: Query = new Query();
+        query.Sort = SortType.UserRatingDesc;
+        query.NumVotes = new NumVotes(5000, null);
+        query.TitleTypes = [TitleType.Game];
+        return query;
+    }
+    //#endregion
+
+
+
+
 }

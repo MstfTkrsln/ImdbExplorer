@@ -70,6 +70,8 @@
 	"EmmyNominee": "Emmy Adayı",
 	"GoldenGlobeWinner":"Altın Küre Ödüllü",
 	"GoldenGlobeNominee":"Altın Küre Adayı",
+	"BestPictureNominee":"En İyi Yapım Adayı",
+	"BestDirectorNominee":"En İyi Yönetmen Adayı",
 
 	"PopularityAsc": "Popülarite (Artan)",
 	"PopularityDesc": "Popülarite (Azalan)",
@@ -81,6 +83,7 @@
 	"ReleaseDateDesc": "Çıkış Tarihi (Azalan)",
 	"BoxOfficeAsc":"US Box Office (Artan)",
 	"BoxOfficeDesc":"US Box Office (Azalan)",
+	"BoxOfficeUS":"Box Office (US)",
 
 	"Feature": "Film",
 	"TvMovie": "Tv Film",
@@ -186,6 +189,14 @@
 
 	"Movies":"Film",
 	"Series":"Dizi",
+	"Games": "Oyun",
+	"InTheaters":"Vizyondakiler",
+	"BestPictureWinners": "En İyi Fim Ödüllü",
+	"BestDirectorWinners": "En İyi Yönetmen Ödüllü",
+	"EmmyWinners":	"Emmy Ödüllü",
+	"GoldenGlobeWinners": "Altın Küre Ödüllü",
+	"OscarWinners": "Oscar Ödüllü",
+
 	"TopRated":"En Çok Oy Alan",
 	"TrendingNow":"Şu Anda Popüler"
 }

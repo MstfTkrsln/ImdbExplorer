@@ -46,7 +46,9 @@ export enum Group {
     GoldenGlobeWinner = 10,
     GoldenGlobeNominee = 11,
     BestPictureWinner = 6,
-    BestDirectorWinner = 7
+    BestPictureNominee = 12,
+    BestDirectorWinner = 7,
+    BestDirectorNominee = 13
 }
 
 export enum SortType {

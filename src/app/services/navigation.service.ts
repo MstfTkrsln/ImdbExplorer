@@ -8,6 +8,12 @@ export class NavigationService {
 
     menus: NavigationMenu[] = [
         {
+            Name: "InTheaters",
+            Icon: null,
+            Query: Query.getQueryForInTheaters(),
+            Children: null
+        },
+        {
             Name: "Movies",
             Icon: null,
             Query: null,
@@ -23,7 +29,38 @@ export class NavigationService {
                     Icon: null,
                     Query: Query.getQueryForTopRatedMovies(),
                     Children: null
-                }]
+                },
+                {
+                    Name: "Top250",
+                    Icon: null,
+                    Query: Query.getQueryForTop250Movies(),
+                    Children: null
+                },
+                {
+                    Name: "BoxOfficeUS",
+                    Icon: null,
+                    Query: Query.getQueryForBoxOfficeMovies(),
+                    Children: null
+                },
+                {
+                    Name: "OscarWinners",
+                    Icon: null,
+                    Query: Query.getQueryForOscarWinnerMovies(),
+                    Children: null
+                },
+                {
+                    Name: "BestPictureWinners",
+                    Icon: null,
+                    Query: Query.getQueryForPictureWinnerMovies(),
+                    Children: null
+                },
+                {
+                    Name: "BestDirectorWinners",
+                    Icon: null,
+                    Query: Query.getQueryForDirectorWinnerMovies(),
+                    Children: null
+                }
+            ]
         },
         {
             Name: "Series",
@@ -41,7 +78,70 @@ export class NavigationService {
                     Icon: null,
                     Query: Query.getQueryForTopRatedSeries(),
                     Children: null
-                }]
+                },
+                {
+                    Name: "EmmyWinners",
+                    Icon: null,
+                    Query: Query.getQueryForEmmyWinnerSeries(),
+                    Children: null
+                },
+                {
+                    Name: "GoldenGlobeWinners",
+                    Icon: null,
+                    Query: Query.getQueryForGoldenGlobeWinnerSeries(),
+                    Children: null
+                }
+            ]
+        },
+        {
+            Name: "Documentary",
+            Icon: null,
+            Query: null,
+            Children: [
+                {
+                    Name: "TrendingNow",
+                    Icon: null,
+                    Query: Query.getQueryForPopularDocumentaries(),
+                    Children: null
+                },
+                {
+                    Name: "TopRated",
+                    Icon: null,
+                    Query: Query.getQueryForTopRatedDocumentaries(),
+                    Children: null
+                },
+                {
+                    Name: "OscarWinners",
+                    Icon: null,
+                    Query: Query.getQueryForOscarWinnerDocumentaries(),
+                    Children: null
+                },
+                {
+                    Name: "EmmyWinners",
+                    Icon: null,
+                    Query: Query.getQueryForEmmyWinnerDocumentaries(),
+                    Children: null
+                }
+            ]
+        },
+        {
+            Name: "Games",
+            Icon: null,
+            Query: null,
+            Children: [
+                {
+                    Name: "TrendingNow",
+                    Icon: null,
+                    Query: Query.getQueryForPopularGames(),
+                    Children: null
+                },
+                {
+                    Name: "TopRated",
+                    Icon: null,
+                    Query: Query.getQueryForTopRatedGames(),
+                    Children: null
+                }
+            ]
         }
     ];
 

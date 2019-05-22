@@ -70,6 +70,8 @@
 	"EmmyNominee": "Emmy Nominee",
 	"GoldenGlobeWinner":"Golden Globe Winner",
 	"GoldenGlobeNominee":"Golden Globe Nominee",
+	"BestPictureNominee":"Best Picture Nominee",
+	"BestDirectorNominee":"Best Director Nominee",
 
 	"PopularityAsc": "Popularity Asc",
 	"PopularityDesc": "Popularity Desc",
@@ -81,6 +83,7 @@
 	"ReleaseDateDesc": "Release Date Desc",
 	"BoxOfficeDesc":"US Box Office Desc",
 	"BoxOfficeAsc":"US Box Office Asc",
+	"BoxOfficeUS":"Box Office (US)",
 	
 	"Feature": "Movie",
 	"TvMovie": "Tv Movie",
@@ -186,6 +189,14 @@
 
 	"Movies":"Movies",
 	"Series":"Series",
+	"Games":"Games",
+	"InTheaters":"In Theaters",
+	"BestPictureWinners": "Best Picture Winners",
+	"BestDirectorWinners": "Best Director Winners",
+	"EmmyWinners":	"Emmy Winners",
+	"GoldenGlobeWinners": "Golden Globe Winners",
+	"OscarWinners": "Oscar Winners",
+
 	"TopRated":"Top Rated",
 	"TrendingNow":"Trending Now"
 }
