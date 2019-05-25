@@ -10,14 +10,16 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit, OnChanges {
-  @Input() searchResult: SearchResult;
   @Input() isBlockingActive: boolean = false;
   @Input() isSpinnerVisible: boolean = false;
 
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
+  searchResult: SearchResult;
+
   constructor(private dataService: DataService) {
+    this.dataService.CurrentResult.subscribe(result => this.searchResult = result);
   }
 
   ngOnInit() {

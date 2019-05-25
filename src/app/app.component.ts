@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ImdbSearhService } from './services/imdb-search.service';
 import { Query } from './models/query/query';
-import { SearchResult } from './models/search-result';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.component';
 import { DataService } from './services/data.service';
@@ -19,7 +18,6 @@ export class AppComponent implements OnInit {
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
-  searchResult: SearchResult;
   isSearching: boolean = false;
   isLoadingMore: boolean = false;
 
@@ -44,8 +42,10 @@ export class AppComponent implements OnInit {
 
     this.imdbService.Search(query)
       .subscribe(result => {
+
         console.log(result);
-        this.searchResult = result;
+
+        this.dataService.updateResult(result)
       },
         (error) => {
           console.log(error);
@@ -67,12 +67,7 @@ export class AppComponent implements OnInit {
       .subscribe(result => {
         console.log(result);
 
-        this.searchResult.Count = result.Count;
-        this.searchResult.First = result.First;
-        this.searchResult.Last = result.Last;
-        this.searchResult.TotalCount = result.TotalCount;
-        this.searchResult.SearchUrl = result.SearchUrl;
-        this.searchResult.Movies.push(...result.Movies);
+        this.dataService.concatResult(result);
       },
         (error) => {
           console.log(error);
