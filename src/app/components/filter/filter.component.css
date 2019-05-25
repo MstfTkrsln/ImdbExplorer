@@ -50,6 +50,6 @@
   max-height: calc(100vh - 10px); 
 }
 
-::ng-deep #votingSlider .dx-resizable {
+/* ::ng-deep #votingSlider .dx-resizable {
   width: 50px !important;
-}
+} */
