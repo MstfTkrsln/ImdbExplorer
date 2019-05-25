@@ -107,7 +107,7 @@
       <fieldset>
         <div class="form-group input-group">
           <div class="slider-title">{{'MinRatingCount' | i18n}}</div>          
-          <dx-slider id="votingSlider" width="100%" [min]="0" [max]="100000" [step]="1000" [(value)]="query.NumVotes.Min">
+          <dx-slider id="votingSlider" width="100%" [min]="0" [max]="100000" [step]="1000" [(value)]="minNumVotes">
               <dxo-tooltip [enabled]="true" [format]="formatWithK" showMode="always" position="top"></dxo-tooltip>
               <dxo-label [visible]="true" position="bottom" [format]="formatWithDot"></dxo-label>
           </dx-slider>

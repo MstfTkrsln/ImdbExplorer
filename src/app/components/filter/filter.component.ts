@@ -42,6 +42,8 @@ export class FilterComponent implements OnInit {
   ratingRange: any[2] = [null, null];
   yearRange: any[2] = [null, null];
 
+  minNumVotes: number = 0;
+
   constructor(private enumService: EnumTranslatorService, private dataService: DataService) {
     this.query = new Query();
 
@@ -64,6 +66,17 @@ export class FilterComponent implements OnInit {
   }
 
   explore() {
+    this.setFilters();
+
+    let _query = this.query.deepCopy();
+
+    this.dataService.changeQuery(_query);
+
+    if (!Utils.isDesktopScreen())
+      this.triggerFilter(false);
+  }
+
+  setFilters() {
     this.query.UserRating.Min = this.ratingRange[0];
     this.query.UserRating.Max = this.ratingRange[1];
 
@@ -82,12 +95,10 @@ export class FilterComponent implements OnInit {
     else
       this.query.Companies = undefined;
 
-    let _query = this.query.deepCopy();
-
-    this.dataService.changeQuery(_query);
-
-    if (!Utils.isDesktopScreen())
-      this.triggerFilter(false);
+    if (this.minNumVotes > 0)
+      this.query.NumVotes.Min = this.minNumVotes;
+    else
+      this.query.NumVotes.Min = null;
   }
 
   triggerFilter(isFilterPanelVisible: boolean) {
@@ -109,6 +120,7 @@ export class FilterComponent implements OnInit {
     this.yearRange = [null, null];
     this.onNetflix = false;
     this.onAmazon = false;
+    this.minNumVotes = 0;
 
     this.query = new Query();
   }
