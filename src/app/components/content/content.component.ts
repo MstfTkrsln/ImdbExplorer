@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
-import { Movie } from 'src/app/models/movie';
-
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.component';
 import { SearchResult } from 'src/app/models/search-result';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-content',
@@ -14,12 +13,11 @@ export class ContentComponent implements OnInit, OnChanges {
   @Input() searchResult: SearchResult;
   @Input() isBlockingActive: boolean = false;
   @Input() isSpinnerVisible: boolean = false;
-  @Output() onShowMore = new EventEmitter();
 
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
-  constructor() {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
@@ -49,7 +47,7 @@ export class ContentComponent implements OnInit, OnChanges {
   }
 
   showMore() {
-    this.onShowMore.emit();
+    this.dataService.nextPage();
   }
 
 }

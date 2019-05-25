@@ -80,9 +80,11 @@ export class FilterComponent implements OnInit {
         this.query.Companies.push(Compnay.AmazonPrime)
     }
     else
-      this.query.Companies = null;
+      this.query.Companies = undefined;
 
-    this.dataService.changeQuery(this.query);
+    let _query = this.query.deepCopy();
+
+    this.dataService.changeQuery(_query);
 
     if (!Utils.isDesktopScreen())
       this.triggerFilter(false);
@@ -105,6 +107,8 @@ export class FilterComponent implements OnInit {
   clearFilter() {
     this.ratingRange = [null, null];
     this.yearRange = [null, null];
+    this.onNetflix = false;
+    this.onAmazon = false;
 
     this.query = new Query();
   }

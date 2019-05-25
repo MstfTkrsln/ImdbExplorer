@@ -19,13 +19,9 @@ export class AppComponent implements OnInit {
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
-  CurrentQuery: Query;
-
   searchResult: SearchResult;
   isSearching: boolean = false;
   isLoadingMore: boolean = false;
-
-  currentPage: number;
 
   constructor(private imdbService: ImdbSearhService, private dataService: DataService) {
   }
@@ -33,20 +29,18 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
 
-    this.dataService.CurrentQuery.subscribe(query => this.onSearch(query))
+    this.dataService.CurrentQuery.subscribe(query => this.search(query));
+    this.dataService.NextPageQuery.subscribe(query => this.nextPage(query));
   }
 
   // getLastPartOfUri) {
   //   return location.pathname.substr(1)
   // }
 
-  onSearch(query: Query) {
+  search(query: Query) {
     this.startSearching();
 
     console.log(query);
-
-    this.CurrentQuery = query;
-    this.currentPage = this.CurrentQuery.Page;
 
     this.imdbService.Search(query)
       .subscribe(result => {
@@ -87,12 +81,6 @@ export class AppComponent implements OnInit {
         () => {
           this.isLoadingMore = false;
         });
-  }
-
-  onShowMore() {
-    let nextPageQuery = this.CurrentQuery.deepCopy();
-    nextPageQuery.Page = ++this.currentPage;
-    this.nextPage(nextPageQuery);
   }
 
   startSearching() {
