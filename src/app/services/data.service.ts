@@ -13,13 +13,13 @@ export class DataService {
     constructor() { }
 
     changeQuery(query: Query) {
-        this.QuerySource.next(query)
+        this.QuerySource.next(query);
     }
 
     nextPage() {
         let lastQuery = this.QuerySource.value;
         lastQuery.Page++;
-        this.NextPageQuerySource.next(lastQuery)
+        this.NextPageQuerySource.next(lastQuery);
     }
 
 
