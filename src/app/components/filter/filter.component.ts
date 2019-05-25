@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Query } from 'src/app/models/query/query';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 import { Genre, Color, Group, SortType, TitleType, Language, Country, Compnay } from 'src/app/models/enums';
