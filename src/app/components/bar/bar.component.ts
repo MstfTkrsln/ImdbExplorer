@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Utils } from '../shared/utils';
 
 @Component({
   selector: 'app-bar',
@@ -8,18 +9,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class BarComponent implements OnInit {
   @ViewChild('navbar') navbar: ElementRef;
 
-  navbarTopDefault: number;
-
   constructor() {
   }
 
   ngOnInit() {
-    this.navbarTopDefault = this.navbar.nativeElement.getBoundingClientRect().top;
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
   }
 
   onScrollChanged() {
-    if (window.pageYOffset > (this.navbarTopDefault + 150))
+    if (Utils.isFixedMode())
       this.navbar.nativeElement.classList.add('fixed-header');
     else
       this.navbar.nativeElement.classList.remove('fixed-header');

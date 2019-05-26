@@ -12,4 +12,8 @@ export class Utils {
     public static backToTop() {
         $('html, body').animate({ scrollTop: 0 }, '300');
     }
+
+    public static isFixedMode() {
+        return window.pageYOffset > 80; //80=header+bar
+    }
 }

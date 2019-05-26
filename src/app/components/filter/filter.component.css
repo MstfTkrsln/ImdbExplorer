@@ -46,7 +46,11 @@
   color: #ffffff !important;
 }
 
-.fit-scrren{
+.fit-screen{
+  max-height: calc(100vh - 90px); 
+}
+
+.fit-screen-fixed-header{
   max-height: calc(100vh - 10px); 
 }
 

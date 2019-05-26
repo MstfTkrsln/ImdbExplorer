@@ -19,8 +19,7 @@ export class FilterComponent implements OnInit {
   @ViewChild('yearSelector') yearSelector: DxRangeSelectorComponent;
 
   @ViewChild('filterBar') filterBar: ElementRef;
-
-  filterBarTopDefault: number;
+  @ViewChild('filterForm') filterForm: ElementRef;
 
   query: Query;
 
@@ -61,7 +60,6 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filterBarTopDefault = this.filterBar.nativeElement.getBoundingClientRect().top;
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
   }
 
@@ -109,10 +107,14 @@ export class FilterComponent implements OnInit {
   }
 
   onScrollChanged() {
-    if (window.pageYOffset > (this.filterBarTopDefault + 150))
+    if (Utils.isFixedMode()) {
       this.filterBar.nativeElement.classList.add('fixed-header');
-    else
+      this.filterForm.nativeElement.classList.add('fit-screen-fixed-header');
+    }
+    else {
       this.filterBar.nativeElement.classList.remove('fixed-header');
+      this.filterForm.nativeElement.classList.remove('fit-screen-fixed-header');
+    }
   }
 
   clearFilter() {
