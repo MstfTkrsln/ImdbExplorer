@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Utils } from '../shared/utils';
+import { DataService } from 'src/app/services/data.service';
+import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
+import { KeyValuePair } from 'src/app/models/key-value-pair';
+import { SortType } from 'src/app/models/enums';
+import { Query } from 'src/app/models/query/query';
 
 @Component({
   selector: 'app-bar',
@@ -9,11 +14,29 @@ import { Utils } from '../shared/utils';
 export class BarComponent implements OnInit {
   @ViewChild('navbar') navbar: ElementRef;
 
-  constructor() {
+  currentQuery: Query;
+  totalCount: string;
+
+  summary: string = "Arama Sonucu";
+
+  sortTypes: KeyValuePair[];
+
+  constructor(private dataService: DataService, private enumService: EnumTranslatorService) {
+    this.dataService.CurrentResult.subscribe(result => this.totalCount = result ? result.TotalCount.formatWithDot() : null);
+    this.dataService.CurrentQuery.subscribe(query => this.currentQuery = query);
+
+
+    this.enumService.onReady.subscribe(() => {
+      this.sortTypes = this.enumService.getEnumValues(SortType);
+    }, err => console.log(err));
   }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
+  }
+
+  changedSortType(){
+    this.dataService.changeQuery(this.currentQuery);    
   }
 
   onScrollChanged() {
@@ -22,5 +45,4 @@ export class BarComponent implements OnInit {
     else
       this.navbar.nativeElement.classList.remove('fixed-header');
   }
-
 }

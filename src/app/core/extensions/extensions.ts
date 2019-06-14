@@ -4,13 +4,14 @@ Date.prototype.toJSON = function () { return moment(this).format('YYYY-MM-DD'); 
 
 declare global {
     interface Array<T> {
-        move(from,to);
+        move(from, to);
     }
 }
 
 declare global {
     interface Number {
         thousandFormat();
+        formatWithDot();
     }
 }
 
@@ -19,6 +20,9 @@ Array.prototype.move = function (from, to) {
 };
 
 Number.prototype.thousandFormat = function () {
-    return  Math.round(this/1000) + 'K';
+    return Math.round(this / 1000) + 'K';
 };
 
+Number.prototype.formatWithDot = function () {
+    return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+};

@@ -1,17 +1,29 @@
 <div #navbar class="cd-tab-filter-wrapper">
   <div class="cd-tab-filter filter-is-visible">
-    <ul class="cd-filters">
 
-      <li class="placeholder">
-        <a data-type="all" href="#0">{{'TrendingNow' | i18n}}</a> <!-- selected option on mobile -->
-      </li>
+    <dx-toolbar height="50">
 
+      <!-- <dxi-item [visible]="summary" location="before" locateInMenu="never">
+        <div *dxTemplate>
+          <p style="color: #EB3313;">{{summary}}</p>
+        </div>
+      </dxi-item> -->
 
-      <li class="filter"><a class="selected" href="#0" data-type="all">{{'TrendingNow' | i18n}}</a></li>
-      <!--        
-      <li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
-      <li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
-       -->
-    </ul> <!-- cd-filters -->
+      <dxi-item [visible]="totalCount" location="center" locateInMenu="never">
+        <div *dxTemplate>
+          <p style="color: #EB3313;"> <b style="font-weight:bold;">{{totalCount}}</b> Sonuç Bulundu.</p>
+        </div>
+      </dxi-item>
+
+      <dxi-item location="after" locateInMenu="never">
+        <div *dxTemplate>
+          <dx-select-box style="float: right;" placeholder="{{'SortType' | i18n}}" [items]="sortTypes"
+          [(value)]="currentQuery.Sort" displayExpr="Value" valueExpr="Key" width="175" [showClearButton]="false" (onValueChanged)="changedSortType()"></dx-select-box>
+          <!-- <dx-radio-group [dataSource]="sortTypes" displayExpr="Value" layout="horizontal"></dx-radio-group> -->
+        </div>
+      </dxi-item>
+
+    </dx-toolbar>
+
   </div> <!-- cd-tab-filter -->
 </div> <!-- cd-tab-filter-wrapper -->

@@ -32,6 +32,9 @@ import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import { DxMenuModule } from 'devextreme-angular/ui/menu';
 import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
+import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
+//import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
+
 
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationService } from './services/navigation.service';
@@ -59,7 +62,9 @@ import { DataService } from './services/data.service';
     DxScrollViewModule,
     DxLoadIndicatorModule,
     DxMenuModule,
-    DxCheckBoxModule
+    DxCheckBoxModule,
+    DxToolbarModule
+    //DxRadioGroupModule
   ],
   declarations: [
     AppComponent,

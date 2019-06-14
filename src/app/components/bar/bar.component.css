@@ -2,4 +2,8 @@
     overflow: hidden;
   }  
 
+  ::ng-deep .dx-toolbar-items-container{
+  height: 50px !important;
+  background-color: #F5F5F4 !important;
+}
 
