@@ -9,6 +9,12 @@
   display: inline-block;
   margin-top: -14px;
 }
+
+.logo-beta{
+  margin-left: 108px;
+  margin-top: -112px;
+  display: table;
+}
   
 nav{
   float: right;
