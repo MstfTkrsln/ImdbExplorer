@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { config } from 'src/assets/config/imdb-explorer.config';
 import { NavigationMenu } from '../models/navigation-menu';
 import { Query } from '../models/query/query';
 
