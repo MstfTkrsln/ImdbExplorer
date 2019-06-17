@@ -59,6 +59,12 @@ export class NavigationService {
                     Icon: null,
                     Query: Query.getQueryForDirectorWinnerMovies(),
                     Children: null
+                },
+                {
+                    Name: "TrendingOnNetflix",
+                    Icon: null,
+                    Query: Query.getQueryForPopularMoviesOnNetflix(),
+                    Children: null
                 }
             ]
         },
@@ -90,6 +96,12 @@ export class NavigationService {
                     Icon: null,
                     Query: Query.getQueryForGoldenGlobeWinnerSeries(),
                     Children: null
+                },
+                {
+                    Name: "TrendingOnNetflix",
+                    Icon: null,
+                    Query: Query.getQueryForPopularSeriesOnNetflix(),
+                    Children: null
                 }
             ]
         },
@@ -120,6 +132,12 @@ export class NavigationService {
                     Name: "EmmyWinners",
                     Icon: null,
                     Query: Query.getQueryForEmmyWinnerDocumentaries(),
+                    Children: null
+                },
+                {
+                    Name: "TrendingOnNetflix",
+                    Icon: null,
+                    Query: Query.getQueryForPopularDocumentariesOnNetflix(),
                     Children: null
                 }
             ]

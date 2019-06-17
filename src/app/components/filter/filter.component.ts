@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Query } from 'src/app/models/query/query';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
-import { Genre, Color, Group, SortType, TitleType, Language, Country, Compnay } from 'src/app/models/enums';
+import { Genre, Color, Group, SortType, TitleType, Language, Country, Company } from 'src/app/models/enums';
 import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { Utils } from '../shared/utils';
 import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
@@ -86,9 +86,9 @@ export class FilterComponent implements OnInit {
     if (this.onNetflix || this.onAmazon) {
       this.query.Companies = [];
       if (this.onNetflix)
-        this.query.Companies.push(Compnay.Netflix)
+        this.query.Companies.push(Company.Netflix)
       if (this.onAmazon)
-        this.query.Companies.push(Compnay.AmazonPrime)
+        this.query.Companies.push(Company.AmazonPrime)
     }
     else
       this.query.Companies = undefined;

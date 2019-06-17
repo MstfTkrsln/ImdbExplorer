@@ -185,7 +185,7 @@
 	"Clear":"Clear",
 	"ShowMore":"Show More",
 
-	"MovieNotFound":"We couldn’t find any movie that matches your search!",
+	"MovieNotFound":"We couldn’t find anything that matches your search!",
 
 	"Movies":"Movies",
 	"Series":"Series",
@@ -198,5 +198,6 @@
 	"OscarWinners": "Oscar Winners",
 
 	"TopRated":"Top Rated",
-	"TrendingNow":"Trending Now"
+	"TrendingNow":"Trending Now",
+	"TrendingOnNetflix":"Trending On Netflix"
 }

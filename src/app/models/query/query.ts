@@ -1,4 +1,4 @@
-import { TitleType, Genre, Group, Color, Language, Country, SortType, Compnay } from 'src/app/models/enums';
+import { TitleType, Genre, Group, Color, Language, Country, SortType, Company } from 'src/app/models/enums';
 import { UserRating } from './user-rating';
 import { ReleaseDate } from './release-date';
 import { NumVotes } from './num-votes';
@@ -16,7 +16,7 @@ export class Query {
     public Colors: Color[];
     public Languages: Language[];
     public Countries: Country[];
-    public Companies: Compnay[];
+    public Companies: Company[];
     public MovieMeter: MovieMeter;
     public Sort: SortType;
     public Page: number;
@@ -82,7 +82,7 @@ export class Query {
         query.Count = 250;
         return query;
     }
-        static getQueryForOscarWinnerMovies(): Query {
+    static getQueryForOscarWinnerMovies(): Query {
         let query: Query = new Query();
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.OscarWinner];
@@ -98,6 +98,12 @@ export class Query {
         let query: Query = new Query();
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.BestDirectorWinner];
+        return query;
+    }
+    static getQueryForPopularMoviesOnNetflix(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.Feature];
+        query.Companies = [Company.Netflix];
         return query;
     }
     //#endregion
@@ -133,10 +139,16 @@ export class Query {
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
         return query;
     }
+    static getQueryForPopularSeriesOnNetflix(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
+        query.Companies = [Company.Netflix];
+        return query;
+    }
     //#endregion
 
 
-    //#region Series
+    //#region Documentaries
     static getQueryForPopularDocumentaries(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Documentary];
@@ -163,10 +175,16 @@ export class Query {
         query.TitleTypes = [TitleType.Documentary];
         return query;
     }
+    static getQueryForPopularDocumentariesOnNetflix(): Query {
+        let query: Query = new Query();
+        query.TitleTypes = [TitleType.Documentary];
+        query.Companies = [Company.Netflix];
+        return query;
+    }
     //#endregion
 
 
-    //#region Series
+    //#region Games
     static getQueryForPopularGames(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Game];

@@ -166,7 +166,7 @@ export enum Country {
     UnitedKingdom
 }
 
-export enum Compnay {
+export enum Company {
     Netflix = 0,
     AmazonPrime = 1,
     CenturyFox = 2,

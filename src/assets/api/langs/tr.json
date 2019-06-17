@@ -185,7 +185,7 @@
 	"Clear":"Temizle",
 	"ShowMore":"Daha Fazla Göster",
 
-	"MovieNotFound":"Arama filtrelerinize uygun film bulunamadı!",
+	"MovieNotFound":"Arama filtrelerinize uygun içerik bulunamadı!",
 
 	"Movies":"Film",
 	"Series":"Dizi",
@@ -198,5 +198,7 @@
 	"OscarWinners": "Oscar Ödüllü",
 
 	"TopRated":"En Çok Oy Alan",
-	"TrendingNow":"Şu Anda Popüler"
+	"TrendingNow":"Şu Anda Popüler",
+	"TrendingOnNetflix":"Netflix'te Popüler"
+
 }
