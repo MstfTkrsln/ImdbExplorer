@@ -5,7 +5,7 @@ import { SearchResult } from '../models/search-result';
 
 @Injectable()
 export class DataService {
-    private QuerySource = new BehaviorSubject<Query>(new Query());
+    private QuerySource = new BehaviorSubject<Query>(Query.getQueryForPopular());
     CurrentQuery = this.QuerySource.asObservable();
 
     private NextPageQuerySource = new ReplaySubject<Query>(null);

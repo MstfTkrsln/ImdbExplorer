@@ -2,6 +2,8 @@
 	"Title": "Imdb Explorer",
 	"Filters": "Filters",
 	"Hide": "Hide",
+	"SearchResults": "Search Results",
+	"Results": "Results",
 	"NoResult": "No Results Found",
 	"TitleType": "Title Type",
 	"GenreType": "Genre",
@@ -199,5 +201,24 @@
 
 	"TopRated":"Top Rated",
 	"TrendingNow":"Trending Now",
-	"TrendingOnNetflix":"Trending On Netflix"
+	"TrendingOnNetflix":"Trending On Netflix",
+
+	"TrendingMoviesOnNetflix":"Trending Movies On Netflix",
+	"TrendingMovies":"Trending Movies",
+	"TopRatedMovies":"Top Rated Movies",
+	"OscarWinningMovies":"Oscar Winning Movies",
+	"BestPictureWinningMovies":"Best Picture Winning Movies",
+	"BestDirectorWinningMovies":"Best Director Winning Movies",
+	"TrendingSeries":"Trending Series",
+	"TopRatedSeries":"Top Rated Series",
+	"GoldenGlobeWinningSeries":"Golden Globe Winning Series",
+	"EmmyWinningSeries":"Emmy Winning Series",
+	"TrendingSeriesOnNetflix":"Trending Series On Netflix",
+	"TrendingDocumentaries":"Trending Documentaries",
+	"TopRatedDocumentaries":"Top Rated Documentaries",
+	"EmmyWinningDocumentaries":"Emmy Winning Documentaries",
+	"OscarWinningDocumentaries":"Oscar Winning Documentaries",
+	"TrendingDocumentariesOnNetflix":"Trending Documentaries On Netflix",
+	"TrendingGames":"Trending Games",
+	"TopRatedGames":"Top Rated Games"
 }

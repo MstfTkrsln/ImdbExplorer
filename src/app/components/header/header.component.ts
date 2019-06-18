@@ -11,12 +11,12 @@ import { NavigationMenu } from 'src/app/models/navigation-menu';
 })
 export class HeaderComponent implements OnInit {
 
-    isDesktopScreen: boolean;
+    isMobileScreen: boolean;
     menus: any[];
     mobileMenus: any[]
 
     constructor(private navigationService: NavigationService, private dataService: DataService) {
-        this.isDesktopScreen = Utils.isDesktopScreen();
+        this.isMobileScreen = Utils.isMobileScreen();
         this.menus = this.navigationService.getDesktopNavigations();
         this.mobileMenus = this.navigationService.getMobileNavigations();
     }

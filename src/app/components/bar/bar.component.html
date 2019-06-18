@@ -3,23 +3,23 @@
 
     <dx-toolbar height="50">
 
-      <!-- <dxi-item [visible]="summary" location="before" locateInMenu="never">
-        <div *dxTemplate>
-          <p style="color: #EB3313;">{{summary}}</p>
+      <!-- <dxi-item location="before" locateInMenu="never">
+        <div *dxTemplate>         
         </div>
       </dxi-item> -->
 
-      <dxi-item [visible]="totalCount" location="center" locateInMenu="never">
+      <dxi-item location="center" locateInMenu="never">
         <div *dxTemplate>
-          <p style="color: #EB3313;"> <b style="font-weight:bold;">{{totalCount}}</b> Sonuç Bulundu.</p>
+          <p *ngIf="currentQuery.HeaderText" style="color: #EB3313;"> <b style="font-weight:bold; font-size: large;">{{currentQuery.HeaderText | i18n}}</b></p>
+          <p *ngIf="totalCount" style="color: #EB3313;"> <b style="font-weight:bold; font-size: small;">{{totalCount}}</b> {{'Results' | i18n}}</p>
         </div>
       </dxi-item>
 
-      <dxi-item location="after" locateInMenu="never">
+      <dxi-item *ngIf="!isMobileScreen" location="after" locateInMenu="never">
         <div *dxTemplate>
           <dx-select-box style="float: right;" placeholder="{{'SortType' | i18n}}" [items]="sortTypes"
-          [(value)]="currentQuery.Sort" displayExpr="Value" valueExpr="Key" width="175" [showClearButton]="false" (onValueChanged)="changedSortType()"></dx-select-box>
-          <!-- <dx-radio-group [dataSource]="sortTypes" displayExpr="Value" layout="horizontal"></dx-radio-group> -->
+            [(value)]="currentQuery.Sort" displayExpr="Value" valueExpr="Key" width="175" [showClearButton]="false"
+            (onValueChanged)="changedSortType()"></dx-select-box>
         </div>
       </dxi-item>
 

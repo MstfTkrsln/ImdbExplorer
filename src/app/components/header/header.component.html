@@ -5,7 +5,7 @@
     </a>
 
     <nav>
-        <dx-menu *ngIf="isDesktopScreen" cssClass="top-menu" [dataSource]="menus" showFirstSubmenuMode="onHover" hideSubmenuOnMouseLeave="true" itemsExpr="Children" (onItemClick)="navigationSelected($event)">
+        <dx-menu *ngIf="!isMobileScreen" cssClass="top-menu" [dataSource]="menus" showFirstSubmenuMode="onHover" hideSubmenuOnMouseLeave="true" itemsExpr="Children" (onItemClick)="navigationSelected($event)">
             <div *dxTemplate="let i of 'item'">
                 <a *ngIf="i" class="menu-item dx-theme-text-color">{{i.Name | i18n}}
                     <span *ngIf="i.Children" class="dx-menu-item-popout-container">
@@ -15,7 +15,7 @@
             </div>
         </dx-menu>
 
-        <dx-menu *ngIf="!isDesktopScreen" cssClass="button-menu" [dataSource]="mobileMenus" showFirstSubmenuMode="onHover" hideSubmenuOnMouseLeave="true" itemsExpr="Children" (onItemClick)="navigationSelected($event)">
+        <dx-menu *ngIf="isMobileScreen" cssClass="button-menu" [dataSource]="mobileMenus" showFirstSubmenuMode="onHover" hideSubmenuOnMouseLeave="true" itemsExpr="Children" (onItemClick)="navigationSelected($event)">
             <div *dxTemplate="let i of 'item'">
                 <img *ngIf="i.Icon" src="{{i.Icon}}">
                 <a *ngIf="i.Name" class="menu-item dx-theme-text-color">{{i.Name | i18n}}

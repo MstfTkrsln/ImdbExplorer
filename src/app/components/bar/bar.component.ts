@@ -17,14 +17,12 @@ export class BarComponent implements OnInit {
   currentQuery: Query;
   totalCount: string;
 
-  summary: string = "Arama Sonucu";
-
+  isMobileScreen: boolean;
   sortTypes: KeyValuePair[];
 
   constructor(private dataService: DataService, private enumService: EnumTranslatorService) {
     this.dataService.CurrentResult.subscribe(result => this.totalCount = result ? result.TotalCount.formatWithDot() : null);
-    this.dataService.CurrentQuery.subscribe(query => this.currentQuery = query);
-
+    this.dataService.CurrentQuery.subscribe(query => { this.currentQuery = query; this.totalCount = null; });
 
     this.enumService.onReady.subscribe(() => {
       this.sortTypes = this.enumService.getEnumValues(SortType);
@@ -32,11 +30,12 @@ export class BarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isMobileScreen = Utils.isMobileScreen();
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
   }
 
-  changedSortType(){
-    this.dataService.changeQuery(this.currentQuery);    
+  changedSortType() {
+    this.dataService.changeQuery(this.currentQuery);
   }
 
   onScrollChanged() {
