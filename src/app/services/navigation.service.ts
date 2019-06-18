@@ -172,7 +172,7 @@ export class NavigationService {
     ];
 
     getDesktopNavigations() {
-        return this.menus
+        return this.menus;
     }
 
     getMobileNavigations() {

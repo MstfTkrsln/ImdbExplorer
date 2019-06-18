@@ -66,9 +66,7 @@ export class FilterComponent implements OnInit {
   explore() {
     this.setFilters();
 
-    let _query = this.query.deepCopy();
-
-    this.dataService.changeQuery(_query);
+    this.dataService.changeQuery(this.query.deepCopy());
 
     if (!Utils.isDesktopScreen())
       this.triggerFilter(false);

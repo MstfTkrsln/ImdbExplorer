@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     navigationSelected(e) {
         let navigation: NavigationMenu = e.itemData
         if (navigation.Query)
-            this.dataService.changeQuery(navigation.Query);
+            this.dataService.changeQuery(navigation.Query.deepCopy());
     }
 
 }
