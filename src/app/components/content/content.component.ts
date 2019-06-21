@@ -30,14 +30,11 @@ export class ContentComponent implements OnInit {
 
   search(query: Query) {
     this.startBlocking("Exploring...");
-
-    console.log(query);
-
+    
+    //console.log(query);
     this.imdbService.Search(query)
       .subscribe(result => {
-
-        console.log(result);
-
+        //console.log(result);
         this.dataService.updateResult(result)
       },
         (error) => {
