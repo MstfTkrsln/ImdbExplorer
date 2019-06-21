@@ -1,3 +1,3 @@
-# ImdbExplorer
+# ImdbExplorer.com
 
-Filtering movies by advanced criterias based on imdb.com
+Explore movies, series, documentariesand games by advanced filters based on imdb
