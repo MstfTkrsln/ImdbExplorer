@@ -19,7 +19,7 @@
         <div *dxTemplate>
           <dx-select-box style="float: right;" placeholder="{{'SortType' | i18n}}" [items]="sortTypes"
             [(value)]="currentQuery.Sort" displayExpr="Value" valueExpr="Key" width="175" [showClearButton]="false"
-            (onValueChanged)="changedSortType()"></dx-select-box>
+            (onValueChanged)="changedSortType($event)"></dx-select-box>
         </div>
       </dxi-item>
 
