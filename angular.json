@@ -20,7 +20,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/web.config"
+              "src/web.config",
+              "src/yandex_a42d299157417ed4.html"
             ],
             "styles": [
               "./node_modules/devextreme/dist/css/dx.common.css",
