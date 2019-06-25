@@ -77,8 +77,8 @@
 
 	"PopularityAsc": "Popularity (Asc)",
 	"PopularityDesc": "Popularity (Desc)",
-	"UserRatingAsc": "User Rating (Asc)",
-	"UserRatingDesc": "User Rating (Desc)",
+	"UserRatingAsc": "Rating (Asc)",
+	"UserRatingDesc": "Rating (Desc)",
 	"NumVotesAsc": "Number Of Votes (Asc)",
 	"NumVotesDesc": "Number Of Votes (Desc)",
 	"ReleaseDateAsc": "Release Date (Asc)",
