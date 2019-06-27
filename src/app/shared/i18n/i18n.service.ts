@@ -29,7 +29,7 @@ export class I18nService {
   }
 
   private initLanguage(locale: string) {
-    let language = languages.find(lang => lang.key === locale || lang.key2 === locale);
+    let language = languages.find(lang => lang.key === locale.toLowerCase() || lang.key2 === locale.toLowerCase());
 
     if (!language)
       language = languages.find(lang => lang.key === config.DEFAULT_LOCALE);
