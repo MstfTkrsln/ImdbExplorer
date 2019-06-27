@@ -61,6 +61,9 @@ export class FilterComponent implements OnInit {
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
+
+    if (Utils.isMobileScreen())
+      this.triggerFilter(false);
   }
 
   explore() {
