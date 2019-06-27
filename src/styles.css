@@ -205,13 +205,12 @@ Primary style
   }
   .cd-filter .cd-close {
     position: absolute;
+    cursor: pointer;
     top: 0;
     right: 0;
-    height: 50px;
     line-height: 50px;
     width: 60px;
-    color: #ffffff;
-    font-size: 1.3rem;
+    color: #eb3313;
     text-align: center;
     background: #37296a;
     opacity: 0;
@@ -242,45 +241,28 @@ Primary style
   
   .cd-filter-trigger {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 50px;
-    line-height: 50px;
-    width: 60px;
-    /* image replacement */
-    overflow: hidden;
-    text-indent: 100%;
-    color: transparent;
-    white-space: nowrap;
-    background: transparent url("/assets/img/cd-icon-filter.svg") no-repeat center center;
+    cursor: pointer;
+    top: 0;   
+    line-height: 50px;   
     z-index: 3;
+    width: auto;
+    left: 2%;
+    text-indent: 0;
+    color: #eb3313;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
   }
   .cd-filter-trigger.filter-is-visible {
     pointer-events: none;
   }
-  @media only screen and (min-width: 768px) {
-    .cd-filter-trigger {
-      width: auto;
-      left: 2%;
-      text-indent: 0;
-      color: #9a9a9a;
-      text-transform: uppercase;
-      font-size: 1.3rem;
-      font-weight: 700;
-      padding-left: 24px;
-      background-position: left center;
-      -webkit-transition: color 0.3s;
-      -moz-transition: color 0.3s;
-      transition: color 0.3s;
-    }
-    .no-touch .cd-filter-trigger:hover {
-      color: #41307c;
-    }
-    .cd-filter-trigger.filter-is-visible, .cd-filter-trigger.filter-is-visible:hover {
-      color: #ffffff;
-    }
+  .no-touch .cd-filter-trigger:hover {
+    color: rgb(160, 41, 20); 
   }
-  
+  .cd-filter-trigger.filter-is-visible, .cd-filter-trigger.filter-is-visible:hover {
+    color: #41307c;
+  }
+
     /* -------------------------------- 
   
   Custom
