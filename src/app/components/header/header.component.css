@@ -80,6 +80,10 @@ nav{
   min-width: 200px;
 } 
 
+::ng-deep .dx-menu-item{
+  border-radius: 10px;
+}
+
 
 /* ::ng-deep .top-menu .dx-menu-horizontal {
   height: 100%;
