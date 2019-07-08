@@ -17,6 +17,14 @@ export class Utils {
             return false;
     }
 
+    public static hasEnoughWidthForTopMenu(): boolean {
+        var screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        if (screenWidth >= 900)
+            return true;
+        else
+            return false;
+    }
+
     public static backToTop() {
         $('html, body').animate({ scrollTop: 0 }, '300');
     }
