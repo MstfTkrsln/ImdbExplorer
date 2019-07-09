@@ -26,6 +26,13 @@ export class HeaderComponent implements OnInit {
 
     navigationSelected(e) {
         let navigation: NavigationMenu = e.itemData
+
+        //hide menu when clicked the menu button again on mobile
+        if (navigation.Icon && e.component._visibleSubmenu)
+            setTimeout(() => {
+                e.component._visibleSubmenu.hide();
+            });
+
         if (navigation.Query)
             this.dataService.changeQuery(navigation.Query.deepCopy());
     }
