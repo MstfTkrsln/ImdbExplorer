@@ -51,12 +51,10 @@ export class ContentComponent implements OnInit {
   nextPage(query: Query) {
     this.isSpinnerVisible = true;
 
-    console.log(query);
-
+    //console.log(query);
     this.imdbService.Search(query)
       .subscribe(result => {
-        console.log(result);
-
+        //console.log(result);
         this.dataService.concatResult(result);
       },
         (error) => {
