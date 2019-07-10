@@ -46,6 +46,11 @@
   color: #ffffff !important;
 }
 
+::ng-deep .dx-button-text {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
 .fit-screen{
   max-height: calc(100vh - 90px); 
 }
@@ -54,6 +59,13 @@
   max-height: calc(100vh - 10px); 
 }
 
-/* ::ng-deep #votingSlider .dx-resizable {
-  width: 50px !important;
-} */
+@media only screen and (max-width: 768px) {
+  .fit-screen{
+    max-height: calc(100vh - 150px); 
+  }
+
+  .fit-screen-fixed-header{
+    max-height: calc(100vh - 70px); 
+  }
+}
+
