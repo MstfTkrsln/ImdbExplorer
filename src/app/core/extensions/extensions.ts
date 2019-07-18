@@ -26,3 +26,10 @@ Number.prototype.thousandFormat = function () {
 Number.prototype.formatWithDot = function () {
     return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
+
+if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function (searchString, position) {
+        position = position || 0;
+        return this.indexOf(searchString, position) === position;
+    };
+}
