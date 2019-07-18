@@ -35,8 +35,10 @@ export class BarComponent implements OnInit {
   }
 
   changedSortType(e) {
-    if (e.event) // fire only user changed the selection
+    if (e.event) { // fire only user changed the selection
+      this.currentQuery.Page = 1;
       this.dataService.changeQuery(this.currentQuery);
+    }
   }
 
   onScrollChanged() {
