@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalyticsService } from 'src/app/services/google-analytics.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,23 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
- 
-  constructor() {
+
+  constructor(private gas: GoogleAnalyticsService) {
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
-  sendMail(){
+  sendMail() {
     window.location.href = 'mailto:info@imdbexplorer.com';
+    this.gas.emitEvent("general", "e-mail");
   }
 
-  navigateTwitter(){
+  navigateTwitter() {
     window.open('https://twitter.com/imdb_explorer');
+    this.gas.emitEvent("general", "twitter");
   }
 
-  navigateInstagram(){
+  navigateInstagram() {
     window.open('https://instagram.com/imdb.explorer');
-  }  
+    this.gas.emitEvent("general", "instagram");
+  }
 
 }

@@ -10,6 +10,11 @@ export class AppComponent implements OnInit {
   @ViewChild('backToTopButton') backToTopButton: ElementRef;
   
   constructor() {
+    // this.router.events.subscribe(event => {
+    //   if (event instanceof NavigationEnd) {
+        //this.gas.sendPageView(event.urlAfterRedirects);
+    //   }
+    // });
   }
 
   ngOnInit() {

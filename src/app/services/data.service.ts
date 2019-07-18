@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import { Query } from '../models/query/query';
 import { SearchResult } from '../models/search-result';
+import { GoogleAnalyticsService } from './google-analytics.service';
 
 @Injectable()
 export class DataService {
@@ -14,16 +15,18 @@ export class DataService {
     private ResultSource = new BehaviorSubject<SearchResult>(null);
     CurrentResult = this.ResultSource.asObservable();
 
-    constructor() { }
+    constructor(private gas: GoogleAnalyticsService) { }
 
     changeQuery(query: Query) {
         this.QuerySource.next(query);
+        this.gas.sendPageView(query.HeaderText);
     }
 
     nextPage() {
         let lastQuery = this.QuerySource.value;
         lastQuery.Page++;
         this.NextPageQuerySource.next(lastQuery);
+        this.gas.emitEvent("general", "show-more");
     }
 
     updateResult(searchResult: SearchResult) {

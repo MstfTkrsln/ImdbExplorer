@@ -39,6 +39,7 @@ import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationService } from './services/navigation.service';
 import { DataService } from './services/data.service';
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 //import { appRouting } from './app.routing';
 
 
@@ -77,7 +78,7 @@ import { DataService } from './services/data.service';
     CommaSeperatedPipe,
     BlockTemplateComponent
   ],
-  providers: [JsonApiService, DataService, ImdbSearhService, EnumTranslatorService, NavigationService],
+  providers: [JsonApiService, DataService, ImdbSearhService, EnumTranslatorService, NavigationService,GoogleAnalyticsService],
   entryComponents: [BlockTemplateComponent],
   bootstrap: [AppComponent]
 })
