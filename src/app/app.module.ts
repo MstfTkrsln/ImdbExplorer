@@ -33,7 +33,7 @@ import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 import { DxMenuModule } from 'devextreme-angular/ui/menu';
 import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
-//import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
+//import { DxTooltipModule } from 'devextreme-angular/ui/tooltip';
 
 
 import { FooterComponent } from './components/footer/footer.component';
@@ -64,8 +64,8 @@ import { GoogleAnalyticsService } from './services/google-analytics.service';
     DxLoadIndicatorModule,
     DxMenuModule,
     DxCheckBoxModule,
-    DxToolbarModule
-    //DxRadioGroupModule
+    DxToolbarModule,
+    //DxTooltipModule
   ],
   declarations: [
     AppComponent,

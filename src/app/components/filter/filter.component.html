@@ -37,7 +37,14 @@
       <fieldset>
         <div class="form-group">
           <dx-tag-box  placeholder="{{'GenreType' | i18n}}" [(value)]="query.Genres" [items]="genres" displayExpr="Value" valueExpr="Key"
-            applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>
+            applyValueMode="instantly" [searchEnabled]="isFilterSearchable" [showClearButton]="true" [showDropDownButton]="true"></dx-tag-box>            
+            <!-- <i id="genreTypeInfo" class="fa fa-info-circle"  (mouseenter)="genreTypeInfoVisible=true" (mouseleave)="genreTypeInfoVisible=false" >
+              <dx-tooltip target="#genreTypeInfo" position="right" [(visible)]="genreTypeInfoVisible">
+                <div *dxTemplate="let data = data of 'content'">
+                  Seçilen tüm türlere sahip filmler listelenecektir.
+                </div>
+              </dx-tooltip>
+            </i> -->
         </div>
       </fieldset>
 
