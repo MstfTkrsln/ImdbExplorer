@@ -42,6 +42,7 @@ nav{
 }
 ::ng-deep .top-menu .dx-menu-item .dx-menu-item-content, ::ng-deep .button-menu .dx-menu-item .dx-menu-item-content {
   padding: 0;
+  height: auto;
 }
 ::ng-deep .top-menu .menu-item,
 ::ng-deep .button-menu .menu-item {
@@ -60,15 +61,11 @@ nav{
 }
 
 ::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .dx-menu-item .menu-item {
-  color: #fff !important;
+  color: #E7E7E7 !important;
 }
 
  ::ng-deep .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-popout-container {
-  color: #EB3313;
-}
-
-::ng-deep .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-popout-container : hover {
-  color: #fff;
+  color: #E7E7E7;
 }
 
 ::ng-deep .top-menu.dx-menu .dx-menu-item-wrapper .menu-item {
