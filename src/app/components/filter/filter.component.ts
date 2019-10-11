@@ -6,6 +6,7 @@ import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { Utils } from '../shared/utils';
 import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 declare const $: any;
 
@@ -43,8 +44,15 @@ export class FilterComponent implements OnInit {
 
   minNumVotes: number = 0;
 
-  constructor(private enumService: EnumTranslatorService, private dataService: DataService) {
+  constructor(private enumService: EnumTranslatorService, private dataService: DataService, private router: Router) {
     this.query = new Query();
+
+    this.dataService.CurrentQuery.subscribe(_query => {
+      if (_query.HeaderText === "SearchResults")
+        this.bindQuery(_query);
+      else
+        this.clearFilter();
+    });
 
     this.enumService.onReady.subscribe(() => {
       this.genres = this.enumService.getEnumValues(Genre, true);
@@ -67,15 +75,17 @@ export class FilterComponent implements OnInit {
   }
 
   explore() {
-    this.setFilters();
+    this.buildQuery();
 
-    this.dataService.changeQuery(this.query.deepCopy());
+    this.router.navigate(["search-results"], { queryParams: { query: JSON.stringify(this.query) } });
 
     if (!Utils.isDesktopScreen())
       this.triggerFilter(false);
   }
 
-  setFilters() {
+  buildQuery() {
+    this.query.Page = 1
+
     this.query.UserRating.Min = this.ratingRange[0];
     this.query.UserRating.Max = this.ratingRange[1];
 
@@ -98,6 +108,26 @@ export class FilterComponent implements OnInit {
       this.query.NumVotes.Min = this.minNumVotes;
     else
       this.query.NumVotes.Min = null;
+  }
+
+  bindQuery(_query: Query) {
+    this.query = _query;
+
+    this.ratingRange[0] = this.query.UserRating.Min;
+    this.ratingRange[1] = this.query.UserRating.Max;
+
+    if (this.query.ReleaseDate.Min)
+      this.yearRange[0] = new Date(this.query.ReleaseDate.Min).getFullYear();
+    if (this.query.ReleaseDate.Max)
+      this.yearRange[1] = new Date(this.query.ReleaseDate.Max).getFullYear();
+
+    if (this.query.Companies) {
+      this.onNetflix = this.query.Companies.indexOf(Company.Netflix) >= 0;
+      this.onAmazon = this.query.Companies.indexOf(Company.AmazonPrime) >= 0;
+    }
+
+    if (this.query.NumVotes.Min)
+      this.minNumVotes = this.query.NumVotes.Min;
   }
 
   triggerFilter(isFilterPanelVisible: boolean) {

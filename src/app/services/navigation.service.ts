@@ -9,60 +9,60 @@ export class NavigationService {
         {
             Name: "InTheaters",
             Icon: null,
-            Query: Query.getQueryForInTheaters(),
+            Link: "in-theaters",
             Children: null
         },
         {
             Name: "Movies",
             Icon: null,
-            Query: null,
+            Link: null,
             Children: [
                 {
                     Name: "TrendingNow",
                     Icon: null,
-                    Query: Query.getQueryForPopularMovies(),
+                    Link: "movies/trending-now",
                     Children: null
                 },
                 {
                     Name: "TopRated",
                     Icon: null,
-                    Query: Query.getQueryForTopRatedMovies(),
+                    Link: "movies/top-rated",
                     Children: null
                 },
                 {
                     Name: "Top250",
                     Icon: null,
-                    Query: Query.getQueryForTop250Movies(),
+                    Link: "movies/top-250",
                     Children: null
                 },
                 {
                     Name: "BoxOfficeUS",
                     Icon: null,
-                    Query: Query.getQueryForBoxOfficeMovies(),
+                    Link: "movies/box-office-us",
                     Children: null
                 },
                 {
                     Name: "OscarWinners",
                     Icon: null,
-                    Query: Query.getQueryForOscarWinnerMovies(),
+                    Link: "movies/oscar-winners",
                     Children: null
                 },
                 {
                     Name: "BestPictureWinners",
                     Icon: null,
-                    Query: Query.getQueryForPictureWinnerMovies(),
+                    Link: "movies/best-picture-winners",
                     Children: null
                 },
                 {
                     Name: "BestDirectorWinners",
                     Icon: null,
-                    Query: Query.getQueryForDirectorWinnerMovies(),
+                    Link: "movies/best-director-winners",
                     Children: null
                 },
                 {
                     Name: "TrendingOnNetflix",
                     Icon: null,
-                    Query: Query.getQueryForPopularMoviesOnNetflix(),
+                    Link: "movies/trending-on-netflix",
                     Children: null
                 }
             ]
@@ -70,36 +70,36 @@ export class NavigationService {
         {
             Name: "Series",
             Icon: null,
-            Query: null,
+            Link: null,
             Children: [
                 {
                     Name: "TrendingNow",
                     Icon: null,
-                    Query: Query.getQueryForPopularSeries(),
+                    Link: "series/trending-now",
                     Children: null
                 },
                 {
                     Name: "TopRated",
                     Icon: null,
-                    Query: Query.getQueryForTopRatedSeries(),
+                    Link: "series/top-rated",
                     Children: null
                 },
                 {
                     Name: "EmmyWinners",
                     Icon: null,
-                    Query: Query.getQueryForEmmyWinnerSeries(),
+                    Link: "series/emmy-winners",
                     Children: null
                 },
                 {
                     Name: "GoldenGlobeWinners",
                     Icon: null,
-                    Query: Query.getQueryForGoldenGlobeWinnerSeries(),
+                    Link: "series/golden-globe-winners",
                     Children: null
                 },
                 {
                     Name: "TrendingOnNetflix",
                     Icon: null,
-                    Query: Query.getQueryForPopularSeriesOnNetflix(),
+                    Link: "series/trending-now",
                     Children: null
                 }
             ]
@@ -107,36 +107,36 @@ export class NavigationService {
         {
             Name: "Documentary",
             Icon: null,
-            Query: null,
+            Link: null,
             Children: [
                 {
                     Name: "TrendingNow",
                     Icon: null,
-                    Query: Query.getQueryForPopularDocumentaries(),
+                    Link: "documentaries/trending-now",
                     Children: null
                 },
                 {
                     Name: "TopRated",
                     Icon: null,
-                    Query: Query.getQueryForTopRatedDocumentaries(),
+                    Link: "documentaries/top-rated",
                     Children: null
                 },
                 {
                     Name: "OscarWinners",
                     Icon: null,
-                    Query: Query.getQueryForOscarWinnerDocumentaries(),
+                    Link: "documentaries/oscar-winners",
                     Children: null
                 },
                 {
                     Name: "EmmyWinners",
                     Icon: null,
-                    Query: Query.getQueryForEmmyWinnerDocumentaries(),
+                    Link: "documentaries/emmy-winners",
                     Children: null
                 },
                 {
                     Name: "TrendingOnNetflix",
                     Icon: null,
-                    Query: Query.getQueryForPopularDocumentariesOnNetflix(),
+                    Link: "documentaries/trending-on-netflix",
                     Children: null
                 }
             ]
@@ -144,18 +144,18 @@ export class NavigationService {
         {
             Name: "Games",
             Icon: null,
-            Query: null,
+            Link: null,
             Children: [
                 {
                     Name: "TrendingNow",
                     Icon: null,
-                    Query: Query.getQueryForPopularGames(),
+                    Link: "games/trending-now",
                     Children: null
                 },
                 {
                     Name: "TopRated",
                     Icon: null,
-                    Query: Query.getQueryForTopRatedGames(),
+                    Link: "games/top-rated",
                     Children: null
                 }
             ]
@@ -166,7 +166,7 @@ export class NavigationService {
         {
             Name: null,
             Icon: "assets/img/svg/menu.svg",
-            Query: null,
+            Link: null,
             Children: this.menus
         }
     ];

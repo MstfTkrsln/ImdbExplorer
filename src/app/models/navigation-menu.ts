@@ -4,8 +4,8 @@ export class NavigationMenu {
     Name: string;
     Children: NavigationMenu[];
     Icon: string;
-    Query: Query;
-    
+    Link: string;
+
     constructor() { }
 }
 

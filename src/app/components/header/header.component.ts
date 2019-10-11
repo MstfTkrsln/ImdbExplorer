@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { Utils } from '../shared/utils';
-import { DataService } from 'src/app/services/data.service';
 import { NavigationMenu } from 'src/app/models/navigation-menu';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     menus: any[];
     mobileMenus: any[]
 
-    constructor(private navigationService: NavigationService, private dataService: DataService) {
+    constructor(private navigationService: NavigationService, private router: Router) {
         this.hasEnoughWidthForTopMenu = Utils.hasEnoughWidthForTopMenu();
         this.menus = this.navigationService.getDesktopNavigations();
         this.mobileMenus = this.navigationService.getMobileNavigations();
@@ -33,8 +33,8 @@ export class HeaderComponent implements OnInit {
                 e.component._visibleSubmenu.hide();
             });
 
-        if (navigation.Query)
-            this.dataService.changeQuery(navigation.Query.deepCopy());
+        if (navigation.Link)
+            this.router.navigate([navigation.Link]);
     }
 
 }

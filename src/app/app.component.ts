@@ -12,18 +12,18 @@ export class AppComponent implements OnInit {
   constructor() {
     // this.router.events.subscribe(event => {
     //   if (event instanceof NavigationEnd) {
-        //this.gas.sendPageView(event.urlAfterRedirects);
+    //     this.gas.sendPageView(event.urlAfterRedirects);
     //   }
     // });
   }
+  
+  // getLastPartOfUri) {
+  //   return location.pathname.substr(1)
+  // }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
   }
-
-  // getLastPartOfUri) {
-  //   return location.pathname.substr(1)
-  // }
 
   backToTop() {
     Utils.backToTop();

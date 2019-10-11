@@ -40,7 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavigationService } from './services/navigation.service';
 import { DataService } from './services/data.service';
 import { GoogleAnalyticsService } from './services/google-analytics.service';
-//import { appRouting } from './app.routing';
+import { appRouting } from './app.routing';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { GoogleAnalyticsService } from './services/google-analytics.service';
     HttpModule,
     I18nModule,
     BlockUIModule.forRoot(),
-    //appRouting,
+    appRouting,
 
     DxButtonModule,
     DxRangeSelectorModule,

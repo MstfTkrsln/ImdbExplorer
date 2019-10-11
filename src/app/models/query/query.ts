@@ -31,7 +31,7 @@ export class Query {
         this.ReleaseDate = new ReleaseDate(new Date('1900-01-01'), null);
         this.UserRating = new UserRating(null, null);
         this.NumVotes = new NumVotes(null, null);
-        this.MovieMeter = new MovieMeter(null, null);
+        //this.MovieMeter = new MovieMeter(null, null);
         this.HeaderText = "SearchResults";
     }
 

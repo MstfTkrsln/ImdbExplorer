@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/shared/ui-block/block-template.component';
 import { SearchResult } from 'src/app/models/search-result';
@@ -6,36 +6,62 @@ import { DataService } from 'src/app/services/data.service';
 import { ImdbSearhService } from 'src/app/services/imdb-search.service';
 import { Query } from 'src/app/models/query/query';
 import { Utils } from '../shared/utils';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent implements OnInit, OnDestroy {
   searchResult: SearchResult;
   isSpinnerVisible: boolean = false;
 
   @BlockUI('content-section') blockUI: NgBlockUI;
   blockTemplate = BlockTemplateComponent;
 
-  constructor(private imdbService: ImdbSearhService, private dataService: DataService) {
-    this.dataService.CurrentQuery.subscribe(query => this.search(query));
-    this.dataService.NextPageQuery.subscribe(query => this.nextPage(query));
-    this.dataService.CurrentResult.subscribe(result => this.searchResult = result);
+  private query: Query;
+
+  private querySub: Subscription;
+  private nextPageSub: Subscription;
+  private resultSub: Subscription;
+
+  constructor(private route: ActivatedRoute, private imdbService: ImdbSearhService, private dataService: DataService) {
+    this.querySub = this.dataService.CurrentQuery.subscribe(query => this.search(query));
+    this.nextPageSub = this.dataService.NextPageQuery.subscribe(query => this.nextPage(query));
+    this.resultSub = this.dataService.CurrentResult.subscribe(result => { this.searchResult = result; });
   }
 
   ngOnInit() {
+    //from routing
+    this.route.data.subscribe(data => {
+      if (data.query)
+        this.dataService.changeQuery(data.query.deepCopy());
+    });
+    //from navigate
+    this.route.queryParams
+      .subscribe(params => {
+        if (params.query)
+          this.dataService.changeQuery(JSON.parse(params.query));
+      });
+  }
+
+  ngOnDestroy() {
+    this.querySub.unsubscribe();
+    this.nextPageSub.unsubscribe();
+    this.resultSub.unsubscribe();
   }
 
   search(query: Query) {
+    this.query = query;
     this.startBlocking("Exploring...");
-    
+
     //console.log(query);
     this.imdbService.Search(query)
       .subscribe(result => {
         //console.log(result);
-        this.dataService.updateResult(result)
+        this.dataService.updateResult(result);
       },
         (error) => {
           console.log(error);
@@ -53,9 +79,9 @@ export class ContentComponent implements OnInit {
 
     //console.log(query);
     this.imdbService.Search(query)
-      .subscribe(result => {
-        //console.log(result);
-        this.dataService.concatResult(result);
+      .subscribe(newResult => {
+        //console.log(newResult);
+        this.dataService.concatResult(this.searchResult, newResult);
       },
         (error) => {
           console.log(error);
@@ -75,7 +101,7 @@ export class ContentComponent implements OnInit {
   }
 
   showMore() {
-    this.dataService.nextPage();
+    this.dataService.nextPage(this.query);
   }
 
 }

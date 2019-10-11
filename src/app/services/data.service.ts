@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Query } from '../models/query/query';
 import { SearchResult } from '../models/search-result';
 import { GoogleAnalyticsService } from './google-analytics.service';
 
 @Injectable()
 export class DataService {
-    private QuerySource = new BehaviorSubject<Query>(Query.getQueryForPopular());
+    private QuerySource = new Subject<Query>();
     CurrentQuery = this.QuerySource.asObservable();
 
-    private NextPageQuerySource = new ReplaySubject<Query>(null);
+    private NextPageQuerySource = new Subject<Query>();
     NextPageQuery = this.NextPageQuerySource.asObservable();
 
-    private ResultSource = new BehaviorSubject<SearchResult>(null);
+    private ResultSource = new Subject<SearchResult>();
     CurrentResult = this.ResultSource.asObservable();
 
     constructor(private gas: GoogleAnalyticsService) { }
@@ -22,8 +22,7 @@ export class DataService {
         this.gas.sendPageView(query.HeaderText);
     }
 
-    nextPage() {
-        let lastQuery = this.QuerySource.value;
+    nextPage(lastQuery: Query) {
         lastQuery.Page++;
         this.NextPageQuerySource.next(lastQuery);
         this.gas.emitEvent("general", "show-more");
@@ -33,16 +32,13 @@ export class DataService {
         this.ResultSource.next(searchResult);
     }
 
-    concatResult(searchResult: SearchResult) {
-        let lastResult = this.ResultSource.value;
-
-        lastResult.Count = searchResult.Count;
-        lastResult.First = searchResult.First;
-        lastResult.Last = searchResult.Last;
-        lastResult.TotalCount = searchResult.TotalCount;
-        lastResult.SearchUrl = searchResult.SearchUrl;
-        lastResult.Movies.push(...searchResult.Movies);
-
+    concatResult(lastResult: SearchResult, newResult: SearchResult) {
+        lastResult.Count = newResult.Count;
+        lastResult.First = newResult.First;
+        lastResult.Last = newResult.Last;
+        lastResult.TotalCount = newResult.TotalCount;
+        lastResult.SearchUrl = newResult.SearchUrl;
+        lastResult.Movies.push(...newResult.Movies);
         this.ResultSource.next(lastResult);
     }
 }

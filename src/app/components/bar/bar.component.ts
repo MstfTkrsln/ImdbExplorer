@@ -21,7 +21,7 @@ export class BarComponent implements OnInit {
   sortTypes: KeyValuePair[];
 
   constructor(private dataService: DataService, private enumService: EnumTranslatorService) {
-    this.dataService.CurrentResult.subscribe(result => this.totalCount = result ? result.TotalCount.formatWithDot() : null);
+    this.dataService.CurrentResult.subscribe(result => { this.totalCount = result ? result.TotalCount.formatWithDot() : null; });
     this.dataService.CurrentQuery.subscribe(query => { this.currentQuery = query; this.totalCount = null; });
 
     this.enumService.onReady.subscribe(() => {

@@ -10,12 +10,12 @@
 
       <dxi-item location="center" locateInMenu="never">
         <div *dxTemplate>
-          <p *ngIf="currentQuery.HeaderText" style="color: #EB3313;"> <b style="font-weight:bold; font-size: large;">{{currentQuery.HeaderText | i18n}}</b></p>
+          <p *ngIf="currentQuery?.HeaderText" style="color: #EB3313;"> <b style="font-weight:bold; font-size: large;">{{currentQuery.HeaderText | i18n}}</b></p>
           <p *ngIf="totalCount" style="color: #EB3313;"> <b style="font-weight:bold; font-size: small;">{{totalCount}}</b> {{'Results' | i18n}}</p>
         </div>
       </dxi-item>
 
-      <dxi-item *ngIf="!isMobileScreen" location="after" locateInMenu="never">
+      <dxi-item *ngIf="!isMobileScreen && currentQuery" location="after" locateInMenu="never">
         <div *dxTemplate>
           <dx-select-box style="float: right;" placeholder="{{'SortType' | i18n}}" [items]="sortTypes"
             [(value)]="currentQuery.Sort" displayExpr="Value" valueExpr="Key" width="175" [showClearButton]="false"
