@@ -36,7 +36,7 @@ export class Query {
     }
 
     public deepCopy() {
-        return JSON.parse(JSON.stringify(this));
+        return Object.assign(new Query(), JSON.parse(JSON.stringify(this)));
     }
 
     static getQueryForPopular(): Query {

@@ -43,7 +43,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.route.queryParams
       .subscribe(params => {
         if (params.query)
-          this.dataService.changeQuery(JSON.parse(params.query));
+          this.dataService.changeQuery(Object.assign(new Query(), JSON.parse(params.query)));
       });
   }
 

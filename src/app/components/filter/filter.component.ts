@@ -48,10 +48,9 @@ export class FilterComponent implements OnInit {
     this.query = new Query();
 
     this.dataService.CurrentQuery.subscribe(_query => {
+      this.clearFilter();
       if (_query.HeaderText === "SearchResults")
         this.bindQuery(_query);
-      else
-        this.clearFilter();
     });
 
     this.enumService.onReady.subscribe(() => {
