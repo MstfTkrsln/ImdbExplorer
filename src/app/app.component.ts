@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Utils } from './components/shared/utils';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,15 @@ import { Utils } from './components/shared/utils';
 })
 export class AppComponent implements OnInit {
   @ViewChild('backToTopButton') backToTopButton: ElementRef;
-  
-  constructor() {
-    // this.router.events.subscribe(event => {
-    //   if (event instanceof NavigationEnd) {
-    //     this.gas.sendPageView(event.urlAfterRedirects);
-    //   }
-    // });
+
+  private currentUrl: string;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd)
+        this.currentUrl = window.location.href;
+    });
   }
-  
-  // getLastPartOfUri) {
-  //   return location.pathname.substr(1)
-  // }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
@@ -36,5 +34,4 @@ export class AppComponent implements OnInit {
       this.backToTopButton.nativeElement.classList.remove('show');
     }
   }
-
 }

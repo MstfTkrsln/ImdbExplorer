@@ -13,3 +13,17 @@
 <app-footer></app-footer>
 
 <i #backToTopButton id="backToTopButton" class="fa fa-chevron-circle-up fa-3x" aria-hidden="true" (click)="backToTop()"></i>
+
+<div class="tweet-button" > 
+	<tweet-button via="imdb_explorer" [location]="currentUrl" text="{{ 'CheckTheList' | i18n }}" ></tweet-button>
+</div>	
+
+<!-- <div class="tweet-button">
+	<a class="twitter-mention-button" href="https://twitter.com/intent/tweet" 
+		data-text="Check these results"
+		data-url="http://imdbexplorer.com"
+		data-via="imdb_explorer"
+		data-show-count="false">
+		Tweet to @imdb_explorer
+	</a>
+</div> -->

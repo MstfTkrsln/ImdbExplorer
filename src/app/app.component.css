@@ -4,7 +4,7 @@
     text-align: center;
     border-radius: 4px;
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
     right: 20px;
     transition: background-color .3s, 
     opacity .5s, visibility .5s;
@@ -19,5 +19,20 @@
   #backToTopButton.show {
     opacity: 1;
     visibility: visible;
+  }
+
+  .tweet-button {
+    display: inline-block;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: -129px;
+    right: -224px;
+    z-index: 1000;
+  }
+
+  .twitter-color {
+    background: #55ACEE;
+    color: white;
   }
   

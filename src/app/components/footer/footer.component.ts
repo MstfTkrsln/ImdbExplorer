@@ -16,17 +16,17 @@ export class FooterComponent implements OnInit {
 
   sendMail() {
     window.location.href = 'mailto:info@imdbexplorer.com';
-    this.gas.emitEvent("general", "e-mail");
+    this.gas.emitEvent("contact", "e-mail");
   }
 
   navigateTwitter() {
     window.open('https://twitter.com/imdb_explorer');
-    this.gas.emitEvent("general", "twitter");
+    this.gas.emitEvent("social-media", "twitter");
   }
 
   navigateInstagram() {
     window.open('https://instagram.com/imdb.explorer');
-    this.gas.emitEvent("general", "instagram");
+    this.gas.emitEvent("social-media", "instagram");
   }
 
 }
