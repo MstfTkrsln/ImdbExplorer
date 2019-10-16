@@ -49,7 +49,7 @@ export class FilterComponent implements OnInit {
 
     this.dataService.CurrentQuery.subscribe(_query => {
       this.clearFilter();
-      if (_query.HeaderText === "SearchResults")
+      if (_query.Path === "search-results")
         this.bindQuery(_query);
     });
 

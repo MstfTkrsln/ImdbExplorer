@@ -21,7 +21,7 @@ export class Query {
     public Sort: SortType;
     public Page: number;
 
-    public HeaderText: string = null;
+    public Path: string = null;
 
     constructor(
     ) {
@@ -32,16 +32,42 @@ export class Query {
         this.UserRating = new UserRating(null, null);
         this.NumVotes = new NumVotes(null, null);
         //this.MovieMeter = new MovieMeter(null, null);
-        this.HeaderText = "SearchResults";
+        this.Path = "search-results";
     }
 
     public deepCopy() {
         return Object.assign(new Query(), JSON.parse(JSON.stringify(this)));
     }
 
+    public static Queries: Query[] = [
+        Query.getQueryForPopular(),
+        Query.getQueryForInTheaters(),
+        Query.getQueryForPopularMovies(),
+        Query.getQueryForTopRatedMovies(),
+        Query.getQueryForBoxOfficeMovies(),
+        Query.getQueryForTop250Movies(),
+        Query.getQueryForOscarWinnerMovies(),
+        Query.getQueryForPictureWinnerMovies(),
+        Query.getQueryForDirectorWinnerMovies(),
+        Query.getQueryForPopularMoviesOnNetflix(),
+        Query.getQueryForPopularSeries(),
+        Query.getQueryForTopRatedSeries(),
+        Query.getQueryForGoldenGlobeWinnerSeries(),
+        Query.getQueryForEmmyWinnerSeries(),
+        Query.getQueryForPopularSeriesOnNetflix(),
+        Query.getQueryForPopularDocumentaries(),
+        Query.getQueryForTopRatedDocumentaries(),
+        Query.getQueryForEmmyWinnerDocumentaries(),
+        Query.getQueryForOscarWinnerDocumentaries(),
+        Query.getQueryForPopularDocumentariesOnNetflix(),
+        Query.getQueryForPopularGames(),
+        Query.getQueryForTopRatedGames()
+    ]
+
+
     static getQueryForPopular(): Query {
         let query: Query = new Query();
-        query.HeaderText = "TrendingNow";
+        query.Path = "trending-now";
         return query;
     }
 
@@ -52,7 +78,7 @@ export class Query {
         let query: Query = new Query();
         query.Groups = [Group._NowPlaying];
         query.ReleaseDate = new ReleaseDate(today, null);
-        query.HeaderText = "InTheaters";
+        query.Path = "in-theaters";
         return query;
     }
 
@@ -61,7 +87,7 @@ export class Query {
     static getQueryForPopularMovies(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Feature];
-        query.HeaderText = "TrendingMovies";
+        query.Path = "movies/trending-now";
         return query;
     }
 
@@ -70,7 +96,7 @@ export class Query {
         query.Sort = SortType.UserRatingDesc;
         query.Groups = [Group._Top1000];
         query.TitleTypes = [TitleType.Feature];
-        query.HeaderText = "TopRatedMovies";
+        query.Path = "movies/top-rated";
         return query;
     }
 
@@ -78,7 +104,7 @@ export class Query {
         let query: Query = new Query();
         query.Sort = SortType.BoxOfficeDesc;
         query.TitleTypes = [TitleType.Feature];
-        query.HeaderText = "BoxOfficeUS";
+        query.Path = "movies/box-office-us";
         return query;
     }
 
@@ -88,35 +114,36 @@ export class Query {
         query.TitleTypes = [TitleType.Feature];
         query.Sort = SortType.UserRatingDesc;
         query.Count = 250;
-        query.HeaderText = "Top250";
+        query.Path = "movies/top-250";
         return query;
     }
+
     static getQueryForOscarWinnerMovies(): Query {
         let query: Query = new Query();
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.OscarWinner];
-        query.HeaderText = "OscarWinningMovies";
+        query.Path = "movies/oscar-winners";
         return query;
     }
     static getQueryForPictureWinnerMovies(): Query {
         let query: Query = new Query();
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.BestPictureWinner];
-        query.HeaderText = "BestPictureWinningMovies";
+        query.Path = "movies/best-picture-winners";
         return query;
     }
     static getQueryForDirectorWinnerMovies(): Query {
         let query: Query = new Query();
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.BestDirectorWinner];
-        query.HeaderText = "BestDirectorWinningMovies";
+        query.Path = "movies/best-director-winners";
         return query;
     }
     static getQueryForPopularMoviesOnNetflix(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Feature];
         query.Companies = [Company.Netflix];
-        query.HeaderText = "TrendingMoviesOnNetflix";
+        query.Path = "movies/trending-on-netflix";
         return query;
     }
     //#endregion
@@ -126,7 +153,7 @@ export class Query {
     static getQueryForPopularSeries(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
-        query.HeaderText = "TrendingSeries";
+        query.Path = "series/trending-now";
         return query;
     }
 
@@ -135,7 +162,7 @@ export class Query {
         query.Sort = SortType.UserRatingDesc;
         query.NumVotes = new NumVotes(25000, null);
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
-        query.HeaderText = "TopRatedSeries";
+        query.Path = "series/top-rated";
         return query;
     }
     static getQueryForGoldenGlobeWinnerSeries(): Query {
@@ -144,7 +171,7 @@ export class Query {
         query.NumVotes = new NumVotes(25000, null);
         query.Groups = [Group.GoldenGlobeWinner];
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
-        query.HeaderText = "GoldenGlobeWinningSeries";
+        query.Path = "series/golden-globe-winners";
         return query;
     }
     static getQueryForEmmyWinnerSeries(): Query {
@@ -153,14 +180,14 @@ export class Query {
         query.NumVotes = new NumVotes(25000, null);
         query.Groups = [Group.EmmyWinner];
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
-        query.HeaderText = "EmmyWinningSeries";
+        query.Path = "series/emmy-winners";
         return query;
     }
     static getQueryForPopularSeriesOnNetflix(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.TvSeries, TitleType.MiniSeries];
         query.Companies = [Company.Netflix];
-        query.HeaderText = "TrendingSeriesOnNetflix";
+        query.Path = "series/trending-on-netflix";
         return query;
     }
     //#endregion
@@ -170,7 +197,7 @@ export class Query {
     static getQueryForPopularDocumentaries(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Documentary];
-        query.HeaderText = "TrendingDocumentaries";
+        query.Path = "documentaries/trending-now";
         return query;
     }
     static getQueryForTopRatedDocumentaries(): Query {
@@ -178,7 +205,7 @@ export class Query {
         query.Sort = SortType.UserRatingDesc;
         query.NumVotes = new NumVotes(10000, null);
         query.Genres = [Genre.Documentary];
-        query.HeaderText = "TopRatedDocumentaries";
+        query.Path = "documentaries/top-rated";
         return query;
     }
     static getQueryForEmmyWinnerDocumentaries(): Query {
@@ -186,7 +213,7 @@ export class Query {
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.EmmyWinner];
         query.TitleTypes = [TitleType.Documentary];
-        query.HeaderText = "EmmyWinningDocumentaries";
+        query.Path = "documentaries/emmy-winners";
         return query;
     }
     static getQueryForOscarWinnerDocumentaries(): Query {
@@ -194,14 +221,14 @@ export class Query {
         query.Sort = SortType.ReleaseDateDesc;
         query.Groups = [Group.OscarWinner];
         query.TitleTypes = [TitleType.Documentary];
-        query.HeaderText = "OscarWinningDocumentaries";
+        query.Path = "documentaries/oscar-winners";
         return query;
     }
     static getQueryForPopularDocumentariesOnNetflix(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Documentary];
         query.Companies = [Company.Netflix];
-        query.HeaderText = "TrendingDocumentariesOnNetflix";
+        query.Path = "documentaries/trending-on-netflix";
         return query;
     }
     //#endregion
@@ -211,7 +238,7 @@ export class Query {
     static getQueryForPopularGames(): Query {
         let query: Query = new Query();
         query.TitleTypes = [TitleType.Game];
-        query.HeaderText = "TrendingGames";
+        query.Path = "games/trending-now";
         return query;
     }
     static getQueryForTopRatedGames(): Query {
@@ -219,7 +246,7 @@ export class Query {
         query.Sort = SortType.UserRatingDesc;
         query.NumVotes = new NumVotes(5000, null);
         query.TitleTypes = [TitleType.Game];
-        query.HeaderText = "TopRatedGames";
+        query.Path = "games/top-rated";
         return query;
     }
     //#endregion

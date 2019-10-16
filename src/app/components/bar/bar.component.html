@@ -10,7 +10,7 @@
 
       <dxi-item location="center" locateInMenu="never">
         <div *dxTemplate>
-          <p *ngIf="currentQuery?.HeaderText" style="color: #EB3313;"> <b style="font-weight:bold; font-size: large;">{{currentQuery.HeaderText | i18n}}</b></p>
+          <p *ngIf="currentQuery?.Path" style="color: #EB3313;"> <b style="font-weight:bold; font-size: large;">{{currentQuery.Path | i18n}}</b></p>
           <p *ngIf="totalCount" style="color: #EB3313;"> <b style="font-weight:bold; font-size: small;">{{totalCount}}</b> {{'Results' | i18n}}</p>
         </div>
       </dxi-item>

@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   @ViewChild('backToTopButton') backToTopButton: ElementRef;
 
-  private currentUrl: string;
+  currentUrl: string;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {

@@ -1,138 +1,134 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './components/content/content.component';
-import { Query } from './models/query/query';
+import { QueryResolver } from './app.resolver';
 
 
 export const routes: Routes = [
     {
         path: '',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopular() },
+        resolve: { query: QueryResolver }
     },
 
     {
         path: 'search-results',
         component: ContentComponent,
-        data: { query: null },
+        resolve: { query: QueryResolver },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     },
 
     {
         path: 'in-theaters',
         component: ContentComponent,
-        data: { query: Query.getQueryForInTheaters() },
+        resolve: { query: QueryResolver }
     },
 
     {
         path: 'movies/trending-now',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/top-rated',
         component: ContentComponent,
-        data: { query: Query.getQueryForTopRatedMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/top-250',
         component: ContentComponent,
-        data: { query: Query.getQueryForTop250Movies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/box-office-us',
         component: ContentComponent,
-        data: { query: Query.getQueryForBoxOfficeMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/oscar-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForOscarWinnerMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/best-picture-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForPictureWinnerMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/best-director-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForDirectorWinnerMovies() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'movies/trending-on-netflix',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularMoviesOnNetflix() },
+        resolve: { query: QueryResolver }
     },
 
 
     {
         path: 'series/trending-now',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularSeries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'series/top-rated',
         component: ContentComponent,
-        data: { query: Query.getQueryForTopRatedSeries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'series/emmy-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForEmmyWinnerSeries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'series/golden-globe-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForGoldenGlobeWinnerSeries() },
-    },
-    {
-        path: 'series/trending-now',
-        component: ContentComponent,
-        data: { query: Query.getQueryForPopularSeries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'series/trending-on-netflix',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularSeriesOnNetflix() },
+        resolve: { query: QueryResolver }
     },
 
 
     {
         path: 'documentaries/trending-now',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularDocumentaries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'documentaries/top-rated',
         component: ContentComponent,
-        data: { query: Query.getQueryForTopRatedDocumentaries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'documentaries/oscar-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForOscarWinnerDocumentaries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'documentaries/emmy-winners',
         component: ContentComponent,
-        data: { query: Query.getQueryForEmmyWinnerDocumentaries() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'documentaries/trending-on-netflix',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularDocumentariesOnNetflix() },
+        resolve: { query: QueryResolver }
     },
 
 
     {
         path: 'games/trending-now',
         component: ContentComponent,
-        data: { query: Query.getQueryForPopularGames() },
+        resolve: { query: QueryResolver }
     },
     {
         path: 'games/top-rated',
         component: ContentComponent,
-        data: { query: Query.getQueryForTopRatedGames() },
+        resolve: { query: QueryResolver }
     },
 
 

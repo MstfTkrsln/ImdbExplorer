@@ -38,13 +38,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.route.data.subscribe(data => {
       if (data.query)
         this.dataService.changeQuery(data.query.deepCopy());
-    });
-    //from navigate
-    this.route.queryParams
-      .subscribe(params => {
-        if (params.query)
-          this.dataService.changeQuery(Object.assign(new Query(), JSON.parse(params.query)));
-      });
+    });   
   }
 
   ngOnDestroy() {

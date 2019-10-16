@@ -19,7 +19,7 @@ export class DataService {
 
     changeQuery(query: Query) {
         this.QuerySource.next(query);
-        this.gas.sendPageView(query.HeaderText);
+        this.gas.sendPageView(query.Path);
     }
 
     nextPage(lastQuery: Query) {
