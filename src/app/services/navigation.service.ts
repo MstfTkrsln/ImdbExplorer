@@ -99,7 +99,7 @@ export class NavigationService {
                 {
                     Name: "TrendingOnNetflix",
                     Icon: null,
-                    Link: "series/trending-now",
+                    Link: "series/trending-on-netflix",
                     Children: null
                 }
             ]
