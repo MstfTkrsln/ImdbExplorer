@@ -36,13 +36,14 @@ export class TweetButtonComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges() {
-    this.loadWidget();
+  ngOnChanges(changes) {
+    if (changes.location)
+      this.loadWidget();
   }
 
   loadWidget() {
-    if (this.element.nativeElement.children.length > 0) {
-      if (this.element.nativeElement.children.length > 1)
+    if (this.element.nativeElement.children.length > 0) { //if widget.js script is exist
+      if (this.element.nativeElement.children.length > 1)  //if button is exist
         this.element.nativeElement.children[1].remove();
       return this.renderShareButton();
     }
