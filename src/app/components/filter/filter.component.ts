@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { Query } from 'src/app/models/query/query';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 import { Genre, Color, Group, SortType, TitleType, Language, Country, Company } from 'src/app/models/enums';
@@ -7,6 +7,8 @@ import { Utils } from '../shared/utils';
 import { DxRangeSelectorComponent } from 'devextreme-angular/ui/range-selector';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { LayoutService } from 'src/app/services/layout.service';
+import { LayoutState } from 'src/app/models/layout-state';
 
 declare const $: any;
 
@@ -44,7 +46,9 @@ export class FilterComponent implements OnInit {
 
   minNumVotes: number = 0;
 
-  constructor(private enumService: EnumTranslatorService, private dataService: DataService, private router: Router) {
+  private layoutState: LayoutState;
+
+  constructor(private layoutService: LayoutService, private enumService: EnumTranslatorService, private dataService: DataService, private router: Router) {
     this.query = new Query();
 
     this.dataService.CurrentQuery.subscribe(_query => {
@@ -64,12 +68,13 @@ export class FilterComponent implements OnInit {
     }, err => console.log(err));
 
     this.isFilterSearchable = Utils.isDesktopScreen();
+    this.layoutState = this.layoutService.state;
   }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
 
-    if (Utils.isMobileScreen())
+    if (!Utils.isDesktopScreen())
       this.triggerFilter(false);
   }
 
@@ -130,10 +135,7 @@ export class FilterComponent implements OnInit {
   }
 
   triggerFilter(isFilterPanelVisible: boolean) {
-    var elementsToTrigger = $([$('.cd-filter-trigger'), $('.cd-filter'), $('.cd-tab-filter'), $('.cd-gallery')]);
-    elementsToTrigger.each(function () {
-      $(this).toggleClass('filter-is-visible', isFilterPanelVisible);
-    });
+    this.layoutService.onFilterPanelToggle(isFilterPanelVisible);
   }
 
   onScrollChanged() {

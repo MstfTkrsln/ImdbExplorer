@@ -1,5 +1,5 @@
 <div #filterBar>
-  <div class="cd-filter filter-is-visible">
+  <div class="cd-filter" [class.filter-is-visible]="layoutState.filterPanelVisible">
   <dx-scroll-view showScrollbar="always" bounceEnabled="false" height="auto">
     
     <form #filterForm (ngSubmit)="explore()" class="form-horizontal fit-screen">
@@ -167,5 +167,5 @@
 
     <i class="fa fa-times fa-2x cd-close" (click)="triggerFilter(false)"></i>
   </div>
-  <i class="fa fa-filter fa-2x cd-filter-trigger filter-is-visible" (click)="triggerFilter(true)"></i>
+  <i class="fa fa-filter fa-2x cd-filter-trigger" [class.filter-is-visible]="layoutState.filterPanelVisible" (click)="triggerFilter(true)"></i>
 </div>

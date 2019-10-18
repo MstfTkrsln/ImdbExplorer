@@ -5,6 +5,8 @@ import { EnumTranslatorService } from 'src/app/services/enum-translater-service'
 import { KeyValuePair } from 'src/app/models/key-value-pair';
 import { SortType } from 'src/app/models/enums';
 import { Query } from 'src/app/models/query/query';
+import { LayoutState } from 'src/app/models/layout-state';
+import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
   selector: 'app-bar',
@@ -20,13 +22,17 @@ export class BarComponent implements OnInit {
   isMobileScreen: boolean;
   sortTypes: KeyValuePair[];
 
-  constructor(private dataService: DataService, private enumService: EnumTranslatorService) {
+  private layoutState: LayoutState;
+
+  constructor(private layoutService:LayoutService,private dataService: DataService, private enumService: EnumTranslatorService) {
     this.dataService.CurrentResult.subscribe(result => { this.totalCount = result ? result.TotalCount.formatWithDot() : null; });
     this.dataService.CurrentQuery.subscribe(query => { this.currentQuery = query.deepCopy(); this.totalCount = null; });
 
     this.enumService.onReady.subscribe(() => {
       this.sortTypes = this.enumService.getEnumValues(SortType);
     }, err => console.log(err));
+
+    this.layoutState = this.layoutService.state;
   }
 
   ngOnInit() {

@@ -43,6 +43,7 @@ import { DataService } from './services/data.service';
 import { GoogleAnalyticsService } from './services/google-analytics.service';
 import { appRouting } from './app.routing';
 import { QueryResolver } from './app.resolver';
+import { LayoutService } from './services/layout.service';
 
 
 @NgModule({
@@ -81,7 +82,7 @@ import { QueryResolver } from './app.resolver';
     CommaSeperatedPipe,
     BlockTemplateComponent
   ],
-  providers: [QueryResolver, JsonApiService, DataService, ImdbSearhService, EnumTranslatorService, NavigationService, GoogleAnalyticsService],
+  providers: [QueryResolver, JsonApiService, DataService, LayoutService, ImdbSearhService, EnumTranslatorService, NavigationService, GoogleAnalyticsService],
   entryComponents: [BlockTemplateComponent],
   bootstrap: [AppComponent]
 })

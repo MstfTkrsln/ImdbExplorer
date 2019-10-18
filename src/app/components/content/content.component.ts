@@ -8,6 +8,8 @@ import { Query } from 'src/app/models/query/query';
 import { Utils } from '../shared/utils';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { LayoutService } from 'src/app/services/layout.service';
+import { LayoutState } from 'src/app/models/layout-state';
 
 @Component({
   selector: 'app-content',
@@ -27,10 +29,14 @@ export class ContentComponent implements OnInit, OnDestroy {
   private nextPageSub: Subscription;
   private resultSub: Subscription;
 
-  constructor(private route: ActivatedRoute, private imdbService: ImdbSearhService, private dataService: DataService) {
+  private layoutState: LayoutState;
+
+  constructor(private route: ActivatedRoute, private layoutService: LayoutService, private imdbService: ImdbSearhService, private dataService: DataService) {
     this.querySub = this.dataService.CurrentQuery.subscribe(query => this.search(query));
     this.nextPageSub = this.dataService.NextPageQuery.subscribe(query => this.nextPage(query));
     this.resultSub = this.dataService.CurrentResult.subscribe(result => { this.searchResult = result; });
+
+    this.layoutState = this.layoutService.state;
   }
 
   ngOnInit() {
@@ -38,7 +44,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.route.data.subscribe(data => {
       if (data.query)
         this.dataService.changeQuery(data.query.deepCopy());
-    });   
+    });
   }
 
   ngOnDestroy() {

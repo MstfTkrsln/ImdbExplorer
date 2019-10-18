@@ -3,6 +3,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 import { Utils } from '../shared/utils';
 import { NavigationMenu } from 'src/app/models/navigation-menu';
 import { Router } from '@angular/router';
+import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
     selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
     menus: any[];
     mobileMenus: any[]
 
-    constructor(private navigationService: NavigationService, private router: Router) {
+    constructor(private navigationService: NavigationService, private layoutservice: LayoutService, private router: Router) {
         this.hasEnoughWidthForTopMenu = Utils.hasEnoughWidthForTopMenu();
         this.menus = this.navigationService.getDesktopNavigations();
         this.mobileMenus = this.navigationService.getMobileNavigations();
@@ -33,8 +34,18 @@ export class HeaderComponent implements OnInit {
                 e.component._visibleSubmenu.hide();
             });
 
+        if (!Utils.isDesktopScreen())
+            this.layoutservice.onFilterPanelToggle(false);
+
         if (navigation.Link)
             this.router.navigate([navigation.Link]);
+    }
+
+    routeToHome() {
+        if (!Utils.isDesktopScreen())
+            this.layoutservice.onFilterPanelToggle(false);
+
+        this.router.navigate(['/']);
     }
 
 }

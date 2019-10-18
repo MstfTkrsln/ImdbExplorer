@@ -1,4 +1,4 @@
-<section *blockUI="'content-section'; template: blockTemplate" class="cd-gallery filter-is-visible content">
+<section *blockUI="'content-section'; template: blockTemplate" class="cd-gallery content" [class.filter-is-visible]="layoutState.filterPanelVisible">
   <div *ngIf="searchResult">
 
     <div *ngIf="searchResult.Movies.length>0">
