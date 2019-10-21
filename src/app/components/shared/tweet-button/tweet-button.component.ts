@@ -44,7 +44,9 @@ export class TweetButtonComponent implements OnInit, OnChanges {
   loadWidget() {
     if (this.element.nativeElement.children.length > 0) { //if widget.js script is exist
       if (this.element.nativeElement.children.length > 1)  //if button is exist
-        this.element.nativeElement.children[1].remove();
+        while (this.element.nativeElement.firstChild != this.element.nativeElement.lastChild)
+          this.element.nativeElement.lastChild.remove();
+
       return this.renderShareButton();
     }
     else {
@@ -62,9 +64,12 @@ export class TweetButtonComponent implements OnInit, OnChanges {
     }
   }
 
+  private isRenderingNow = false;
   private renderShareButton(): Promise<any> {
-    if (!(window as any).twttr)
+    if (!(window as any).twttr || this.isRenderingNow)
       return;
+
+    this.isRenderingNow = true;
 
     return (window as any).twttr.widgets.createShareButton(
       this.location || location.href,
@@ -79,6 +84,7 @@ export class TweetButtonComponent implements OnInit, OnChanges {
         dnt: this.dnt || null
       }
     ).then((el: HTMLIFrameElement) => {
+      this.isRenderingNow = false;
       el.style.visibility = null;
       el.style.height = null;
       el.style.width = null;

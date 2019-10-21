@@ -7,6 +7,7 @@ import { QueryResolver } from './app.resolver';
 export const routes: Routes = [
     {
         path: '',
+        pathMatch: 'full',
         component: ContentComponent,
         resolve: { query: QueryResolver }
     },

@@ -1,26 +1,37 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { Utils } from './components/shared/utils';
-import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy, AfterContentChecked {
   @ViewChild('backToTopButton') backToTopButton: ElementRef;
 
-  currentUrl: string;
+  private currentUrl: string;
+  private querySub: any;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd)
-        this.currentUrl = window.location.href;
-    });
+  constructor(private changeDetector: ChangeDetectorRef, private dataService: DataService) {
+    this.querySub = this.dataService.CurrentQuery.subscribe(q => { this.currentUrl = window.location.href; });
+
+    //triggered twice - bug exist
+    // this.routerSub = this.router.events.subscribe(event => {
+    //   if (event instanceof ResolveEnd) 
+    // });
   }
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScrollChanged.bind(this));
+  }
+
+  ngOnDestroy() {
+    this.querySub.unsubscribe();
+  }
+
+  ngAfterContentChecked() {
+    this.changeDetector.detectChanges();
   }
 
   backToTop() {
