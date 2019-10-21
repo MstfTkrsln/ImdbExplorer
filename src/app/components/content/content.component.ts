@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   private nextPageSub: Subscription;
   private resultSub: Subscription;
 
-  private layoutState: LayoutState;
+  layoutState: LayoutState;
 
   constructor(private route: ActivatedRoute, private layoutService: LayoutService, private imdbService: ImdbSearhService, private dataService: DataService) {
     this.querySub = this.dataService.CurrentQuery.subscribe(query => this.search(query));

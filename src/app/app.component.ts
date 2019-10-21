@@ -10,7 +10,8 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit, OnDestroy, AfterContentChecked {
   @ViewChild('backToTopButton') backToTopButton: ElementRef;
 
-  private currentUrl: string;
+  currentUrl: string;
+
   private querySub: any;
 
   constructor(private changeDetector: ChangeDetectorRef, private dataService: DataService) {

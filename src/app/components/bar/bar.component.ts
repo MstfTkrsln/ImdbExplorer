@@ -22,7 +22,7 @@ export class BarComponent implements OnInit {
   isMobileScreen: boolean;
   sortTypes: KeyValuePair[];
 
-  private layoutState: LayoutState;
+  layoutState: LayoutState;
 
   constructor(private layoutService:LayoutService,private dataService: DataService, private enumService: EnumTranslatorService) {
     this.dataService.CurrentResult.subscribe(result => { this.totalCount = result ? result.TotalCount.formatWithDot() : null; });

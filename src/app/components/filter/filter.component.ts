@@ -46,7 +46,7 @@ export class FilterComponent implements OnInit {
 
   minNumVotes: number = 0;
 
-  private layoutState: LayoutState;
+  layoutState: LayoutState;
 
   constructor(private layoutService: LayoutService, private enumService: EnumTranslatorService, private dataService: DataService, private router: Router) {
     this.query = new Query();
