@@ -7,6 +7,7 @@ import { SortType } from 'src/app/models/enums';
 import { Query } from 'src/app/models/query/query';
 import { LayoutState } from 'src/app/models/layout-state';
 import { LayoutService } from 'src/app/services/layout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bar',
@@ -24,7 +25,7 @@ export class BarComponent implements OnInit {
 
   layoutState: LayoutState;
 
-  constructor(private layoutService:LayoutService,private dataService: DataService, private enumService: EnumTranslatorService) {
+  constructor(private layoutService: LayoutService, private router: Router, private dataService: DataService, private enumService: EnumTranslatorService) {
     this.dataService.CurrentResult.subscribe(result => { this.totalCount = result ? result.TotalCount.formatWithDot() : null; });
     this.dataService.CurrentQuery.subscribe(query => { this.currentQuery = query.deepCopy(); this.totalCount = null; });
 
@@ -43,7 +44,11 @@ export class BarComponent implements OnInit {
   changedSortType(e) {
     if (e.event) { // fire only user changed the selection
       this.currentQuery.Page = 1;
-      this.dataService.changeQuery(this.currentQuery);
+
+      if (this.currentQuery.Path == "search-results")
+        this.router.navigate(["search-results"], { queryParams: { query: JSON.stringify(this.currentQuery) } });
+      else
+        this.dataService.changeQuery(this.currentQuery);
     }
   }
 
