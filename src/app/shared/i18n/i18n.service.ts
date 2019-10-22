@@ -57,7 +57,7 @@ export class I18nService {
   }
 
 
-  subscribe(sub: any, err: any) {
+  subscribe(sub: any, err: any = null) {
     return this.state.subscribe(sub, err);
   }
 
