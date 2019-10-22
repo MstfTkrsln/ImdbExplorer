@@ -21,6 +21,7 @@
             "assets": [
               "src/assets",
               "src/web.config",
+              "src/sitemap.xml",
               "src/yandex_a42d299157417ed4.html"
             ],
             "styles": [
