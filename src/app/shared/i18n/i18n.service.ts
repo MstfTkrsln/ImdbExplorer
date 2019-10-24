@@ -1,23 +1,19 @@
 import { Injectable, ApplicationRef } from '@angular/core';
-
 import { languages } from './languages.model';
 import { config } from '../../../assets/config/imdb-explorer.config';
-import { Subject } from 'rxjs/internal/Subject';
-import { JsonApiService } from 'src/app/core/api/json-api.service';
-
 import { locale } from 'devextreme/localization';
 import 'devextreme-intl';
+
+import en from '../../../assets/api/langs/en.json';
+import tr from '../../../assets/api/langs/tr.json';
 
 @Injectable()
 export class I18nService {
 
-  public state;
   public data: {};
   public currentLanguage: any;
 
-
-  constructor(private jsonApiService: JsonApiService, private ref: ApplicationRef) {
-    this.state = new Subject();
+  constructor(private ref: ApplicationRef) {
 
     let currentLanguageKey = localStorage.getItem('currentLanguageKey');
     if (!currentLanguageKey)
@@ -38,12 +34,24 @@ export class I18nService {
   }
 
   private fetch(localeKey: any) {
-    this.jsonApiService.fetch(`/langs/${localeKey}.json`)
-      .subscribe((data: any) => {
-        this.data = data;
-        this.state.next(data);
-        this.ref.tick();
-      });
+    // this.jsonApiService.fetch(`/langs/${localeKey}.json`)
+    //   .subscribe((data: any) => {
+    //     this.data = data;
+    //     this.state.next(data);
+    //     this.ref.tick();
+    //   });
+
+    switch (localeKey) {
+      case 'tr':
+        this.data = tr;
+        break;
+      case 'en':
+      default:
+        this.data = en;
+        break;
+    }
+
+    this.ref.tick();
 
     //Set locale for devexpress widgets
     locale(localeKey);
@@ -56,10 +64,6 @@ export class I18nService {
     this.fetch(language.key);
   }
 
-
-  subscribe(sub: any, err: any = null) {
-    return this.state.subscribe(sub, err);
-  }
 
   public getTranslation(phrase: string): string {
     return this.data && this.data[phrase] ? this.data[phrase] : phrase;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Query } from 'src/app/models/query/query';
 import { EnumTranslatorService } from 'src/app/services/enum-translater-service';
 import { Genre, Color, Group, SortType, TitleType, Language, Country, Company } from 'src/app/models/enums';
@@ -57,15 +57,13 @@ export class FilterComponent implements OnInit {
         this.bindQuery(_query);
     });
 
-    this.enumService.onReady.subscribe(() => {
-      this.genres = this.enumService.getEnumValues(Genre, true);
-      this.colors = this.enumService.getEnumValues(Color);
-      this.groups = this.enumService.getEnumValues(Group);
-      this.sortTypes = this.enumService.getEnumValues(SortType);
-      this.titleTypes = this.enumService.getEnumValues(TitleType);
-      this.languages = this.enumService.getEnumValues(Language, true);
-      this.countries = this.enumService.getEnumValues(Country, true);
-    }, err => console.log(err));
+    this.genres = this.enumService.getEnumValues(Genre, true);
+    this.colors = this.enumService.getEnumValues(Color);
+    this.groups = this.enumService.getEnumValues(Group);
+    this.sortTypes = this.enumService.getEnumValues(SortType);
+    this.titleTypes = this.enumService.getEnumValues(TitleType);
+    this.languages = this.enumService.getEnumValues(Language, true);
+    this.countries = this.enumService.getEnumValues(Country, true);
 
     this.isFilterSearchable = Utils.isDesktopScreen();
     this.layoutState = this.layoutService.state;

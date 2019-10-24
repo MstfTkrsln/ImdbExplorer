@@ -29,9 +29,7 @@ export class BarComponent implements OnInit {
     this.dataService.CurrentResult.subscribe(result => { this.totalCount = result ? result.TotalCount.formatWithDot() : null; });
     this.dataService.CurrentQuery.subscribe(query => { this.currentQuery = query.deepCopy(); this.totalCount = null; });
 
-    this.enumService.onReady.subscribe(() => {
-      this.sortTypes = this.enumService.getEnumValues(SortType);
-    }, err => console.log(err));
+    this.sortTypes = this.enumService.getEnumValues(SortType);
 
     this.layoutState = this.layoutService.state;
   }

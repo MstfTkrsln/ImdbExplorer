@@ -32,9 +32,7 @@ export class QueryResolver implements Resolve<Query> {
         if (!routingPath)
             key = "PageTitle";
 
-        if (!this.i18nService.data)
-            this.i18nService.subscribe(res => this.titleService.setTitle(this.i18nService.getTranslation(key)));
-        else
-            this.titleService.setTitle(this.i18nService.getTranslation(key));
+        let title = this.i18nService.getTranslation(key) + ' | Imdb Explorer';
+        this.titleService.setTitle(title);
     }
 }
